@@ -19,4 +19,4 @@ docker-compose up -d db
 ```
 docker-compose up 
 ```
-Considering you don't have anything running on ports `80` and `8000` you should be able to access your development instance by [http://127.0.0.1]. If you have those ports used consider changing `docker-compose-yml` and `nginx/apof.conf`.
+Considering you don't have anything running on ports `80` and `8000` you should be able to access your development instance by http://127.0.0.1/. If you have those ports used consider changing `docker-compose-yml` and `nginx/apof.conf`.
