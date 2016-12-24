@@ -1,7 +1,21 @@
-More information here: http://stackoverflow.com/documentation/django/200/getting-started-with-django#t=201612241604290279339
+#APOF
 
-# Usage
+## Instalation
 
+[Install Docker](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
+[Install Compose](https://docs.docker.com/compose/install/)
+Clone this repo
 ```
-django-admin startproject --template https://github.com/pkucmus/django-project-template/archive/master.zip --extension py,yml,conf my_awesome_django_project
+cd /your/dev/path/
+git clone git@github.com:PyPila/apof.git
+cd apof
+```
+Provision MySQL 
+```
+docker-compose up -d db
+```
+
+## Work instance
+```
+docker-compose up 
 ```
