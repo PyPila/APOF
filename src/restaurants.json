@@ -1,0 +1,92 @@
+[
+{
+    "model": "restaurants.restaurant",
+    "pk": 1,
+    "fields": {
+        "name": "Da Grasso",
+        "logo": "logos/yogi_logo.png",
+        "opening": "11.00 - 22.00"
+    }
+},
+{
+    "model": "restaurants.restaurant",
+    "pk": 2,
+    "fields": {
+        "name": "Kuchnia Turecka",
+        "logo": "logos/yogi_logo.png",
+        "opening": "11.00 - 24.00"
+    }
+},
+{
+    "model": "restaurants.restaurant",
+    "pk": 3,
+    "fields": {
+        "name": "Kebab Place",
+        "logo": "logos/yogi_logo.png",
+        "opening": "9.00 - 24.00"
+    }
+},
+{
+    "model": "restaurants.restaurant",
+    "pk": 4,
+    "fields": {
+        "name": "Apetyt",
+        "logo": "logos/yogi_logo.png",
+        "opening": "12.00 - 19.00"
+    }
+},
+{
+    "model": "restaurants.restaurant",
+    "pk": 5,
+    "fields": {
+        "name": "Pizzeria",
+        "logo": "logos/yogi_logo.png",
+        "opening": "14.00 - 22.00"
+    }
+},
+{
+    "model": "restaurants.restaurant",
+    "pk": 6,
+    "fields": {
+        "name": "Bar Mleczny",
+        "logo": "logos/yogi_logo.png",
+        "opening": "6.00 - 18.00"
+    }
+},
+{
+    "model": "restaurants.restaurant",
+    "pk": 7,
+    "fields": {
+        "name": "Tawerna Toscana",
+        "logo": "logos/yogi_logo.png",
+        "opening": "14.00 - 24.00"
+    }
+},
+{
+    "model": "restaurants.restaurant",
+    "pk": 8,
+    "fields": {
+        "name": "Pensjonat",
+        "logo": "logos/yogi_logo.png",
+        "opening": "8.00 - 16.00"
+    }
+},
+{
+    "model": "restaurants.restaurant",
+    "pk": 9,
+    "fields": {
+        "name": "Restauracja Pomarańczowy",
+        "logo": "logos/yogi_logo.png",
+        "opening": "10.00 - 20.00"
+    }
+},
+{
+    "model": "restaurants.restaurant",
+    "pk": 10,
+    "fields": {
+        "name": "Alibabka",
+        "logo": "logos/yogi_logo.png",
+        "opening": "12.00 - 22.00"
+    }
+}
+]
