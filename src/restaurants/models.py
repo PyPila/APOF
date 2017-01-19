@@ -4,15 +4,9 @@ from django.db import models
 
 
 class Restaurant(models.Model):
-    """Restaurant model"""
     name = models.CharField(blank=False, max_length=50, unique=True)
     logo = models.ImageField(blank=False, upload_to='logos/')
-    opening = models.CharField(
-        blank=False,
-        max_length=100,
-        verbose_name='Opening hours',
-    )
+    opening = models.CharField(blank=False, max_length=100, verbose_name='Opening hours')
 
-    def __str__(self):
+    def __unicode__(self):
         return self.name
-
