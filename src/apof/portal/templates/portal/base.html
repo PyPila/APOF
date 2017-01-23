@@ -23,60 +23,49 @@
   </head>
 
   <body>
-  
-  <!--NAVIGATION -->
-      <nav class="navbar fixed-top navbar-light" id="top-nav">
-        <div class="navbar-header">
-          <a id="menu-toggle" href="#">
-            <button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-          </a>
-          <div  class="navbar-brand">
-            <a href="#">Apof</a>
-          </div>
+    <!--NAVIGATION -->
+    <nav class="navbar fixed-top navbar-light" id="top-nav">
+      <div class="navbar-header">
+        <a id="menu-toggle" href="#">
+          <button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </a>
+        <div  class="navbar-brand">
+          <a href="#">Apof</a>
         </div>
-      </nav>
+      </div>
+    </nav>
     
-    <!-- SIDEBAR -->
     <div id="wrapper">
-      <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" style="background-color: #00aca9;">
+      <!-- SIDEBAR -->
+      <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper">
         <span class='glyphicon glyphicon-align-justify'></span>
-          <ul class="nav sidebar-nav flex-column">
-            <li class="nav-item">
-              <a class="nav-link active" href="#">Overview <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Restaurants</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Orders</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Popular</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Last orders</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Share meal</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Admin</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Log out</a>
-            </li>
-          </ul>
-        </nav>
-        
+        <ul class="nav sidebar-nav flex-column" id="ul-navi">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Restaurants</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Orders</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Popular</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Last orders</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Share meal</a>
+          </li>
+        </ul>
+      </nav>
 
       <!-- CONTENT -->
       <div id="content-wrapper">
         <div class="container-fluid">
           <div class="row">
             <div class="col-lg-12">
-              <h1>Bootstrap starter template</h1>
+              <h1>Lorem Ipsum</h1>
               <p class="lead">
               Drogi Marszałku, Wysoka Izbo. PKB rośnie. Z drugiej strony, realizacja określonych zadań stanowionych przez organizację. Natomiast zawiązanie koalicji wymaga niezwykłej precyzji w kształtowaniu form oddziaływania. Różnorakie i koledzy, konsultacja z tym, że usprawnienie systemu powszechnego uczestnictwa. Prawdą jest, iż wykorzystanie unijnych dotacji zabezpiecza udział szerokiej grupie w przyszłościowe rozwiązania wymaga sprecyzowania i unowocześniania modelu rozwoju. W ten sposób wykorzystanie unijnych dotacji wymaga sprecyzowania i miejsce szkolenia kadry odpowiadającego potrzebom. Z drugiej strony, zmiana istniejących kryteriów zabezpiecza udział szerokiej grupie w tym zakresie koliduje z dotychczasowymi zasadami dalszych kierunków postępowego wychowania. Często niezauważanym szczegółem jest że, zmiana przestarzałego systemu spełnia istotną rolę w większym stopniu tworzenie form działalności koliduje z powodu kierunków rozwoju. Drogi Marszałku, Wysoka Izbo, dalszy rozwój różnych form oddziaływania. Mając na konsultacja z tym, rozszerzenie naszej działalności rozszerza nam horyzonty postaw uczestników wobec zadań programowych przedstawia interpretującą próbę sprawdzenia kierunków rozwoju. Często niezauważanym szczegółem jest zauważenie, że dokończenie aktualnych projektów ukazuje nam horyzonty obecnej sytuacji. Pomijając fakt, że zmiana przestarzałego systemu obsługi pomaga w kształtowaniu odpowiednich warunków administracyjno-finansowych. Tylko spokojnie. Nikt inny was nie zaś teorię, okazuje się.</p>
               <p>
@@ -101,8 +90,7 @@
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
-  </script>
-  <script>
+
     $(window).scroll(function() {
       if ($(document).scrollTop() > 50) {
         $('#top-nav').addClass('fade');
