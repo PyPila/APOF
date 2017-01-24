@@ -1,0 +1,36 @@
+#top-nav{
+    opacity: 0.95;
+    background-color: #00aca9;
+    position: fixed-top;
+    padding-bottom: 5px;
+   -webkit-transition: width 0.5s ease-in-out;
+    -moz-transition: width 0.5s ease-in-out;
+    -o-transition: width 0.5s ease-in-out;
+    transition: width 0.5s ease-in-out;
+    width:100%;
+}
+
+#sec-top-bar{
+    border-radius: 50%;
+    margin-left: 90%;
+    width:20%;
+}
+
+#avatar{
+    border-radius: 50%;
+    width:39px;
+    height:39px;
+}
+
+#avatar-menu{
+    margin-right: 60%;
+}
+
+#top-nav.fade{
+    width: 210px;
+}
+
+.navbar-brand a{
+    color: white;
+    text-decoration: none;
+}
