@@ -5,7 +5,8 @@
     "fields": {
         "name": "Da Grasso",
         "logo": "logos/yogi_logo.png",
-        "opening": "11.00 - 22.00"
+        "opening_from": "11:00:00", 
+        "opening_to": "22:00:00" 
     }
 },
 {
@@ -14,7 +15,8 @@
     "fields": {
         "name": "Kuchnia Turecka",
         "logo": "logos/yogi_logo.png",
-        "opening": "11.00 - 24.00"
+        "opening_from": "11:00:00", 
+        "opening_to": "00:00:00" 
     }
 },
 {
@@ -23,7 +25,8 @@
     "fields": {
         "name": "Kebab Place",
         "logo": "logos/yogi_logo.png",
-        "opening": "9.00 - 24.00"
+        "opening_from": "9:00:00", 
+        "opening_to": "00:00:00"
     }
 },
 {
@@ -32,7 +35,8 @@
     "fields": {
         "name": "Apetyt",
         "logo": "logos/yogi_logo.png",
-        "opening": "12.00 - 19.00"
+        "opening_from": "12:00:00", 
+        "opening_to": "19:00:00"
     }
 },
 {
@@ -41,7 +45,8 @@
     "fields": {
         "name": "Pizzeria",
         "logo": "logos/yogi_logo.png",
-        "opening": "14.00 - 22.00"
+        "opening_from": "14:00:00", 
+        "opening_to": "22:00:00" 
     }
 },
 {
@@ -50,7 +55,8 @@
     "fields": {
         "name": "Bar Mleczny",
         "logo": "logos/yogi_logo.png",
-        "opening": "6.00 - 18.00"
+        "opening_from": "6:00:00", 
+        "opening_to": "18:00:00" 
     }
 },
 {
@@ -59,7 +65,8 @@
     "fields": {
         "name": "Tawerna Toscana",
         "logo": "logos/yogi_logo.png",
-        "opening": "14.00 - 24.00"
+        "opening_from": "14:00:00", 
+        "opening_to": "00:00:00" 
     }
 },
 {
@@ -68,7 +75,8 @@
     "fields": {
         "name": "Pensjonat",
         "logo": "logos/yogi_logo.png",
-        "opening": "8.00 - 16.00"
+        "opening_from": "8:00:00", 
+        "opening_to": "16:00:00" 
     }
 },
 {
@@ -77,7 +85,8 @@
     "fields": {
         "name": "Restauracja Pomarańczowy",
         "logo": "logos/yogi_logo.png",
-        "opening": "10.00 - 20.00"
+        "opening_from": "10:00:00", 
+        "opening_to": "20:00:00" 
     }
 },
 {
@@ -86,7 +95,8 @@
     "fields": {
         "name": "Alibabka",
         "logo": "logos/yogi_logo.png",
-        "opening": "12.00 - 22.00"
+        "opening_from": "12:00:00", 
+        "opening_to": "22:00:00" 
     }
 }
 ]
