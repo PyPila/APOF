@@ -1,4 +1,5 @@
 import tempfile
+from datetime import time
 
 from django.test import TestCase
 from django.urls import reverse
@@ -28,11 +29,11 @@ class RestaurantListTestCase(TestCase):
 
     def test_restaurants_list_view_context(self):
         restaurant1 = Restaurant.objects.create(
-            name='test restaurant2', opening='10.00-18.00',
+            name='test restaurant2', opening_from=time(10), opening_to=time(18),
             logo=tempfile.NamedTemporaryFile(suffix='.jpg').name
         )
         restaurant2 = Restaurant.objects.create(
-            name='test restaurant', opening='14.00-22.00',
+            name='test restaurant1', opening_from=time(10), opening_to=time(18),
             logo=tempfile.NamedTemporaryFile(suffix='.jpg').name
         )
         response = self.client.get(reverse('restaurant-list'))

@@ -1,28 +1,17 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
-    </head>
-    <body>
-        <div class="container">
-            <div class="card-deck">
-                {% for restaurant in restaurants %}
-                    <div class="col-sm-6 col-md-4 col-lg-3">
-                        <div class="card">
-                            <img class="card-img-top" src="{{ restaurant.logo.url }}" alt="Card image cap">
-                            <div class="card-block">
-                                <a href="#" class="btn btn-primary btn-block" style="white-space: normal;">{{ restaurant.name }}</a>
-                            </div>
+{% extends "restaurants/base.html" %}
+{% block content %}
+    <div class="container">
+        <div class="card-deck">
+            {% for restaurant in restaurants %}
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ restaurant.logo.url }}" alt="Card image cap">
+                        <div class="card-block">
+                            <a href="#" class="btn btn-primary btn-block" style="white-space: normal;">{{ restaurant.name }}</a>
                         </div>
                     </div>
-                {% endfor %}
-            </div>
+                </div>
+            {% endfor %}
         </div>
-    </body>
-</html>
+    </div>
+{% endblock content %}
