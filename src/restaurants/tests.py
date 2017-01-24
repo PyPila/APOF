@@ -1,3 +1,5 @@
+import tempfile
+
 from django.test import TestCase
 from django.urls import reverse
 
@@ -23,3 +25,17 @@ class RestaurantListTestCase(TestCase):
         response = self.client.get(reverse('restaurant-list'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'restaurants/index.html')
+
+    def test_restaurants_list_view_context(self):
+        restaurant1 = Restaurant.objects.create(
+            name='test restaurant2', opening='10.00-18.00',
+            logo=tempfile.NamedTemporaryFile(suffix='.jpg').name
+        )
+        restaurant2 = Restaurant.objects.create(
+            name='test restaurant', opening='14.00-22.00',
+            logo=tempfile.NamedTemporaryFile(suffix='.jpg').name
+        )
+        response = self.client.get(reverse('restaurant-list'))
+        self.assertEqual(
+            [restaurant1, restaurant2], list(response.context['restaurants'])
+        )
