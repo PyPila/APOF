@@ -19,15 +19,7 @@ class RestaurantTestCase(TestCase):
 
 class RestaurantListTestCase(TestCase):
 
-    def test_main_page_view_is_restaurants_list_view(self):
-        self.assertEqual('/', reverse('restaurant-list'))
-
-    def test_restaurants_list_view(self):
-        response = self.client.get(reverse('restaurant-list'))
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'restaurants/index.html')
-
-    def test_restaurants_list_view_context(self):
+    def test_restaurants_list(self):
         restaurant1 = Restaurant.objects.create(
             name='test restaurant2', opening_from=time(10), opening_to=time(18),
             logo=tempfile.NamedTemporaryFile(suffix='.jpg').name
@@ -36,7 +28,12 @@ class RestaurantListTestCase(TestCase):
             name='test restaurant1', opening_from=time(10), opening_to=time(18),
             logo=tempfile.NamedTemporaryFile(suffix='.jpg').name
         )
-        response = self.client.get(reverse('restaurant-list'))
+        restaurants_list_url = reverse('restaurant-list')
+        response = self.client.get(restaurants_list_url)
+        self.assertEqual('/', restaurants_list_url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'restaurants/index.html')
+        self.assertTemplateUsed(response, 'restaurants/base.html')
         self.assertEqual(
             [restaurant1, restaurant2], list(response.context['restaurants'])
         )
