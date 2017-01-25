@@ -3,11 +3,11 @@
     <div class="container">
         <div class="card-deck">
             {% for restaurant in restaurants %}
-                <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="col-12 col-sm-6 col-md-4">
                     <div class="card">
-                        <img class="card-img-top" src="{{ restaurant.logo.url }}" alt="Card image cap">
+                        <img class="card-img-top img-fluid" src="{{ restaurant.logo.url }}" alt="Card image cap" style="width: 100%">
                         <div class="card-block">
-                            <a href="#" class="btn btn-primary btn-block" style="white-space: normal;">{{ restaurant.name }}</a>
+                            <h3 class="card-text" style="text-align: center;">{{ restaurant.name }}</h3>
                         </div>
                     </div>
                 </div>
