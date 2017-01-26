@@ -1,5 +1,7 @@
 from __future__ import unicode_literals
 
+from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelation
+from django.contrib.contenttypes.models import ContentType
 from django.db import models
 
 
@@ -9,48 +11,68 @@ class Restaurant(models.Model):
     def __unicode__(self):
         return self.name
 
+
 class Menu(models.Model):
-    restaurant =  models.OneToOneField(Restaurant, blank=False, on_delete=models.CASCADE)
+    restaurant = models.OneToOneField(Restaurant, blank=False, on_delete=models.CASCADE)
 
     def __unicode__(self):
-        return '{} {}'.format(self.restaurant, 'menu')
+        return '{}'.format(self.restaurant)
 
-class MealCategory(models.Model):
+
+class Size(models.Model):
     menu = models.ForeignKey(Menu, blank=False, on_delete=models.CASCADE)
-    name = models.CharField(max_length=100, blank=False)
+    description = models.CharField(max_length=50, blank=True, unique=True, default='Normal size')
+    value = models.DecimalField(max_digits=3, decimal_places=0, blank=True)
+    value_unit = models.CharField(max_length=15, blank=True)
 
     class Meta:
-        unique_together = ('name', 'menu')
+        unique_together = ('menu', 'value', 'value_unit')
 
     def __unicode__(self):
-        return '{} --> {}'.format(self.menu, self.name)
+        if self.value and self.value_unit:
+            return '{} ({} {})'.format(self.description, self.value, self.value_unit)
+        else:
+            return self.description
+
 
 class Meal(models.Model):
-    category = models.ForeignKey(MealCategory, blank=False)
+    menu = models.ForeignKey(Menu, blank=False, on_delete=models.CASCADE)
     name = models.CharField(max_length=150, blank=False)
+    ingredients = models.ManyToManyField('Ingredient', blank=True)
+
+    prices = GenericRelation('Price')
+
+    def __unicode__(self):
+        return '{} | {}'.format(self.menu, self.name)
+
+
+class Topping(models.Model):
+    menu = models.ForeignKey(Menu, blank=False, on_delete=models.CASCADE)
+    ingredient = models.ForeignKey('Ingredient', blank=True, on_delete=models.PROTECT)
+
+    prices = GenericRelation('Price')
+
+    class Meta:
+        unique_together = ('menu', 'ingredient')
+
+    def __unicode__(self):
+        return '{} | {}'.format(self.menu, self.ingredient)
+
+
+class Ingredient(models.Model):
+    name = models.CharField(max_length=100, blank=True, unique=True)
 
     def __unicode__(self):
         return self.name
 
-class Size(models.Model):
-    category = models.ForeignKey(MealCategory, blank=False)
-    description = models.CharField(max_length=50, blank=True, unique=True, default='Normal size')
-    value = models.DecimalField(max_digits=3, decimal_places=0, blank=True)
-    value_unit = models.CharField(max_length=15, blank=True)
-    meal = models.ManyToManyField(Meal, blank=True)
 
-    class Meta:
-        unique_together = ('value', 'value_unit', 'category')
-
-    def __unicode__(self):
-        return '{} {} ({} {})'.format(self.category, self.description, self.value, self.value_unit)
-
-class MealPrice(models.Model):
+class Price(models.Model):
     value = models.DecimalField(max_digits=5, decimal_places=2, blank=False)
-    size = models.ForeignKey(Size, blank=False)
-    meal = models.ForeignKey(Meal, on_delete=models.CASCADE, blank=False)
+    size = models.ForeignKey(Size, blank=False, on_delete=models.CASCADE)
+
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+    object_id = models.PositiveIntegerField()
+    content_object = GenericForeignKey('content_type', 'object_id')
 
     def __unicode__(self):
-        return '{} {}'.format(self.size, self.value)
-
-
+        return str(self.value)
