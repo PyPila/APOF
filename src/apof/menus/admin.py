@@ -1,48 +1,62 @@
 from django.contrib import admin
+from django.contrib.contenttypes.admin import GenericTabularInline
 
 from .models import (
+    Ingredient,
     Meal,
-    MealCategory,
-    MealPrice,
     Menu,
+    Topping,
+    Price,
     Restaurant,
     Size,
 )
 
 
-class MealPriceInline(admin.TabularInline):
-    model = MealPrice
+class PriceInline(GenericTabularInline):
+    model = Price
 
-# class SizeInline(admin.StackedInline):
-#     model = Size
 
 class MealAdmin(admin.ModelAdmin):
     inlines = [
-        MealPriceInline
+        PriceInline
     ]
-    list_display = ('name', 'prices')
+    list_display = ('name', 'menu',)
+    list_filter = ('menu',)
 
-    def prices(self, obj):
-        return ','.join([price.value for price in obj.mealprice_set.all()])
 
-class MealCategoryAdmin(admin.ModelAdmin):
+class ToppingAdmin(admin.ModelAdmin):
+    inlines = [
+        PriceInline
+    ]
+    list_display = ('ingredient', 'menu')
+    list_filter = ('menu',)
+
+
+class PriceAdmin(admin.ModelAdmin):
     pass
 
-class MealPriceAdmin(admin.ModelAdmin):
+
+class IngredientAdmin(admin.ModelAdmin):
     pass
+
 
 class MenuAdmin(admin.ModelAdmin):
     pass
 
+
 class RestaurantAdmin(admin.ModelAdmin):
     pass
 
-class SizeAdmin(admin.ModelAdmin):
-    pass
 
+class SizeAdmin(admin.ModelAdmin):
+    list_display = ('description', 'value', 'value_unit', 'menu')
+    list_filter = ('menu',)
+
+
+admin.site.register(Ingredient, IngredientAdmin)
 admin.site.register(Meal, MealAdmin)
-admin.site.register(MealCategory, MealCategoryAdmin)
-admin.site.register(MealPrice, MealPriceAdmin)
 admin.site.register(Menu, MenuAdmin)
+admin.site.register(Price, PriceAdmin)
 admin.site.register(Restaurant, RestaurantAdmin)
 admin.site.register(Size, SizeAdmin)
+admin.site.register(Topping, ToppingAdmin)
