@@ -1,0 +1,963 @@
+[
+{
+    "model": "menus.restaurant",
+    "pk": 1,
+    "fields": {
+        "name": "Da Grasso"
+    }
+},
+{
+    "model": "menus.restaurant",
+    "pk": 2,
+    "fields": {
+        "name": "La Gondola"
+    }
+},
+{
+    "model": "menus.restaurant",
+    "pk": 3,
+    "fields": {
+        "name": "Apetyt"
+    }
+},
+{
+    "model": "menus.menu",
+    "pk": 1,
+    "fields": {
+        "restaurant": 1
+    }
+},
+{
+    "model": "menus.menu",
+    "pk": 2,
+    "fields": {
+        "restaurant": 2
+    }
+},
+{
+    "model": "menus.menu",
+    "pk": 3,
+    "fields": {
+        "restaurant": 3
+    }
+},
+{
+    "model": "menus.size",
+    "pk": 1,
+    "fields": {
+        "menu": 2,
+        "description": "Standardowa",
+        "value": "30",
+        "value_unit": "cm"
+    }
+},
+{
+    "model": "menus.size",
+    "pk": 2,
+    "fields": {
+        "menu": 2,
+        "description": "Rodzinna",
+        "value": "40",
+        "value_unit": "cm"
+    }
+},
+{
+    "model": "menus.size",
+    "pk": 3,
+    "fields": {
+        "menu": 2,
+        "description": "Pol metra",
+        "value": "50",
+        "value_unit": "cm"
+    }
+},
+{
+    "model": "menus.size",
+    "pk": 5,
+    "fields": {
+        "menu": 1,
+        "description": "Grande",
+        "value": "32",
+        "value_unit": "cm"
+    }
+},
+{
+    "model": "menus.size",
+    "pk": 6,
+    "fields": {
+        "menu": 1,
+        "description": "Grosso",
+        "value": "42",
+        "value_unit": "cm"
+    }
+},
+{
+    "model": "menus.size",
+    "pk": 7,
+    "fields": {
+        "menu": 3,
+        "description": "Normal size",
+        "value": "1",
+        "value_unit": ""
+    }
+},
+{
+    "model": "menus.size",
+    "pk": 8,
+    "fields": {
+        "menu": 1,
+        "description": "Piccolo",
+        "value": "24",
+        "value_unit": "cm"
+    }
+},
+{
+    "model": "menus.meal",
+    "pk": 1,
+    "fields": {
+        "menu": 1,
+        "name": "Margherita",
+        "ingredients": [
+            1,
+            8,
+            11,
+            12
+        ]
+    }
+},
+{
+    "model": "menus.meal",
+    "pk": 2,
+    "fields": {
+        "menu": 1,
+        "name": "CAPRISIOSSA",
+        "ingredients": [
+            1,
+            8,
+            11,
+            12,
+            13,
+            14
+        ]
+    }
+},
+{
+    "model": "menus.meal",
+    "pk": 3,
+    "fields": {
+        "menu": 1,
+        "name": "Pepperoni",
+        "ingredients": [
+            1,
+            9,
+            11,
+            12,
+            15
+        ]
+    }
+},
+{
+    "model": "menus.meal",
+    "pk": 4,
+    "fields": {
+        "menu": 1,
+        "name": "Kebab",
+        "ingredients": [
+            1,
+            4,
+            8,
+            11,
+            12,
+            16
+        ]
+    }
+},
+{
+    "model": "menus.meal",
+    "pk": 5,
+    "fields": {
+        "menu": 2,
+        "name": "Margarita",
+        "ingredients": [
+            1,
+            8,
+            11
+        ]
+    }
+},
+{
+    "model": "menus.meal",
+    "pk": 6,
+    "fields": {
+        "menu": 2,
+        "name": "Vesuvio",
+        "ingredients": [
+            8,
+            11,
+            13
+        ]
+    }
+},
+{
+    "model": "menus.meal",
+    "pk": 7,
+    "fields": {
+        "menu": 2,
+        "name": "CAPRISIOSSA",
+        "ingredients": [
+            1,
+            8,
+            11,
+            13,
+            14
+        ]
+    }
+},
+{
+    "model": "menus.meal",
+    "pk": 8,
+    "fields": {
+        "menu": 2,
+        "name": "La moss",
+        "ingredients": [
+            1,
+            8,
+            10,
+            11,
+            14,
+            17
+        ]
+    }
+},
+{
+    "model": "menus.meal",
+    "pk": 9,
+    "fields": {
+        "menu": 2,
+        "name": "Davido",
+        "ingredients": [
+            1,
+            7,
+            8,
+            10,
+            11,
+            14,
+            15
+        ]
+    }
+},
+{
+    "model": "menus.meal",
+    "pk": 10,
+    "fields": {
+        "menu": 2,
+        "name": "Karaibska",
+        "ingredients": [
+            1,
+            8,
+            10,
+            11,
+            14,
+            18
+        ]
+    }
+},
+{
+    "model": "menus.meal",
+    "pk": 11,
+    "fields": {
+        "menu": 2,
+        "name": "Diablo",
+        "ingredients": [
+            1,
+            7,
+            8,
+            15,
+            19,
+            20,
+            21
+        ]
+    }
+},
+{
+    "model": "menus.meal",
+    "pk": 12,
+    "fields": {
+        "menu": 3,
+        "name": "Zraz wolowy",
+        "ingredients": [
+            25,
+            28
+        ]
+    }
+},
+{
+    "model": "menus.meal",
+    "pk": 13,
+    "fields": {
+        "menu": 3,
+        "name": "Polmisek wiejski",
+        "ingredients": [
+            26,
+            29
+        ]
+    }
+},
+{
+    "model": "menus.meal",
+    "pk": 14,
+    "fields": {
+        "menu": 3,
+        "name": "Nalesniki z twarogiem",
+        "ingredients": []
+    }
+},
+{
+    "model": "menus.meal",
+    "pk": 15,
+    "fields": {
+        "menu": 3,
+        "name": "Golabki w sosie",
+        "ingredients": [
+            26,
+            29
+        ]
+    }
+},
+{
+    "model": "menus.meal",
+    "pk": 16,
+    "fields": {
+        "menu": 3,
+        "name": "Zupa rybna",
+        "ingredients": []
+    }
+},
+{
+    "model": "menus.topping",
+    "pk": 1,
+    "fields": {
+        "menu": 1,
+        "ingredient": 4
+    }
+},
+{
+    "model": "menus.topping",
+    "pk": 2,
+    "fields": {
+        "menu": 1,
+        "ingredient": 1
+    }
+},
+{
+    "model": "menus.topping",
+    "pk": 3,
+    "fields": {
+        "menu": 3,
+        "ingredient": 2
+    }
+},
+{
+    "model": "menus.topping",
+    "pk": 4,
+    "fields": {
+        "menu": 1,
+        "ingredient": 2
+    }
+},
+{
+    "model": "menus.topping",
+    "pk": 5,
+    "fields": {
+        "menu": 1,
+        "ingredient": 6
+    }
+},
+{
+    "model": "menus.topping",
+    "pk": 6,
+    "fields": {
+        "menu": 2,
+        "ingredient": 7
+    }
+},
+{
+    "model": "menus.topping",
+    "pk": 7,
+    "fields": {
+        "menu": 2,
+        "ingredient": 8
+    }
+},
+{
+    "model": "menus.topping",
+    "pk": 8,
+    "fields": {
+        "menu": 2,
+        "ingredient": 9
+    }
+},
+{
+    "model": "menus.topping",
+    "pk": 9,
+    "fields": {
+        "menu": 2,
+        "ingredient": 10
+    }
+},
+{
+    "model": "menus.topping",
+    "pk": 10,
+    "fields": {
+        "menu": 1,
+        "ingredient": 10
+    }
+},
+{
+    "model": "menus.topping",
+    "pk": 11,
+    "fields": {
+        "menu": 2,
+        "ingredient": 22
+    }
+},
+{
+    "model": "menus.topping",
+    "pk": 12,
+    "fields": {
+        "menu": 2,
+        "ingredient": 13
+    }
+},
+{
+    "model": "menus.topping",
+    "pk": 13,
+    "fields": {
+        "menu": 2,
+        "ingredient": 23
+    }
+},
+{
+    "model": "menus.topping",
+    "pk": 14,
+    "fields": {
+        "menu": 2,
+        "ingredient": 18
+    }
+},
+{
+    "model": "menus.topping",
+    "pk": 15,
+    "fields": {
+        "menu": 2,
+        "ingredient": 15
+    }
+},
+{
+    "model": "menus.topping",
+    "pk": 16,
+    "fields": {
+        "menu": 3,
+        "ingredient": 24
+    }
+},
+{
+    "model": "menus.topping",
+    "pk": 17,
+    "fields": {
+        "menu": 3,
+        "ingredient": 25
+    }
+},
+{
+    "model": "menus.topping",
+    "pk": 19,
+    "fields": {
+        "menu": 3,
+        "ingredient": 27
+    }
+},
+{
+    "model": "menus.ingredient",
+    "pk": 1,
+    "fields": {
+        "name": "ser"
+    }
+},
+{
+    "model": "menus.ingredient",
+    "pk": 2,
+    "fields": {
+        "name": "frytki"
+    }
+},
+{
+    "model": "menus.ingredient",
+    "pk": 3,
+    "fields": {
+        "name": "czosnek"
+    }
+},
+{
+    "model": "menus.ingredient",
+    "pk": 4,
+    "fields": {
+        "name": "cebula biala"
+    }
+},
+{
+    "model": "menus.ingredient",
+    "pk": 5,
+    "fields": {
+        "name": "majonez"
+    }
+},
+{
+    "model": "menus.ingredient",
+    "pk": 6,
+    "fields": {
+        "name": "frytki steakowe"
+    }
+},
+{
+    "model": "menus.ingredient",
+    "pk": 7,
+    "fields": {
+        "name": "cebula"
+    }
+},
+{
+    "model": "menus.ingredient",
+    "pk": 8,
+    "fields": {
+        "name": "sos pomidorowy"
+    }
+},
+{
+    "model": "menus.ingredient",
+    "pk": 9,
+    "fields": {
+        "name": "sos czosnkowy"
+    }
+},
+{
+    "model": "menus.ingredient",
+    "pk": 10,
+    "fields": {
+        "name": "tunczyk"
+    }
+},
+{
+    "model": "menus.ingredient",
+    "pk": 11,
+    "fields": {
+        "name": "ciasto"
+    }
+},
+{
+    "model": "menus.ingredient",
+    "pk": 12,
+    "fields": {
+        "name": "oregano"
+    }
+},
+{
+    "model": "menus.ingredient",
+    "pk": 13,
+    "fields": {
+        "name": "szynka"
+    }
+},
+{
+    "model": "menus.ingredient",
+    "pk": 14,
+    "fields": {
+        "name": "pieczarki"
+    }
+},
+{
+    "model": "menus.ingredient",
+    "pk": 15,
+    "fields": {
+        "name": "salami pepperoni"
+    }
+},
+{
+    "model": "menus.ingredient",
+    "pk": 16,
+    "fields": {
+        "name": "kebab drobiowy"
+    }
+},
+{
+    "model": "menus.ingredient",
+    "pk": 17,
+    "fields": {
+        "name": "anchios"
+    }
+},
+{
+    "model": "menus.ingredient",
+    "pk": 18,
+    "fields": {
+        "name": "kukurydza"
+    }
+},
+{
+    "model": "menus.ingredient",
+    "pk": 19,
+    "fields": {
+        "name": "tabasco"
+    }
+},
+{
+    "model": "menus.ingredient",
+    "pk": 20,
+    "fields": {
+        "name": "kielbasa zywiecka"
+    }
+},
+{
+    "model": "menus.ingredient",
+    "pk": 21,
+    "fields": {
+        "name": "ogorek konserwowy"
+    }
+},
+{
+    "model": "menus.ingredient",
+    "pk": 22,
+    "fields": {
+        "name": "kurczak"
+    }
+},
+{
+    "model": "menus.ingredient",
+    "pk": 23,
+    "fields": {
+        "name": "bekon"
+    }
+},
+{
+    "model": "menus.ingredient",
+    "pk": 24,
+    "fields": {
+        "name": "ryz"
+    }
+},
+{
+    "model": "menus.ingredient",
+    "pk": 25,
+    "fields": {
+        "name": "kasza"
+    }
+},
+{
+    "model": "menus.ingredient",
+    "pk": 26,
+    "fields": {
+        "name": "ziemniaki"
+    }
+},
+{
+    "model": "menus.ingredient",
+    "pk": 27,
+    "fields": {
+        "name": "ziemniaki pieczone"
+    }
+},
+{
+    "model": "menus.ingredient",
+    "pk": 28,
+    "fields": {
+        "name": "buraczki"
+    }
+},
+{
+    "model": "menus.ingredient",
+    "pk": 29,
+    "fields": {
+        "name": "surowka"
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 1,
+    "fields": {
+        "value": "7.00",
+        "size": 7,
+        "content_type": 8,
+        "object_id": 16
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 2,
+    "fields": {
+        "value": "15.00",
+        "size": 7,
+        "content_type": 8,
+        "object_id": 15
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 3,
+    "fields": {
+        "value": "12.00",
+        "size": 7,
+        "content_type": 8,
+        "object_id": 14
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 4,
+    "fields": {
+        "value": "20.00",
+        "size": 7,
+        "content_type": 8,
+        "object_id": 13
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 5,
+    "fields": {
+        "value": "20.00",
+        "size": 7,
+        "content_type": 8,
+        "object_id": 12
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 7,
+    "fields": {
+        "value": "20.70",
+        "size": 5,
+        "content_type": 8,
+        "object_id": 4
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 8,
+    "fields": {
+        "value": "24.70",
+        "size": 6,
+        "content_type": 8,
+        "object_id": 4
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 10,
+    "fields": {
+        "value": "19.50",
+        "size": 5,
+        "content_type": 8,
+        "object_id": 3
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 11,
+    "fields": {
+        "value": "22.90",
+        "size": 6,
+        "content_type": 8,
+        "object_id": 3
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 13,
+    "fields": {
+        "value": "20.20",
+        "size": 5,
+        "content_type": 8,
+        "object_id": 2
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 14,
+    "fields": {
+        "value": "23.90",
+        "size": 6,
+        "content_type": 8,
+        "object_id": 2
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 16,
+    "fields": {
+        "value": "13.80",
+        "size": 5,
+        "content_type": 8,
+        "object_id": 1
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 17,
+    "fields": {
+        "value": "18.10",
+        "size": 6,
+        "content_type": 8,
+        "object_id": 1
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 18,
+    "fields": {
+        "value": "22.90",
+        "size": 1,
+        "content_type": 8,
+        "object_id": 11
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 19,
+    "fields": {
+        "value": "42.60",
+        "size": 2,
+        "content_type": 8,
+        "object_id": 11
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 21,
+    "fields": {
+        "value": "18.40",
+        "size": 1,
+        "content_type": 8,
+        "object_id": 10
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 22,
+    "fields": {
+        "value": "34.30",
+        "size": 2,
+        "content_type": 8,
+        "object_id": 10
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 23,
+    "fields": {
+        "value": "48.40",
+        "size": 3,
+        "content_type": 8,
+        "object_id": 10
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 24,
+    "fields": {
+        "value": "12.60",
+        "size": 1,
+        "content_type": 8,
+        "object_id": 5
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 25,
+    "fields": {
+        "value": "24.30",
+        "size": 2,
+        "content_type": 8,
+        "object_id": 5
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 26,
+    "fields": {
+        "value": "31.00",
+        "size": 3,
+        "content_type": 8,
+        "object_id": 5
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 27,
+    "fields": {
+        "value": "6.00",
+        "size": 7,
+        "content_type": 12,
+        "object_id": 19
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 29,
+    "fields": {
+        "value": "3.00",
+        "size": 7,
+        "content_type": 12,
+        "object_id": 17
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 30,
+    "fields": {
+        "value": "3.00",
+        "size": 7,
+        "content_type": 12,
+        "object_id": 16
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 32,
+    "fields": {
+        "value": "14.20",
+        "size": 8,
+        "content_type": 8,
+        "object_id": 4
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 33,
+    "fields": {
+        "value": "13.20",
+        "size": 8,
+        "content_type": 8,
+        "object_id": 3
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 34,
+    "fields": {
+        "value": "13.80",
+        "size": 8,
+        "content_type": 8,
+        "object_id": 2
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 35,
+    "fields": {
+        "value": "9.90",
+        "size": 8,
+        "content_type": 8,
+        "object_id": 1
+    }
+}
+]
