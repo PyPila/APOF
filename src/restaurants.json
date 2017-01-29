@@ -4,9 +4,7 @@
     "pk": 1,
     "fields": {
         "name": "Da Grasso",
-        "logo": "logos/yogi_logo.png",
-        "opening_from": "11:00:00", 
-        "opening_to": "22:00:00" 
+        "logo": "logos/yogi_logo.png"
     }
 },
 {
@@ -14,9 +12,7 @@
     "pk": 2,
     "fields": {
         "name": "Kuchnia Turecka",
-        "logo": "logos/yogi_logo.png",
-        "opening_from": "11:00:00", 
-        "opening_to": "00:00:00" 
+        "logo": "logos/yogi_logo.png"
     }
 },
 {
@@ -24,9 +20,7 @@
     "pk": 3,
     "fields": {
         "name": "Kebab Place",
-        "logo": "logos/yogi_logo.png",
-        "opening_from": "9:00:00", 
-        "opening_to": "00:00:00"
+        "logo": "logos/yogi_logo.png"
     }
 },
 {
@@ -34,9 +28,7 @@
     "pk": 4,
     "fields": {
         "name": "Apetyt",
-        "logo": "logos/yogi_logo.png",
-        "opening_from": "12:00:00", 
-        "opening_to": "19:00:00"
+        "logo": "logos/yogi_logo.png"
     }
 },
 {
@@ -44,9 +36,7 @@
     "pk": 5,
     "fields": {
         "name": "Pizzeria",
-        "logo": "logos/yogi_logo.png",
-        "opening_from": "14:00:00", 
-        "opening_to": "22:00:00" 
+        "logo": "logos/yogi_logo.png"
     }
 },
 {
@@ -54,9 +44,7 @@
     "pk": 6,
     "fields": {
         "name": "Bar Mleczny",
-        "logo": "logos/yogi_logo.png",
-        "opening_from": "6:00:00", 
-        "opening_to": "18:00:00" 
+        "logo": "logos/yogi_logo.png"
     }
 },
 {
@@ -64,9 +52,7 @@
     "pk": 7,
     "fields": {
         "name": "Tawerna Toscana",
-        "logo": "logos/yogi_logo.png",
-        "opening_from": "14:00:00", 
-        "opening_to": "00:00:00" 
+        "logo": "logos/yogi_logo.png"
     }
 },
 {
@@ -74,9 +60,7 @@
     "pk": 8,
     "fields": {
         "name": "Pensjonat",
-        "logo": "logos/yogi_logo.png",
-        "opening_from": "8:00:00", 
-        "opening_to": "16:00:00" 
+        "logo": "logos/yogi_logo.png"
     }
 },
 {
@@ -84,9 +68,7 @@
     "pk": 9,
     "fields": {
         "name": "Restauracja Pomarańczowy",
-        "logo": "logos/yogi_logo.png",
-        "opening_from": "10:00:00", 
-        "opening_to": "20:00:00" 
+        "logo": "logos/yogi_logo.png"
     }
 },
 {
@@ -94,9 +76,7 @@
     "pk": 10,
     "fields": {
         "name": "Alibabka",
-        "logo": "logos/yogi_logo.png",
-        "opening_from": "12:00:00", 
-        "opening_to": "22:00:00" 
+        "logo": "logos/yogi_logo.png"
     }
 }
 ]
