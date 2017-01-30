@@ -19,7 +19,7 @@
     "model": "restaurants.restaurant",
     "pk": 3,
     "fields": {
-        "name": "Kebab Place",
+        "name": "La Gondola",
         "logo": "logos/yogi_logo.png"
     }
 },
@@ -35,7 +35,7 @@
     "model": "restaurants.restaurant",
     "pk": 5,
     "fields": {
-        "name": "Pizzeria",
+        "name": "Yogi",
         "logo": "logos/yogi_logo.png"
     }
 },
@@ -43,40 +43,523 @@
     "model": "restaurants.restaurant",
     "pk": 6,
     "fields": {
-        "name": "Bar Mleczny",
+        "name": "Bar Moona",
         "logo": "logos/yogi_logo.png"
     }
 },
 {
-    "model": "restaurants.restaurant",
+    "model": "restaurants.openinghours",
+    "pk": 1,
+    "fields": {
+        "restaurant": 2,
+        "day": 1,
+        "opening_from": "10:00:00",
+        "opening_to": "02:00:00",
+        "ordering_from": null
+    }
+},
+{
+    "model": "restaurants.openinghours",
+    "pk": 2,
+    "fields": {
+        "restaurant": 2,
+        "day": 2,
+        "opening_from": "10:00:00",
+        "opening_to": "02:00:00",
+        "ordering_from": null
+    }
+},
+{
+    "model": "restaurants.openinghours",
+    "pk": 3,
+    "fields": {
+        "restaurant": 2,
+        "day": 3,
+        "opening_from": "10:00:00",
+        "opening_to": "02:00:00",
+        "ordering_from": null
+    }
+},
+{
+    "model": "restaurants.openinghours",
+    "pk": 4,
+    "fields": {
+        "restaurant": 2,
+        "day": 4,
+        "opening_from": "10:00:00",
+        "opening_to": "02:00:00",
+        "ordering_from": null
+    }
+},
+{
+    "model": "restaurants.openinghours",
+    "pk": 5,
+    "fields": {
+        "restaurant": 2,
+        "day": 5,
+        "opening_from": "10:00:00",
+        "opening_to": "05:00:00",
+        "ordering_from": null
+    }
+},
+{
+    "model": "restaurants.openinghours",
+    "pk": 6,
+    "fields": {
+        "restaurant": 2,
+        "day": 6,
+        "opening_from": "10:00:00",
+        "opening_to": "05:00:00",
+        "ordering_from": null
+    }
+},
+{
+    "model": "restaurants.openinghours",
     "pk": 7,
     "fields": {
-        "name": "Tawerna Toscana",
-        "logo": "logos/yogi_logo.png"
+        "restaurant": 2,
+        "day": 7,
+        "opening_from": "10:00:00",
+        "opening_to": "00:00:00",
+        "ordering_from": null
     }
 },
 {
-    "model": "restaurants.restaurant",
+    "model": "restaurants.openinghours",
     "pk": 8,
     "fields": {
-        "name": "Pensjonat",
-        "logo": "logos/yogi_logo.png"
+        "restaurant": 4,
+        "day": 1,
+        "opening_from": "10:00:00",
+        "opening_to": "20:00:00",
+        "ordering_from": null
     }
 },
 {
-    "model": "restaurants.restaurant",
+    "model": "restaurants.openinghours",
     "pk": 9,
     "fields": {
-        "name": "Restauracja Pomarańczowy",
-        "logo": "logos/yogi_logo.png"
+        "restaurant": 4,
+        "day": 2,
+        "opening_from": "10:00:00",
+        "opening_to": "20:00:00",
+        "ordering_from": null
     }
 },
 {
-    "model": "restaurants.restaurant",
+    "model": "restaurants.openinghours",
     "pk": 10,
     "fields": {
-        "name": "Alibabka",
-        "logo": "logos/yogi_logo.png"
+        "restaurant": 4,
+        "day": 3,
+        "opening_from": "10:00:00",
+        "opening_to": "20:00:00",
+        "ordering_from": null
+    }
+},
+{
+    "model": "restaurants.openinghours",
+    "pk": 11,
+    "fields": {
+        "restaurant": 4,
+        "day": 4,
+        "opening_from": "10:00:00",
+        "opening_to": "20:00:00",
+        "ordering_from": null
+    }
+},
+{
+    "model": "restaurants.openinghours",
+    "pk": 12,
+    "fields": {
+        "restaurant": 4,
+        "day": 5,
+        "opening_from": "10:00:00",
+        "opening_to": "20:00:00",
+        "ordering_from": null
+    }
+},
+{
+    "model": "restaurants.openinghours",
+    "pk": 13,
+    "fields": {
+        "restaurant": 4,
+        "day": 6,
+        "opening_from": "10:00:00",
+        "opening_to": "17:00:00",
+        "ordering_from": null
+    }
+},
+{
+    "model": "restaurants.openinghours",
+    "pk": 14,
+    "fields": {
+        "restaurant": 1,
+        "day": 1,
+        "opening_from": "11:00:00",
+        "opening_to": "22:00:00",
+        "ordering_from": null
+    }
+},
+{
+    "model": "restaurants.openinghours",
+    "pk": 15,
+    "fields": {
+        "restaurant": 1,
+        "day": 2,
+        "opening_from": "11:00:00",
+        "opening_to": "22:00:00",
+        "ordering_from": null
+    }
+},
+{
+    "model": "restaurants.openinghours",
+    "pk": 16,
+    "fields": {
+        "restaurant": 1,
+        "day": 6,
+        "opening_from": "11:00:00",
+        "opening_to": "23:00:00",
+        "ordering_from": null
+    }
+},
+{
+    "model": "restaurants.openinghours",
+    "pk": 17,
+    "fields": {
+        "restaurant": 1,
+        "day": 5,
+        "opening_from": "11:00:00",
+        "opening_to": "23:00:00",
+        "ordering_from": null
+    }
+},
+{
+    "model": "restaurants.openinghours",
+    "pk": 18,
+    "fields": {
+        "restaurant": 1,
+        "day": 7,
+        "opening_from": "12:00:00",
+        "opening_to": "22:00:00",
+        "ordering_from": null
+    }
+},
+{
+    "model": "restaurants.openinghours",
+    "pk": 19,
+    "fields": {
+        "restaurant": 1,
+        "day": 3,
+        "opening_from": "11:00:00",
+        "opening_to": "22:00:00",
+        "ordering_from": null
+    }
+},
+{
+    "model": "restaurants.openinghours",
+    "pk": 20,
+    "fields": {
+        "restaurant": 1,
+        "day": 4,
+        "opening_from": "11:00:00",
+        "opening_to": "23:00:00",
+        "ordering_from": null
+    }
+},
+{
+    "model": "restaurants.openinghours",
+    "pk": 21,
+    "fields": {
+        "restaurant": 3,
+        "day": 1,
+        "opening_from": "11:00:00",
+        "opening_to": "22:00:00",
+        "ordering_from": null
+    }
+},
+{
+    "model": "restaurants.openinghours",
+    "pk": 22,
+    "fields": {
+        "restaurant": 3,
+        "day": 2,
+        "opening_from": "11:00:00",
+        "opening_to": "22:00:00",
+        "ordering_from": null
+    }
+},
+{
+    "model": "restaurants.openinghours",
+    "pk": 23,
+    "fields": {
+        "restaurant": 3,
+        "day": 3,
+        "opening_from": "11:00:00",
+        "opening_to": "22:00:00",
+        "ordering_from": null
+    }
+},
+{
+    "model": "restaurants.openinghours",
+    "pk": 24,
+    "fields": {
+        "restaurant": 3,
+        "day": 4,
+        "opening_from": "11:00:00",
+        "opening_to": "22:00:00",
+        "ordering_from": null
+    }
+},
+{
+    "model": "restaurants.openinghours",
+    "pk": 25,
+    "fields": {
+        "restaurant": 3,
+        "day": 5,
+        "opening_from": "11:00:00",
+        "opening_to": "23:00:00",
+        "ordering_from": null
+    }
+},
+{
+    "model": "restaurants.openinghours",
+    "pk": 26,
+    "fields": {
+        "restaurant": 3,
+        "day": 6,
+        "opening_from": "12:00:00",
+        "opening_to": "23:00:00",
+        "ordering_from": null
+    }
+},
+{
+    "model": "restaurants.openinghours",
+    "pk": 27,
+    "fields": {
+        "restaurant": 3,
+        "day": 7,
+        "opening_from": "12:00:00",
+        "opening_to": "22:00:00",
+        "ordering_from": null
+    }
+},
+{
+    "model": "restaurants.openinghours",
+    "pk": 28,
+    "fields": {
+        "restaurant": 5,
+        "day": 1,
+        "opening_from": "11:00:00",
+        "opening_to": "22:00:00",
+        "ordering_from": null
+    }
+},
+{
+    "model": "restaurants.openinghours",
+    "pk": 29,
+    "fields": {
+        "restaurant": 5,
+        "day": 2,
+        "opening_from": "11:00:00",
+        "opening_to": "22:00:00",
+        "ordering_from": null
+    }
+},
+{
+    "model": "restaurants.openinghours",
+    "pk": 30,
+    "fields": {
+        "restaurant": 5,
+        "day": 3,
+        "opening_from": "11:00:00",
+        "opening_to": "22:00:00",
+        "ordering_from": null
+    }
+},
+{
+    "model": "restaurants.openinghours",
+    "pk": 31,
+    "fields": {
+        "restaurant": 5,
+        "day": 4,
+        "opening_from": "11:00:00",
+        "opening_to": "22:00:00",
+        "ordering_from": null
+    }
+},
+{
+    "model": "restaurants.openinghours",
+    "pk": 32,
+    "fields": {
+        "restaurant": 5,
+        "day": 5,
+        "opening_from": "11:00:00",
+        "opening_to": "23:00:00",
+        "ordering_from": null
+    }
+},
+{
+    "model": "restaurants.openinghours",
+    "pk": 33,
+    "fields": {
+        "restaurant": 5,
+        "day": 6,
+        "opening_from": "11:00:00",
+        "opening_to": "23:00:00",
+        "ordering_from": null
+    }
+},
+{
+    "model": "restaurants.openinghours",
+    "pk": 34,
+    "fields": {
+        "restaurant": 5,
+        "day": 7,
+        "opening_from": "12:00:00",
+        "opening_to": "22:00:00",
+        "ordering_from": null
+    }
+},
+{
+    "model": "restaurants.openinghours",
+    "pk": 35,
+    "fields": {
+        "restaurant": 6,
+        "day": 1,
+        "opening_from": "10:00:00",
+        "opening_to": "19:15:00",
+        "ordering_from": null
+    }
+},
+{
+    "model": "restaurants.openinghours",
+    "pk": 36,
+    "fields": {
+        "restaurant": 6,
+        "day": 2,
+        "opening_from": "10:00:00",
+        "opening_to": "19:15:00",
+        "ordering_from": null
+    }
+},
+{
+    "model": "restaurants.openinghours",
+    "pk": 37,
+    "fields": {
+        "restaurant": 6,
+        "day": 3,
+        "opening_from": "10:00:00",
+        "opening_to": "19:15:00",
+        "ordering_from": null
+    }
+},
+{
+    "model": "restaurants.openinghours",
+    "pk": 38,
+    "fields": {
+        "restaurant": 6,
+        "day": 4,
+        "opening_from": "10:00:00",
+        "opening_to": "19:15:00",
+        "ordering_from": null
+    }
+},
+{
+    "model": "restaurants.openinghours",
+    "pk": 39,
+    "fields": {
+        "restaurant": 6,
+        "day": 5,
+        "opening_from": "10:00:00",
+        "opening_to": "19:15:00",
+        "ordering_from": null
+    }
+},
+{
+    "model": "restaurants.openinghours",
+    "pk": 40,
+    "fields": {
+        "restaurant": 6,
+        "day": 6,
+        "opening_from": "10:00:00",
+        "opening_to": "19:15:00",
+        "ordering_from": null
+    }
+},
+{
+    "model": "restaurants.openinghours",
+    "pk": 41,
+    "fields": {
+        "restaurant": 6,
+        "day": 7,
+        "opening_from": "10:00:00",
+        "opening_to": "19:15:00",
+        "ordering_from": null
+    }
+},
+{
+    "model": "restaurants.phonenumber",
+    "pk": 3,
+    "fields": {
+        "restaurant": 2,
+        "number": "530006655"
+    }
+},
+{
+    "model": "restaurants.phonenumber",
+    "pk": 4,
+    "fields": {
+        "restaurant": 5,
+        "number": "673492986"
+    }
+},
+{
+    "model": "restaurants.phonenumber",
+    "pk": 5,
+    "fields": {
+        "restaurant": 5,
+        "number": "530670760"
+    }
+},
+{
+    "model": "restaurants.phonenumber",
+    "pk": 6,
+    "fields": {
+        "restaurant": 3,
+        "number": "0672157557"
+    }
+},
+{
+    "model": "restaurants.phonenumber",
+    "pk": 7,
+    "fields": {
+        "restaurant": 4,
+        "number": "672137442"
+    }
+},
+{
+    "model": "restaurants.phonenumber",
+    "pk": 8,
+    "fields": {
+        "restaurant": 4,
+        "number": "673515566"
+    }
+},
+{
+    "model": "restaurants.phonenumber",
+    "pk": 9,
+    "fields": {
+        "restaurant": 1,
+        "number": "673431365"
+    }
+},
+{
+    "model": "restaurants.phonenumber",
+    "pk": 10,
+    "fields": {
+        "restaurant": 1,
+        "number": "504907920"
     }
 }
 ]

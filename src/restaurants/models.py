@@ -35,3 +35,8 @@ class OpeningHours(models.Model):
         unique_together = ('restaurant', 'day')
         verbose_name_plural = "opening hours"
         ordering = ['restaurant', 'day']
+
+
+class PhoneNumber(models.Model):
+    restaurant = models.ForeignKey('Restaurant')
+    number = models.CharField(blank=False, max_length=10, unique=True)
