@@ -36,7 +36,18 @@ class OpeningHours(models.Model):
         verbose_name_plural = "opening hours"
         ordering = ['restaurant', 'day']
 
+    def __unicode__(self):
+        return '{} | {} | {:%H:%M} | {:%H:%M}'.format(
+            self.restaurant,
+            self.get_day_display(),
+            self.opening_from,
+            self.opening_to
+        )
+
 
 class PhoneNumber(models.Model):
     restaurant = models.ForeignKey('Restaurant')
     number = models.CharField(blank=False, max_length=10, unique=True)
+
+    def __unicode__(self):
+        return '{} | {}'.format(self.restaurant, self.number)
