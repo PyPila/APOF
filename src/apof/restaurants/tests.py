@@ -4,7 +4,7 @@ from datetime import time
 from django.test import TestCase
 from django.urls import reverse
 
-from .models import Restaurant
+from restaurants.models import Restaurant
 
 
 class RestaurantTestCase(TestCase):
@@ -21,12 +21,10 @@ class RestaurantListTestCase(TestCase):
 
     def test_restaurants_list(self):
         restaurant1 = Restaurant.objects.create(
-            name='test restaurant2', opening_from=time(10), opening_to=time(18),
-            logo=tempfile.NamedTemporaryFile(suffix='.jpg').name
+            name='test restaurant2', logo=tempfile.NamedTemporaryFile(suffix='.jpg').name
         )
         restaurant2 = Restaurant.objects.create(
-            name='test restaurant1', opening_from=time(10), opening_to=time(18),
-            logo=tempfile.NamedTemporaryFile(suffix='.jpg').name
+            name='test restaurant1', logo=tempfile.NamedTemporaryFile(suffix='.jpg').name
         )
         restaurants_list_url = reverse('restaurant-list')
         response = self.client.get(restaurants_list_url)
