@@ -1,59 +1,34 @@
 <!DOCTYPE html>
-{% load staticfiles %}
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <link rel="icon" href="../../favicon.ico">
-        <title>APOF</title>
-
-        <!-- Bootstrap with material -->
-        <link rel="stylesheet" href="{% static "portal/css/material.min.css" %}">
-
-        <!-- Fontello fonts -->
-        <link rel="stylesheet" href="{% static "portal/css/font-awesome/css/font-awesome.min.css" %}">
-
-        <!-- Custom styles for this template -->
-        <link rel="stylesheet" href="{% static "portal/css/style.css" %}">
-        <link rel="stylesheet" href="{% static "portal/css/topbar.css" %}">
-        <link rel="stylesheet" href="{% static "portal/css/sidebar.css" %}">
-        <link rel="stylesheet" href="{% static "portal/css/mobile.css" %}">
-    </head>
-
-    <body>
-        <div class="container-fluid">
-            <!--NAVIGATION -->
-            <div class="row">
-                {% include "portal/topbar.html" %}
-            </div>
-            <div class="row">
-                <div id="wrapper">
-                    <!-- SIDEBAR -->
-                    {% include "portal/sidebar.html" %}
-
-                    <!-- CONTENT -->
-                    <div id="content-wrapper">
-                        <div class="container">
-                            <div class="col-lg-12">
-                                {% block content %}
-                                {% endblock content %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
 
     <!--BOOTSTRAP SCRIPTS -->
-    <script src="{% static "portal/js/jquery-3.1.1.min.js" %}" ></script>
-    <script src="{% static "portal/js/tether.min.js" %}"></script>
-    <script src="{% static "portal/js/bootstrap.min.js" %}"></script>
-    <!--Material script -->
-    <script src="{% static "portal/js/material.min.js" %}"></script>
-    <!--Script for sidebar hidding -->
-    <script src="{% static "portal/js/index.js" %}"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
+    <title>APOF</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <div id="content-wrapper">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <p class="lead">test</p>
+            {% block content %}
+            {% endblock %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
