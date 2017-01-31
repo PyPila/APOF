@@ -1,15 +1,29 @@
 {% extends 'restaurants/base.html' %}
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'restaurants/css/hover.css' %}"/>
+{% endblock %}
 {% block content %}
     <div class="container">
         <div class="card-deck">
             {% for restaurant in restaurants %}
                 <div class="col-12 col-sm-6 col-md-4">
+                    <a href= "#">
                     <div class="card">
-                        <img class="card-img-top img-fluid" src="{{ restaurant.logo.url }}" alt="Card image cap" style="width: 100%">
-                        <div class="card-block">
-                            <h3 class="card-text" style="text-align: center;">{{ restaurant.name }}</h3>
+                        <div class="hovereffect">
+                            <img class="card-img-top img-fluid" src="{{ restaurant.logo.url }}" alt="Card image cap" style="width: 100%">
+                            <div class="overlay">
+                                {% for phone in restaurant.phonenumber_set.all %}
+                                    <h2>{{ phone.number }}</h2>
+                                {% endfor %}
+                                <h2>{{ restaurant.opening_hours.0.opening_from|time:"H:i" }} - {{ restaurant.opening_hours.0.opening_to|time:"H:i" }}</h2>
+                            </div>
+                            <div class="card-block">
+                                <h3 class="card-text" style="text-align: center;">{{ restaurant.name }}</h3>
+                            </div>
                         </div>
                     </div>
+                </a>
                 </div>
             {% endfor %}
         </div>
