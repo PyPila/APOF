@@ -87,7 +87,7 @@
         "restaurant": 2,
         "day": 4,
         "opening_from": "10:00:00",
-        "opening_to": "02:00:00",
+        "opening_to": "05:00:00",
         "ordering_from": null
     }
 },
@@ -109,7 +109,7 @@
         "restaurant": 2,
         "day": 6,
         "opening_from": "10:00:00",
-        "opening_to": "05:00:00",
+        "opening_to": "00:00:00",
         "ordering_from": null
     }
 },
@@ -118,9 +118,9 @@
     "pk": 7,
     "fields": {
         "restaurant": 2,
-        "day": 7,
+        "day": 0,
         "opening_from": "10:00:00",
-        "opening_to": "00:00:00",
+        "opening_to": "02:00:00",
         "ordering_from": null
     }
 },
@@ -175,7 +175,7 @@
         "restaurant": 4,
         "day": 5,
         "opening_from": "10:00:00",
-        "opening_to": "20:00:00",
+        "opening_to": "17:00:00",
         "ordering_from": null
     }
 },
@@ -184,9 +184,9 @@
     "pk": 13,
     "fields": {
         "restaurant": 4,
-        "day": 6,
+        "day": 0,
         "opening_from": "10:00:00",
-        "opening_to": "17:00:00",
+        "opening_to": "20:00:00",
         "ordering_from": null
     }
 },
@@ -239,8 +239,8 @@
     "pk": 18,
     "fields": {
         "restaurant": 1,
-        "day": 7,
-        "opening_from": "12:00:00",
+        "day": 0,
+        "opening_from": "11:00:00",
         "opening_to": "22:00:00",
         "ordering_from": null
     }
@@ -307,7 +307,7 @@
         "restaurant": 3,
         "day": 4,
         "opening_from": "11:00:00",
-        "opening_to": "22:00:00",
+        "opening_to": "23:00:00",
         "ordering_from": null
     }
 },
@@ -329,7 +329,7 @@
         "restaurant": 3,
         "day": 6,
         "opening_from": "12:00:00",
-        "opening_to": "23:00:00",
+        "opening_to": "22:00:00",
         "ordering_from": null
     }
 },
@@ -338,8 +338,8 @@
     "pk": 27,
     "fields": {
         "restaurant": 3,
-        "day": 7,
-        "opening_from": "12:00:00",
+        "day": 0,
+        "opening_from": "11:00:00",
         "opening_to": "22:00:00",
         "ordering_from": null
     }
@@ -384,7 +384,7 @@
         "restaurant": 5,
         "day": 4,
         "opening_from": "11:00:00",
-        "opening_to": "22:00:00",
+        "opening_to": "23:00:00",
         "ordering_from": null
     }
 },
@@ -405,8 +405,8 @@
     "fields": {
         "restaurant": 5,
         "day": 6,
-        "opening_from": "11:00:00",
-        "opening_to": "23:00:00",
+        "opening_from": "12:00:00",
+        "opening_to": "22:00:00",
         "ordering_from": null
     }
 },
@@ -415,8 +415,8 @@
     "pk": 34,
     "fields": {
         "restaurant": 5,
-        "day": 7,
-        "opening_from": "12:00:00",
+        "day": 0,
+        "opening_from": "11:00:00",
         "opening_to": "22:00:00",
         "ordering_from": null
     }
@@ -492,7 +492,7 @@
     "pk": 41,
     "fields": {
         "restaurant": 6,
-        "day": 7,
+        "day": 0,
         "opening_from": "10:00:00",
         "opening_to": "19:15:00",
         "ordering_from": null

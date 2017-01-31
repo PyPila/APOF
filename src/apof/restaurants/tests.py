@@ -25,7 +25,7 @@ class OpeningHoursTestCase(TestCase):
         )
         opening_hours = OpeningHours(
             restaurant=restaurant,
-            day=1,
+            day=0,
             opening_from=time(10),
             opening_to=time(20, 30)
         )
