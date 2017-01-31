@@ -1,28 +1,29 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html lang="en">
     <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
-    <title>APOF</title>
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="{% static "portal/css/bootstrap.min.css" %}">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="../../favicon.ico">
+        <title>APOF</title>
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="{% static "portal/css/bootstrap.min.css" %}">
     </head>
 
     <body>
-    <div id="content-wrapper">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <p class="lead">test</p>
-                    {% block content %}
-                    {% endblock %}
+        <div id="content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p class="lead">test</p>
+                        {% block content %}
+                        {% endblock %}
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     </body>
     <!--BOOTSTRAP SCRIPTS -->
     <script src="{% static "portal/js/jquery-3.1.1.min.js" %}" ></script>
