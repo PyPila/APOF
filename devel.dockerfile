@@ -8,6 +8,6 @@ WORKDIR /run/service
 RUN pip install -U pip
 RUN pip install -I -e .[develop] --process-dependency-links
 
-WORKDIR /run/service/src
+WORKDIR /run/service/src/apof
 ENTRYPOINT ["python", "manage.py"]
 CMD ["runserver", "0.0.0.0:8000"]
