@@ -7,15 +7,15 @@ from menus.models import (
     Price,
     Restaurant,
     Size,
-    Topping,
+    Topping
 )
 
 
 class RestaurantTestCase(TestCase):
 
     def test_string_representation(self):
-        expected_result = name = 'Test restaurant'
-        restaurant = Restaurant(name=name)
+        expected_result = 'Test restaurant'
+        restaurant = Restaurant(name=expected_result)
         self.assertEqual(str(restaurant), expected_result)
 
 
@@ -29,7 +29,7 @@ class MenuTestCase(TestCase):
 
 class SizeTestCase(TestCase):
 
-    def test_string_representation_returns_default_if_description_and_value_is_empty(self):
+    def test_string_representation_returns_default_if_desc_and_value_is_empty(self):
         menu = Menu(restaurant=Restaurant(name='test restaurant'))
         size = Size(menu=menu)
         expected_result = 'Normal size'

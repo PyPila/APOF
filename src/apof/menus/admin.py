@@ -5,10 +5,10 @@ from .models import (
     Ingredient,
     Meal,
     Menu,
-    Topping,
     Price,
     Restaurant,
     Size,
+    Topping
 )
 
 
@@ -20,7 +20,7 @@ class MealAdmin(admin.ModelAdmin):
     inlines = [
         PriceInline
     ]
-    list_display = ('name', 'menu',)
+    list_display = ('name', 'menu')
     list_filter = ('menu',)
 
 
