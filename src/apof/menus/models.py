@@ -11,12 +11,18 @@ class Restaurant(models.Model):
     def __unicode__(self):
         return self.name
 
+    def __repr__(self):
+        return '{} (Name: {})'.format(self.__class__.__name__, self.name)
+
 
 class Menu(models.Model):
     restaurant = models.OneToOneField(Restaurant, blank=False, on_delete=models.CASCADE)
 
     def __unicode__(self):
-        return '{}'.format(self.restaurant)
+        return self.restaurant.name
+
+    def __repr__(self):
+        return '{}(Restaurant: {})'.format(self.__class__.__name__, self.restaurant.name)
 
 
 class Size(models.Model):
@@ -34,22 +40,39 @@ class Size(models.Model):
         else:
             return self.description
 
+    def __repr__(self):
+        return '{}(Menu: {}, Description: {}, Value: {}{})'.format(
+            self.__class__.__name__,
+            self.menu,
+            self.description,
+            self.value,
+            self.value_unit
+        )
+
 
 class Meal(models.Model):
     menu = models.ForeignKey(Menu, blank=False, on_delete=models.CASCADE)
     name = models.CharField(max_length=150, blank=False)
     ingredients = models.ManyToManyField('Ingredient', blank=True)
-
     prices = GenericRelation('Price')
+
+    class Meta:
+        unique_together = ('menu', 'name')
 
     def __unicode__(self):
         return '{} | {}'.format(self.menu, self.name)
+
+    def __repr__(self):
+        return '{}(Menu: {}, Name: {})'.format(
+            self.__class__.__name__,
+            str(self.menu),
+            self.name
+        )
 
 
 class Topping(models.Model):
     menu = models.ForeignKey(Menu, blank=False, on_delete=models.CASCADE)
     ingredient = models.ForeignKey('Ingredient', blank=True, on_delete=models.PROTECT)
-
     prices = GenericRelation('Price')
 
     class Meta:
@@ -58,12 +81,22 @@ class Topping(models.Model):
     def __unicode__(self):
         return '{} | {}'.format(self.menu, self.ingredient)
 
+    def __repr__(self):
+        return '{}(Menu: {}, Igredient: {})'.format(
+            self.__class__.__name__,
+            str(self.menu),
+            self.ingredient
+        )
+
 
 class Ingredient(models.Model):
     name = models.CharField(max_length=100, blank=True, unique=True)
 
     def __unicode__(self):
         return self.name
+
+    def __repr__(self):
+        return '{}(Name: {})'.format(self.__class__.__name__, self.name)
 
 
 class Price(models.Model):
@@ -76,3 +109,11 @@ class Price(models.Model):
 
     def __unicode__(self):
         return str(self.value)
+
+    def __repr__(self):
+        return '{}(Value: {}, Size:{}, Object: {})'.format(
+            self.__class__.__name__,
+            self.value,
+            str(self.size),
+            self.content_object
+        )

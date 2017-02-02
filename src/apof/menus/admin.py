@@ -21,7 +21,7 @@ class MealAdmin(admin.ModelAdmin):
         PriceInline
     ]
     list_display = ('name', 'menu')
-    list_filter = ('menu',)
+    list_filter = ('menu', )
 
 
 class ToppingAdmin(admin.ModelAdmin):
@@ -29,7 +29,7 @@ class ToppingAdmin(admin.ModelAdmin):
         PriceInline
     ]
     list_display = ('ingredient', 'menu')
-    list_filter = ('menu',)
+    list_filter = ('menu', )
 
 
 class PriceAdmin(admin.ModelAdmin):
@@ -50,7 +50,7 @@ class RestaurantAdmin(admin.ModelAdmin):
 
 class SizeAdmin(admin.ModelAdmin):
     list_display = ('description', 'value', 'value_unit', 'menu')
-    list_filter = ('menu',)
+    list_filter = ('menu', )
 
 
 admin.site.register(Ingredient, IngredientAdmin)
