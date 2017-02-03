@@ -506,6 +506,22 @@
 },
 {
     "model": "restaurants.phonenumber",
+    "pk": 1,
+    "fields": {
+        "restaurant": 1,
+        "number": "673431365"
+    }
+},
+{
+    "model": "restaurants.phonenumber",
+    "pk": 2,
+    "fields": {
+        "restaurant": 1,
+        "number": "504907920"
+    }
+},
+{
+    "model": "restaurants.phonenumber",
     "pk": 3,
     "fields": {
         "restaurant": 2,
@@ -550,22 +566,6 @@
     "fields": {
         "restaurant": 4,
         "number": "673515566"
-    }
-},
-{
-    "model": "restaurants.phonenumber",
-    "pk": 9,
-    "fields": {
-        "restaurant": 1,
-        "number": "673431365"
-    }
-},
-{
-    "model": "restaurants.phonenumber",
-    "pk": 10,
-    "fields": {
-        "restaurant": 1,
-        "number": "504907920"
     }
 }
 ]

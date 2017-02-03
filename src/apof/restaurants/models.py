@@ -6,11 +6,13 @@ from django.db import models
 class Restaurant(models.Model):
     name = models.CharField(blank=False, max_length=50, unique=True)
     logo = models.ImageField(blank=False, upload_to='logos/')
-
     website = models.URLField(max_length=200, blank=True)
 
     def __unicode__(self):
         return self.name
+
+    def __repr__(self):
+        return '{}(Name: {})'.format(self.__class__.__name__, self.name)
 
 
 WEEKDAYS = [
@@ -46,6 +48,13 @@ class OpeningHours(models.Model):
             self.opening_to
         )
 
+    def __repr__(self):
+        return '{}(Restaurant: {}, Day: {})'.format(
+            self.__class__.__name__,
+            self.restaurant.name,
+            self.day
+        )
+
 
 class PhoneNumber(models.Model):
     restaurant = models.ForeignKey('Restaurant')
@@ -53,3 +62,10 @@ class PhoneNumber(models.Model):
 
     def __unicode__(self):
         return '{} | {}'.format(self.restaurant, self.number)
+
+    def __repr__(self):
+        return '{}(Restaurant: {}, Number: {})'.format(
+            self.__class__.__name__,
+            self.restaurant.name,
+            self.number
+        )
