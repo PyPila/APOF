@@ -1,5 +1,5 @@
 body{
-    margin-top: 54px;
+    padding-top: 54px;
  }
 
 .navbar-toggler{
@@ -48,9 +48,8 @@ body{
 
 #content-wrapper{
     width: 100%;
-    padding-top: 40px;
-    padding-right: 200px;
-    padding-left: 200px;
+    padding-right: 100px;
+    padding-left: 100px;
     position: absolute;
 }
 

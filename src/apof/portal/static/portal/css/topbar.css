@@ -1,7 +1,6 @@
 #top-nav{
     opacity: 0.95;
     background-color: #00aca9;
-    position: fixed-top;
     padding-bottom: 5px;
    -webkit-transition: width 0.5s ease-in-out;
     -moz-transition: width 0.5s ease-in-out;
@@ -10,16 +9,29 @@
     width:100%;
 }
 
-#sec-top-bar{
-    border-radius: 50%;
-    margin-left: 90%;
-    width:20%;
+.navbar-header{
+    float:left;
+}
+
+#right-bar{
+    right:0;
+    padding-right: 20px;
+    position:fixed;
 }
 
 #avatar{
     border-radius: 50%;
     width:39px;
-    height:39px;
+    height:39px; 
+    right:20px;
+}
+
+#cart{
+    width:39px;
+    height: 39px;
+    right:100px;
+    position:fixed;
+    padding: 0;
 }
 
 #avatar-menu{
