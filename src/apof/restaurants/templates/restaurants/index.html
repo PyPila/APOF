@@ -1,7 +1,6 @@
 {% extends 'restaurants/base.html' %}
 {% load static %}
 {% block content %}
-<!--<div class="container-row">-->
     <div class="row">
         {% for restaurant in restaurants %}
             <div class="col-xl-3 col-sm-6 col-md-4">
@@ -22,13 +21,13 @@
                             <h6>{{ restaurant.opening_hours.0.opening_from|time:"H:i" }} - {{ restaurant.opening_hours.0.opening_to|time:"H:i" }}</h6>
                         </div>
                         <footer class="card-footer">
-                            <span class="float-left">
+                            <span style="float: left!important;">
                                 {% if restaurant.website %}
                                     <a href="{{ restaurant.website }}" class="btn btn-primary" style="margin: 5px 0px;">Website</a>
                                 {% endif %}
                             </span>
-                            <span class="float-right">
-                                <a href="#" class="btn btn-raised btn-primary"><i class="material-icons">arrow_forward</i><div class="ripple-container"></div></a>
+                            <span style="float: right!important;">
+                                <a href="#" class="btn btn-raised btn-primary"><i class="material-icons">arrow_forward</i></a>
                             </span>
                         </footer>
                     </div>
@@ -36,5 +35,4 @@
             </div>
         {% endfor %}
     </div>
-<!--</div>-->
 {% endblock content %}
