@@ -1,31 +1,40 @@
 {% extends 'restaurants/base.html' %}
 {% load static %}
-{% block style %}
-    <link rel="stylesheet" href="{% static 'restaurants/css/hover.css' %}"/>
-{% endblock %}
 {% block content %}
-    <div class="container">
-        <div class="card-deck">
-            {% for restaurant in restaurants %}
-                <div class="col-12 col-sm-6 col-md-4">
-                    <a href= "#">
-                    <div class="card">
-                        <div class="hovereffect">
-                            <img class="card-img-top img-fluid" src="{{ restaurant.logo.url }}" alt="Card image cap" style="width: 100%">
-                            <div class="overlay">
-                                {% for phone in restaurant.phonenumber_set.all %}
-                                    <h2>{{ phone.number }}</h2>
-                                {% endfor %}
-                                <h2>{{ restaurant.opening_hours.0.opening_from|time:"H:i" }} - {{ restaurant.opening_hours.0.opening_to|time:"H:i" }}</h2>
-                            </div>
-                            <div class="card-block">
-                                <h3 class="card-text" style="text-align: center;">{{ restaurant.name }}</h3>
-                            </div>
+<!--<div class="container-row">-->
+    <div class="row">
+        {% for restaurant in restaurants %}
+            <div class="col-xl-3 col-sm-6 col-md-4">
+                <div class="card" >
+                    <div class="card-content">
+                        <div class="card-image">
+                            <img class="card-img-top img-fluid" src="{{ restaurant.logo.url }}" alt="Card image cap" style="width: 255px; height: 255px; margin: 0 auto;">
                         </div>
+                        <div class="card-body" style="padding: 12px 8px;">
+                            <h5>{{ restaurant.name }}</h5>
+                            {% for phone in restaurant.phonenumber_set.all %}
+                                {% if forloop.first %}<h6>{% endif %}
+                                    {{ phone.number }}
+                                {% if forloop.last %}</h6>{% else %}, {% endif %}
+                            {% empty %}
+                                <h6>No phone number.</h6>
+                            {% endfor %}
+                            <h6>{{ restaurant.opening_hours.0.opening_from|time:"H:i" }} - {{ restaurant.opening_hours.0.opening_to|time:"H:i" }}</h6>
+                        </div>
+                        <footer class="card-footer">
+                            <span class="float-left">
+                                {% if restaurant.website %}
+                                    <a href="{{ restaurant.website }}" class="btn btn-primary" style="margin: 5px 0px;">Website</a>
+                                {% endif %}
+                            </span>
+                            <span class="float-right">
+                                <a href="#" class="btn btn-raised btn-primary"><i class="material-icons">arrow_forward</i><div class="ripple-container"></div></a>
+                            </span>
+                        </footer>
                     </div>
-                </a>
                 </div>
-            {% endfor %}
-        </div>
+            </div>
+        {% endfor %}
     </div>
+<!--</div>-->
 {% endblock content %}
