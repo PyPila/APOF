@@ -4,7 +4,8 @@
     "pk": 1,
     "fields": {
         "name": "Da Grasso",
-        "logo": "logos/yogi_logo.png"
+        "logo": "logos/dagrasso_500_500.jpg",
+        "website": "https://www.dagrasso.pl/pila"
     }
 },
 {
@@ -12,7 +13,8 @@
     "pk": 2,
     "fields": {
         "name": "Kuchnia Turecka",
-        "logo": "logos/yogi_logo.png"
+        "logo": "logos/python_logo.png",
+        "website": "http://kebabturka.pila.pl/"
     }
 },
 {
@@ -20,7 +22,8 @@
     "pk": 3,
     "fields": {
         "name": "La Gondola",
-        "logo": "logos/yogi_logo.png"
+        "logo": "logos/python_logo.png",
+        "website": "http://www.lagondola.pl/"
     }
 },
 {
@@ -28,7 +31,8 @@
     "pk": 4,
     "fields": {
         "name": "Apetyt",
-        "logo": "logos/yogi_logo.png"
+        "logo": "logos/python_logo.png",
+        "website": ""
     }
 },
 {
@@ -36,7 +40,8 @@
     "pk": 5,
     "fields": {
         "name": "Yogi",
-        "logo": "logos/yogi_logo.png"
+        "logo": "logos/yogi_500_500.png",
+        "website": "http://yogipizza.pila.pl/"
     }
 },
 {
@@ -44,7 +49,8 @@
     "pk": 6,
     "fields": {
         "name": "Bar Moona",
-        "logo": "logos/yogi_logo.png"
+        "logo": "logos/python_logo.png",
+        "website": "https://pyszne.pl/bar-moona-pila#!menu"
     }
 },
 {

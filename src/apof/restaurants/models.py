@@ -7,6 +7,8 @@ class Restaurant(models.Model):
     name = models.CharField(blank=False, max_length=50, unique=True)
     logo = models.ImageField(blank=False, upload_to='logos/')
 
+    website = models.URLField(max_length=200, blank=True)
+
     def __unicode__(self):
         return self.name
 
