@@ -1,0 +1,13 @@
+@media (max-width:599px){
+    .card
+    {
+        margin-bottom: .5rem;
+    }
+}
+
+#restaurant_logo {
+    display: block;
+    margin: auto;
+    width: 255px;
+    height: 255px;
+}

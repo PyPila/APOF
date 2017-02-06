@@ -1,15 +1,20 @@
 {% extends 'restaurants/base.html' %}
 {% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'restaurants/css/list.css' %}"/>
+{% endblock style %}
+
 {% block content %}
     <div class="row">
         {% for restaurant in restaurants %}
             <div class="col-xl-3 col-sm-6 col-md-4">
-                <div class="card" >
-                    <div class="card-content">
-                        <div class="card-image">
-                            <img class="card-img-top img-fluid" src="{{ restaurant.logo.url }}" alt="Card image cap" style="width: 255px; height: 255px; margin: 0 auto;">
+                <div class="card-deck">
+                    <div class="card" >
+                        <div class="card-image mx-auto">
+                            <img id="restaurant_logo" class="card-img-top img-fluid" src="{{ restaurant.logo.url }}" alt="Card image cap">
                         </div>
-                        <div class="card-body" style="padding: 12px 8px;">
+                        <div class="card-block">
                             <h5>{{ restaurant.name }}</h5>
                             {% for phone in restaurant.phonenumber_set.all %}
                                 {% if forloop.first %}<h6>{% endif %}
@@ -20,16 +25,16 @@
                             {% endfor %}
                             <h6>{{ restaurant.opening_hours.0.opening_from|time:"H:i" }} - {{ restaurant.opening_hours.0.opening_to|time:"H:i" }}</h6>
                         </div>
-                        <footer class="card-footer">
-                            <span style="float: left!important;">
-                                {% if restaurant.website %}
-                                    <a href="{{ restaurant.website }}" class="btn btn-primary" style="margin: 5px 0px;">Website</a>
-                                {% endif %}
+                        <div class="card-footer">
+                            {% if restaurant.website %}
+                                <span class="float-left">
+                                    <a href="{{ restaurant.website }}" target="_blank" class="btn btn-raised btn-success">Website</a>
+                                </span>
+                            {% endif %}
+                            <span class="float-right">
+                                <a href="#" class="btn btn-raised btn-success"><i class="material-icons">arrow_forward</i></a>
                             </span>
-                            <span style="float: right!important;">
-                                <a href="#" class="btn btn-raised btn-primary"><i class="material-icons">arrow_forward</i></a>
-                            </span>
-                        </footer>
+                        </div>
                     </div>
                 </div>
             </div>

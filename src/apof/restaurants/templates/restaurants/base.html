@@ -10,7 +10,8 @@
         <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
 
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="{% static 'css/bootstrap-material-design.css' %}"/>
+        <link rel="stylesheet" href="{% static 'css/material.min.css' %}"/>
+
         {% block style %}
         {% endblock %}
     </head>
@@ -19,6 +20,5 @@
             {% block content %}
             {% endblock %}
         </div>
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     </body>
 </html>
