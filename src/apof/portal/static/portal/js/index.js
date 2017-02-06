@@ -8,9 +8,9 @@ $(document).ready(function () {
 
     $(window).scroll(function() {
         if ($(this).scrollTop() > 50) {
-            $('#top-nav').addClass('fade');
+            $('#top-nav').addClass('fades');
         } else {
-            $('#top-nav').removeClass('fade');
+            $('#top-nav').removeClass('fades');
         }
     });
 });

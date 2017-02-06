@@ -9,8 +9,8 @@
         <link rel="icon" href="../../favicon.ico">
         <title>APOF</title>
 
-        <!-- Bootstrap -->
-        <link rel="stylesheet" href="{% static "portal/css/bootstrap.min.css" %}">
+        <!-- Bootstrap with material -->
+        <link rel="stylesheet" href="{% static "portal/css/material.min.css" %}">
 
         <!-- Fontello fonts -->
         <link rel="stylesheet" type="text/css" href="{% static "portal/css/fontello/css/fontello.css" %}">
@@ -23,7 +23,7 @@
     </head>
 
     <body>
-        <div class="container">
+        <div class="container-fluid">
             <!--NAVIGATION -->
             <div class="row">
                 {% include "portal/topbar.html" %}
@@ -37,7 +37,6 @@
                     <div id="content-wrapper">
                         <div class="container">
                             <div class="col-lg-12">
-                                <h1>Lorem Ipsum</h1>
                                 {% block content %}
                                 {% endblock content %}
                             </div>
@@ -52,7 +51,8 @@
     <script src="{% static "portal/js/jquery-3.1.1.min.js" %}" ></script>
     <script src="{% static "portal/js/tether.min.js" %}"></script>
     <script src="{% static "portal/js/bootstrap.min.js" %}"></script>
-
+    <!--Material script -->
+    <script src="{% static "portal/js/material.min.js" %}"></script>
     <!--Script for sidebar hidding -->
     <script src="{% static "portal/js/index.js" %}"></script>
 

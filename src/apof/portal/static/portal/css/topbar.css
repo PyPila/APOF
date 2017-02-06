@@ -1,12 +1,18 @@
 #top-nav{
+    padding-top: 9px;
     opacity: 0.95;
     background-color: #00aca9;
-    padding-bottom: 5px;
    -webkit-transition: width 0.5s ease-in-out;
     -moz-transition: width 0.5s ease-in-out;
     -o-transition: width 0.5s ease-in-out;
     transition: width 0.5s ease-in-out;
     width:100%;
+}
+
+#menu-hamburger{
+    font-size:18px;
+    text-decoration: none;
+    color:black;
 }
 
 .navbar-header{
@@ -27,18 +33,21 @@
 }
 
 #cart{
+    font-size:26px;
+    text-decoration: none;
     width:39px;
     height: 39px;
     right:100px;
     position:fixed;
     padding: 0;
+    color: black;
 }
 
 #avatar-menu{
     margin-right: 60%;
 }
 
-#top-nav.fade{
+#top-nav.fades{
     width: 210px;
 }
 

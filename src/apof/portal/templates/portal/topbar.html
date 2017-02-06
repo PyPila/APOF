@@ -1,31 +1,31 @@
 {% load staticfiles %}
 <nav class="navbar fixed-top navbar-light" id="top-nav">
-    <div class="navbar-header">
+    <div class="nav">
         <a id="menu-toggle" href="#">
             <button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <i class="icon-menu" id="menu-hamburger"></i>
             </button>
         </a>
         <div class="navbar-brand">
             <a href="#">Apof</a>
         </div>
+        <ul class="nav" id="right-bar">
+            <li class="nav-item">
+                <a href="#" class="nav-link" id="cart">
+                    <i class="icon-basket"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" id="avatar" aria-expanded="false" style="background-image: url({% static "portal/images/avatar.jpg" %});">
+                </a>
+                <div class="dropdown-menu dropdown-menu-right mr-auto" id="avatar-menu">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Admin panel</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Logout</a>
+                </div>
+            </li>
+        </ul>
     </div>
-    <ul class="navbar-nav" id="right-bar">
-        <li class="nav-item">
-            <a href="#" class="nav-link" id="cart">
-                <i class="icon-basket"></i>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" id="avatar" aria-expanded="false" style="background-image: url({% static "portal/images/avatar.jpg" %});">
-            </a>
-            <div class="dropdown-menu dropdown-menu-right mr-auto" id="avatar-menu">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Admin panel</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Logout</a>
-            </div>
-        </li>
-    </ul>
 </nav>
