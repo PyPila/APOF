@@ -10,7 +10,8 @@
 }
 
 #menu-hamburger{
-    font-size:18px;
+    text-align: center;
+    font-size:26px;
     text-decoration: none;
     color:black;
 }
@@ -33,6 +34,8 @@
 }
 
 #cart{
+    text-align: center;
+    border-radius: 50%;
     font-size:26px;
     text-decoration: none;
     width:39px;
@@ -41,6 +44,12 @@
     position:fixed;
     padding: 0;
     color: black;
+}
+
+#cart:hover{
+    background-color: black;
+    color: white;
+    transition: all 1s ease;
 }
 
 #avatar-menu{
