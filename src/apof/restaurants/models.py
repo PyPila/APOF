@@ -3,6 +3,17 @@ from __future__ import unicode_literals
 from django.db import models
 
 
+WEEKDAYS = [
+    (0, 'Monday'),
+    (1, 'Tuesday'),
+    (2, 'Wednesday'),
+    (3, 'Thursday'),
+    (4, 'Friday'),
+    (5, 'Saturday'),
+    (6, 'Sunday')
+]
+
+
 class Restaurant(models.Model):
     name = models.CharField(blank=False, max_length=50, unique=True)
     logo = models.ImageField(blank=False, upload_to='logos/')
@@ -13,17 +24,6 @@ class Restaurant(models.Model):
 
     def __repr__(self):
         return '{}(Name: {})'.format(self.__class__.__name__, self.name)
-
-
-WEEKDAYS = [
-    (0, 'Monday'),
-    (1, 'Tuesday'),
-    (2, 'Wednesday'),
-    (3, 'Thursday'),
-    (4, 'Friday'),
-    (5, 'Saturday'),
-    (6, 'Sunday')
-]
 
 
 class OpeningHours(models.Model):
