@@ -8,8 +8,19 @@
         <meta name="author" content="">
         <link rel="icon" href="../../favicon.ico">
         <title>APOF</title>
-        <!-- Bootstrap core CSS -->
-        <link rel="stylesheet" href="{% static "portal/css/bootstrap.min.css" %}">
+        <!-- Bootstrap with material -->
+        <link rel="stylesheet" href="{% static "portal/css/material.min.css" %}">
+
+        <!-- Fontello fonts -->
+        <link rel="stylesheet" href="{% static "portal/css/font-awesome/css/font-awesome.min.css" %}">
+
+        <!-- Custom styles for this template -->
+        <link rel="stylesheet" href="{% static "portal/css/style.css" %}">
+        <link rel="stylesheet" href="{% static "portal/css/topbar.css" %}">
+        <link rel="stylesheet" href="{% static "portal/css/sidebar.css" %}">
+        <link rel="stylesheet" href="{% static "portal/css/mobile.css" %}">
+        {% block style %}
+        {% endblock %}
     </head>
 
     <body>
