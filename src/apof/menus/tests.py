@@ -5,18 +5,10 @@ from menus.models import (
     Meal,
     Menu,
     Price,
-    Restaurant,
     Size,
     Topping
 )
-
-
-class RestaurantTestCase(TestCase):
-
-    def test_string_representation(self):
-        expected_result = 'Test restaurant'
-        restaurant = Restaurant(name=expected_result)
-        self.assertEqual(str(restaurant), expected_result)
+from restaurants.models import Restaurant
 
 
 class MenuTestCase(TestCase):

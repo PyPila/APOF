@@ -1,0 +1,66 @@
+#top-nav{
+    padding-top: 9px;
+    opacity: 0.95;
+    background-color: #00aca9;
+   -webkit-transition: width 0.5s ease-in-out;
+    -moz-transition: width 0.5s ease-in-out;
+    -o-transition: width 0.5s ease-in-out;
+    transition: width 0.5s ease-in-out;
+    width:100%;
+}
+
+#menu-hamburger{
+    text-align: center;
+    font-size:26px;
+    text-decoration: none;
+    color:black;
+}
+
+.navbar-header{
+    float:left;
+}
+
+#right-bar{
+    right:0;
+    padding-right: 20px;
+    position:fixed;
+}
+
+#avatar{
+    border-radius: 50%;
+    width:39px;
+    height:39px; 
+    right:20px;
+}
+
+#cart{
+    text-align: center;
+    border-radius: 50%;
+    font-size:26px;
+    text-decoration: none;
+    width:39px;
+    height: 39px;
+    right:100px;
+    position:fixed;
+    padding: 0;
+    color: black;
+}
+
+#cart:hover{
+    background-color: black;
+    color: white;
+    transition: all 1s ease;
+}
+
+#avatar-menu{
+    margin-right: 60%;
+}
+
+#top-nav.fades{
+    width: 210px;
+}
+
+.navbar-brand a{
+    color: white;
+    text-decoration: none;
+}

@@ -1,26 +1,5 @@
 [
 {
-    "model": "menus.restaurant",
-    "pk": 1,
-    "fields": {
-        "name": "Da Grasso"
-    }
-},
-{
-    "model": "menus.restaurant",
-    "pk": 2,
-    "fields": {
-        "name": "La Gondola"
-    }
-},
-{
-    "model": "menus.restaurant",
-    "pk": 3,
-    "fields": {
-        "name": "Apetyt"
-    }
-},
-{
     "model": "menus.menu",
     "pk": 1,
     "fields": {
@@ -31,14 +10,14 @@
     "model": "menus.menu",
     "pk": 2,
     "fields": {
-        "restaurant": 2
+        "restaurant": 3
     }
 },
 {
     "model": "menus.menu",
     "pk": 3,
     "fields": {
-        "restaurant": 3
+        "restaurant": 4
     }
 },
 {

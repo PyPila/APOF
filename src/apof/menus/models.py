@@ -4,15 +4,7 @@ from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelatio
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
 
-
-class Restaurant(models.Model):
-    name = models.CharField(max_length=50, blank=False, unique=True)
-
-    def __unicode__(self):
-        return self.name
-
-    def __repr__(self):
-        return '{} (Name: {})'.format(self.__class__.__name__, self.name)
+from restaurants.models import Restaurant
 
 
 class Menu(models.Model):
