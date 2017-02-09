@@ -10,11 +10,8 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 install_requires = [
     'django>=1.10',
     'mysql-python==1.2.5',
-<<<<<<< HEAD
-    'social-auth-app-django==1.0.1',
-=======
     'pillow==4.0.0',
->>>>>>> master
+    'social-auth-app-django==1.0.1',
 ]
 develop_requires = [
     'pdbpp',
