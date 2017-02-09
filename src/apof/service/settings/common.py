@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'portal',
+    'restaurants',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -62,6 +63,7 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
+                'django.template.context_processors.media',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -122,9 +124,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
+STATICFILES_DIRS = [
+    os.path.abspath(os.path.join(BASE_DIR, '..', 'static'))
+]
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, '..', '..', '..', '..', 'static')
+STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, '..', '..', '..', '..', 'static'))
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, '..', '..', '..', '..', 'media')
+MEDIA_ROOT = os.path.abspath(os.path.join(BASE_DIR, '..', '..', '..', 'media'))
