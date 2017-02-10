@@ -56,7 +56,7 @@ class Meal(models.Model):
     def __repr__(self):
         return '{}(Menu: {}, Name: {})'.format(
             self.__class__.__name__,
-            str(self.menu),
+            self.menu,
             self.name
         )
 
@@ -75,7 +75,7 @@ class Topping(models.Model):
     def __repr__(self):
         return '{}(Menu: {}, Igredient: {})'.format(
             self.__class__.__name__,
-            str(self.menu),
+            self.menu,
             self.ingredient
         )
 
