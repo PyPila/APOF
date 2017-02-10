@@ -33,10 +33,9 @@ class Size(models.Model):
             return self.description
 
     def __repr__(self):
-        return '{}(Menu: {}, Description: {}, Value: {}{})'.format(
+        return '{}(Menu: {}, Value: {}{})'.format(
             self.__class__.__name__,
             self.menu,
-            self.description,
             self.value,
             self.value_unit
         )
@@ -103,9 +102,8 @@ class Price(models.Model):
         return str(self.value)
 
     def __repr__(self):
-        return '{}(Value: {}, Size:{}, Object: {})'.format(
+        return '{}(Value: {}, Object: {})'.format(
             self.__class__.__name__,
             self.value,
-            str(self.size),
             self.content_object
         )
