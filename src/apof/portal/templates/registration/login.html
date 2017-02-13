@@ -14,9 +14,9 @@
         <img src="{% static "portal/images/stx_logo.png" %}" height="265" width="552" id="logo"></img>
     </row>
     <row>
-        <button class="btn btn-lg btn-primary btn-block" id="submit">
-            <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.META.QUERY_STRING }}">Login with Google</a>
-        </button>
+    <a class="btn btn-primary btn-lg" href="{% url 'social:begin' 'google-oauth2' %}?{{ request.META.QUERY_STRING }}" id="submit">
+        Login with Google
+    </a>
     </row>
 </div>
 {% endblock %}
