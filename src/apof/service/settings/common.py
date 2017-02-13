@@ -40,8 +40,8 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_WHITELISTED_DOMAINS = ['stxnext.pl']
 SOCIAL_AUTH_USER_MODEL = 'auth.User'
 
 LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'restaurant-list'
-SOCIAL_AUTH_LOGIN_REDIRECT_URL = 'restaurant-list'
+LOGIN_REDIRECT_URL = 'home'
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = 'home'
 
 
 # Application definition

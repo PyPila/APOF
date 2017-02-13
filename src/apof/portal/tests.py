@@ -18,10 +18,10 @@ class IndexTestCase(TestCase):
             '{}{}{}'.format(reverse('login'), '?next=', reverse('home'))
         )
 
-    def test_logged_user_is_not_redirected(self):
+    def test_logged_user_is_redirected_to_restaurant_view(self):
         self.client.force_login(self.user)
         response = self.client.get(reverse('home'))
-        self.assertEqual(response.status_code, 200)
+        self.assertRedirects(response, '/restaurants/')
 
 
 class LoginTestCase(TestCase):
@@ -36,10 +36,15 @@ class LoginTestCase(TestCase):
         response = self.client.get(reverse('login'))
         self.assertEqual(response.status_code, 200)
 
-    def test_logged_user_is_redirected_to_index_view(self):
+    def test_logged_user_is_redirected_to_restaurant_view(self):
         self.client.force_login(self.user)
         response = self.client.get(reverse('login'))
-        self.assertRedirects(response, reverse('home'))
+        self.assertRedirects(
+            response,
+            reverse('home'),
+            status_code=302,
+            target_status_code=302
+        )
 
 
 class LogoutTestCase(TestCase):
