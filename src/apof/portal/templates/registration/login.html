@@ -1,5 +1,22 @@
 {% extends "portal/base.html" %}
+{% load staticfiles %}
 
-{% block content %}
-    <a href="{% url "social:begin" "google-oauth2" %}">Login with Google</a>
+{% block style %}
+<link rel="stylesheet" href="{% static "portal/css/login.css" %}">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <row>
+    <h1 class="display-1 text-center">Apof lunch app</h1>
+    </row>
+    <row>
+        <img src="{% static "portal/images/stx_logo.png" %}" height="265" width="552" id="logo"></img>
+    </row>
+    <row>
+        <button class="btn btn-lg btn-primary btn-block" id="submit">
+            <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.META.QUERY_STRING }}">Login with Google</a>
+        </button>
+    </row>
+</div>
 {% endblock %}
