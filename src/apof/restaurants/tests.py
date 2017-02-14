@@ -47,12 +47,10 @@ class PhoneNumberTestCase(TestCase):
 
 
 class RestaurantListTestCase(TestCase):
+    fixtures = ['test-user-data.json']
 
     def setUp(self):
-        self.user = User.objects.create_user(
-            username='christopher',
-            email='christopher@wp.pl',
-        )
+        self.user = User.objects.get(username='christopher')
 
     def test_anonymous_user_is_redirected_to_login_view(self):
         response = self.client.get(reverse('restaurant-list'))

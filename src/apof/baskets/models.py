@@ -2,7 +2,6 @@ from __future__ import unicode_literals
 
 from django.contrib.auth.models import User
 from django.db import models
-from django.utils import timezone
 
 from menus.models import Meal, Size, Topping
 
@@ -26,8 +25,8 @@ class Basket(models.Model):
     def __unicode__(self):
         return '{} {}'.format(self.__class__.__name__, self.owner.username)
 
-    def __repr_(self):
-        return '{} (Owner: {})'.format(self.__class_.__name__, self.owner)
+    def __repr__(self):
+        return '{} (Owner: {})'.format(self.__class__.__name__, self.owner)
 
 
 class Order(models.Model):
@@ -44,12 +43,11 @@ class Order(models.Model):
         ordering = ['-created_at']
 
     def __unicode__(self):
-        return '{} {} {}'.format(self.basket.owner, self.meal, self.created_at)
+        return '{} {}'.format(self.basket.owner, self.meal.name)
 
-    def __repr_(self):
-        return '{} (Basket {}, Meal: {}, Created at: {})'.format(
+    def __repr__(self):
+        return '{} (Basket: {}, Meal: {})'.format(
             self.__class__.__name__,
             self.basket.pk,
-            self.meal,
-            self.created_at
+            self.meal.name
         )
