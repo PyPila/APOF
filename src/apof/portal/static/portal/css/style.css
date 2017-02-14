@@ -1,5 +1,5 @@
 body{
-    padding-top: 64px;
+    padding-top: 94px;
 }
 
 .navbar-toggler{
@@ -42,6 +42,10 @@ body{
 }
 
 @media(max-width:768px){
+    body{
+        padding-top: 64px;
+    }
+
     #content-wrapper{
         padding: 0;
         padding-top: 20px;
