@@ -8,7 +8,7 @@ class OrderAdmin(admin.ModelAdmin):
 
 
 class BasketAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('owner', 'created_at')
 
 
 admin.site.register(Basket, BasketAdmin)

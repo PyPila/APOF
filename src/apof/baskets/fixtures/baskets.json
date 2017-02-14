@@ -39,7 +39,8 @@
     "fields": {
         "owner": [
             "john.doe"
-        ]
+        ],
+        "created_at": "2017-02-13"
     }
 },
 {
@@ -48,20 +49,31 @@
     "fields": {
         "owner": [
             "juan.perez"
-        ]
+        ],
+        "created_at": "2017-02-13"
+    }
+},
+{
+    "model": "baskets.basket",
+    "pk": 3,
+    "fields": {
+        "owner": [
+            "john.doe"
+        ],
+        "created_at": "2017-02-14"
     }
 },
 {
     "model": "baskets.order",
-    "pk": 5,
+    "pk": 1,
     "fields": {
         "status": 0,
         "meal": 3,
         "size": 8,
         "quantity": 1,
-        "basket": 1,
-        "created_at": "2017-02-13T13:44:41.566Z",
-        "edited_at": "2017-02-13T13:44:41.566Z",
+        "basket": 3,
+        "created_at": "2017-02-14T13:44:41.566Z",
+        "edited_at": "2017-02-14T13:54:40.624Z",
         "toppings": [
             4,
             5
@@ -70,7 +82,7 @@
 },
 {
     "model": "baskets.order",
-    "pk": 6,
+    "pk": 2,
     "fields": {
         "status": 0,
         "meal": 4,
@@ -84,7 +96,7 @@
 },
 {
     "model": "baskets.order",
-    "pk": 7,
+    "pk": 3,
     "fields": {
         "status": 0,
         "meal": 16,
@@ -101,15 +113,15 @@
 },
 {
     "model": "baskets.order",
-    "pk": 8,
+    "pk": 4,
     "fields": {
         "status": 0,
         "meal": 5,
         "size": 2,
         "quantity": 1,
-        "basket": 1,
-        "created_at": "2017-02-13T13:53:38.997Z",
-        "edited_at": "2017-02-13T13:53:38.997Z",
+        "basket": 3,
+        "created_at": "2017-02-14T13:53:38.997Z",
+        "edited_at": "2017-02-14T14:34:35.725Z",
         "toppings": [
             12,
             14
@@ -118,7 +130,7 @@
 },
 {
     "model": "baskets.order",
-    "pk": 9,
+    "pk": 5,
     "fields": {
         "status": 0,
         "meal": 3,
@@ -136,7 +148,7 @@
 },
 {
     "model": "baskets.order",
-    "pk": 10,
+    "pk": 6,
     "fields": {
         "status": 0,
         "meal": 12,
@@ -147,6 +159,22 @@
         "edited_at": "2017-02-13T14:24:31.848Z",
         "toppings": [
             3
+        ]
+    }
+},
+{
+    "model": "baskets.order",
+    "pk": 7,
+    "fields": {
+        "status": 0,
+        "meal": 3,
+        "size": 3,
+        "quantity": 1,
+        "basket": 3,
+        "created_at": "2017-02-14T10:01:18.571Z",
+        "edited_at": "2017-02-14T10:01:18.571Z",
+        "toppings": [
+            2
         ]
     }
 }

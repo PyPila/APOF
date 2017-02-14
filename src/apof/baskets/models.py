@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 
 from django.contrib.auth.models import User
 from django.db import models
+from django.utils import timezone
 
 from menus.models import Meal, Size, Topping
 
@@ -15,13 +16,12 @@ ORDER_STATUS = (
 
 
 class Basket(models.Model):
-    owner = models.OneToOneField(
-        User,
-        blank=False,
-        null=True,
-        on_delete=models.PROTECT,
-        unique=True
-    )
+    owner = models.ForeignKey(User, blank=False, null=True, on_delete=models.PROTECT)
+    created_at = models.DateField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_at']
+        unique_together = ('owner', 'created_at')
 
     def __unicode__(self):
         return '{} {}'.format(self.__class__.__name__, self.owner.username)
@@ -47,9 +47,9 @@ class Order(models.Model):
         return '{} {} {}'.format(self.basket.owner, self.meal, self.created_at)
 
     def __repr_(self):
-        return '{} ( Basket {}, Meal: {}, Created at: {})'.format(
+        return '{} (Basket {}, Meal: {}, Created at: {})'.format(
             self.__class__.__name__,
-            self.basket,
+            self.basket.pk,
             self.meal,
             self.created_at
         )
