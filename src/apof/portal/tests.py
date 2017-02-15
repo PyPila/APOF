@@ -4,7 +4,7 @@ from django.urls import reverse
 
 
 class IndexTestCase(TestCase):
-    fixtures = ['test-user-data.json']
+    fixtures = ['test_user_data.json']
 
     def test_anonymous_user_is_redirected_to_login_view(self):
         response = self.client.get(reverse('home'))
@@ -20,7 +20,7 @@ class IndexTestCase(TestCase):
 
 
 class LoginTestCase(TestCase):
-    fixtures = ['test-user-data.json']
+    fixtures = ['test_user_data.json']
 
     def test_anonymous_user_is_not_redirected(self):
         response = self.client.get(reverse('login'))
@@ -33,7 +33,7 @@ class LoginTestCase(TestCase):
 
 
 class LogoutTestCase(TestCase):
-    fixtures = ['test-user-data.json']
+    fixtures = ['test_user_data.json']
 
     def test_user_logout(self):
         self.client.force_login(User.objects.get(username='christopher'))

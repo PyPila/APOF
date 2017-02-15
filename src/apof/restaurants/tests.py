@@ -47,7 +47,7 @@ class PhoneNumberTestCase(TestCase):
 
 
 class RestaurantListTestCase(TestCase):
-    fixtures = ['test-user-data.json']
+    fixtures = ['test_user_data.json']
 
     def setUp(self):
         self.user = User.objects.get(username='christopher')

@@ -7,7 +7,7 @@ from restaurants.models import Restaurant
 
 
 class BasketTest(TestCase):
-    fixtures = ['test-user-data.json']
+    fixtures = ['test_user_data.json']
 
     def test_string_representation(self):
         basket = Basket(owner=User.objects.get(username='christopher'))
@@ -15,7 +15,7 @@ class BasketTest(TestCase):
 
 
 class OrderTest(TestCase):
-    fixtures = ['test-user-data.json']
+    fixtures = ['test_user_data.json']
 
     def test_string_representation(self):
         basket = Basket(owner=User.objects.get(username='christopher'))
