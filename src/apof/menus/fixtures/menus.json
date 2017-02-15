@@ -341,7 +341,7 @@
     "pk": 4,
     "fields": {
         "menu": 1,
-        "ingredient": 2
+        "ingredient": 30
     }
 },
 {
@@ -349,7 +349,7 @@
     "pk": 5,
     "fields": {
         "menu": 1,
-        "ingredient": 6
+        "ingredient": 3
     }
 },
 {
@@ -660,283 +660,1102 @@
     }
 },
 {
+    "model": "menus.ingredient",
+    "pk": 30,
+    "fields": {
+        "name": "cebula czerwona"
+    }
+},
+{
     "model": "menus.price",
-    "pk": 1,
+    "pk": 36,
     "fields": {
         "value": "7.00",
         "size": 7,
-        "content_type": 8,
+        "content_type": [
+            "menus",
+            "meal"
+        ],
         "object_id": 16
     }
 },
 {
     "model": "menus.price",
-    "pk": 2,
+    "pk": 37,
     "fields": {
         "value": "15.00",
         "size": 7,
-        "content_type": 8,
+        "content_type": [
+            "menus",
+            "meal"
+        ],
         "object_id": 15
     }
 },
 {
     "model": "menus.price",
-    "pk": 3,
+    "pk": 38,
     "fields": {
         "value": "12.00",
         "size": 7,
-        "content_type": 8,
+        "content_type": [
+            "menus",
+            "meal"
+        ],
         "object_id": 14
     }
 },
 {
     "model": "menus.price",
-    "pk": 4,
+    "pk": 39,
     "fields": {
         "value": "20.00",
         "size": 7,
-        "content_type": 8,
+        "content_type": [
+            "menus",
+            "meal"
+        ],
         "object_id": 13
     }
 },
 {
     "model": "menus.price",
-    "pk": 5,
+    "pk": 40,
     "fields": {
         "value": "20.00",
         "size": 7,
-        "content_type": 8,
+        "content_type": [
+            "menus",
+            "meal"
+        ],
         "object_id": 12
     }
 },
 {
     "model": "menus.price",
-    "pk": 7,
+    "pk": 41,
+    "fields": {
+        "value": "14.20",
+        "size": 8,
+        "content_type": [
+            "menus",
+            "meal"
+        ],
+        "object_id": 4
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 42,
     "fields": {
         "value": "20.70",
         "size": 5,
-        "content_type": 8,
+        "content_type": [
+            "menus",
+            "meal"
+        ],
         "object_id": 4
     }
 },
 {
     "model": "menus.price",
-    "pk": 8,
+    "pk": 43,
     "fields": {
         "value": "24.70",
         "size": 6,
-        "content_type": 8,
+        "content_type": [
+            "menus",
+            "meal"
+        ],
         "object_id": 4
     }
 },
 {
     "model": "menus.price",
-    "pk": 10,
+    "pk": 44,
+    "fields": {
+        "value": "13.20",
+        "size": 5,
+        "content_type": [
+            "menus",
+            "meal"
+        ],
+        "object_id": 3
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 45,
     "fields": {
         "value": "19.50",
-        "size": 5,
-        "content_type": 8,
+        "size": 6,
+        "content_type": [
+            "menus",
+            "meal"
+        ],
         "object_id": 3
     }
 },
 {
     "model": "menus.price",
-    "pk": 11,
+    "pk": 46,
     "fields": {
         "value": "22.90",
-        "size": 6,
-        "content_type": 8,
+        "size": 3,
+        "content_type": [
+            "menus",
+            "meal"
+        ],
         "object_id": 3
     }
 },
 {
     "model": "menus.price",
-    "pk": 13,
+    "pk": 47,
+    "fields": {
+        "value": "13.80",
+        "size": 8,
+        "content_type": [
+            "menus",
+            "meal"
+        ],
+        "object_id": 2
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 48,
     "fields": {
         "value": "20.20",
         "size": 5,
-        "content_type": 8,
+        "content_type": [
+            "menus",
+            "meal"
+        ],
         "object_id": 2
     }
 },
 {
     "model": "menus.price",
-    "pk": 14,
+    "pk": 49,
     "fields": {
         "value": "23.90",
         "size": 6,
-        "content_type": 8,
+        "content_type": [
+            "menus",
+            "meal"
+        ],
         "object_id": 2
     }
 },
 {
     "model": "menus.price",
-    "pk": 16,
+    "pk": 50,
     "fields": {
-        "value": "13.80",
-        "size": 5,
-        "content_type": 8,
+        "value": "9.90",
+        "size": 8,
+        "content_type": [
+            "menus",
+            "meal"
+        ],
         "object_id": 1
     }
 },
 {
     "model": "menus.price",
-    "pk": 17,
+    "pk": 51,
+    "fields": {
+        "value": "15.60",
+        "size": 5,
+        "content_type": [
+            "menus",
+            "meal"
+        ],
+        "object_id": 1
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 52,
     "fields": {
         "value": "18.10",
         "size": 6,
-        "content_type": 8,
+        "content_type": [
+            "menus",
+            "meal"
+        ],
         "object_id": 1
     }
 },
 {
     "model": "menus.price",
-    "pk": 18,
+    "pk": 53,
     "fields": {
         "value": "22.90",
         "size": 1,
-        "content_type": 8,
+        "content_type": [
+            "menus",
+            "meal"
+        ],
         "object_id": 11
     }
 },
 {
     "model": "menus.price",
-    "pk": 19,
+    "pk": 54,
     "fields": {
         "value": "42.60",
         "size": 2,
-        "content_type": 8,
+        "content_type": [
+            "menus",
+            "meal"
+        ],
         "object_id": 11
     }
 },
 {
     "model": "menus.price",
-    "pk": 21,
+    "pk": 55,
+    "fields": {
+        "value": "56.50",
+        "size": 3,
+        "content_type": [
+            "menus",
+            "meal"
+        ],
+        "object_id": 11
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 56,
     "fields": {
         "value": "18.40",
         "size": 1,
-        "content_type": 8,
+        "content_type": [
+            "menus",
+            "meal"
+        ],
         "object_id": 10
     }
 },
 {
     "model": "menus.price",
-    "pk": 22,
+    "pk": 57,
     "fields": {
         "value": "34.30",
         "size": 2,
-        "content_type": 8,
+        "content_type": [
+            "menus",
+            "meal"
+        ],
         "object_id": 10
     }
 },
 {
     "model": "menus.price",
-    "pk": 23,
+    "pk": 58,
     "fields": {
         "value": "48.40",
         "size": 3,
-        "content_type": 8,
+        "content_type": [
+            "menus",
+            "meal"
+        ],
         "object_id": 10
     }
 },
 {
     "model": "menus.price",
-    "pk": 24,
+    "pk": 59,
+    "fields": {
+        "value": "20.30",
+        "size": 1,
+        "content_type": [
+            "menus",
+            "meal"
+        ],
+        "object_id": 9
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 60,
+    "fields": {
+        "value": "37.60",
+        "size": 2,
+        "content_type": [
+            "menus",
+            "meal"
+        ],
+        "object_id": 9
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 61,
+    "fields": {
+        "value": "51.70",
+        "size": 3,
+        "content_type": [
+            "menus",
+            "meal"
+        ],
+        "object_id": 9
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 62,
+    "fields": {
+        "value": "20.30",
+        "size": 1,
+        "content_type": [
+            "menus",
+            "meal"
+        ],
+        "object_id": 8
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 63,
+    "fields": {
+        "value": "37.60",
+        "size": 2,
+        "content_type": [
+            "menus",
+            "meal"
+        ],
+        "object_id": 8
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 64,
+    "fields": {
+        "value": "51.90",
+        "size": 3,
+        "content_type": [
+            "menus",
+            "meal"
+        ],
+        "object_id": 8
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 65,
+    "fields": {
+        "value": "16.90",
+        "size": 1,
+        "content_type": [
+            "menus",
+            "meal"
+        ],
+        "object_id": 7
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 66,
+    "fields": {
+        "value": "32.90",
+        "size": 2,
+        "content_type": [
+            "menus",
+            "meal"
+        ],
+        "object_id": 7
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 67,
+    "fields": {
+        "value": "44.50",
+        "size": 3,
+        "content_type": [
+            "menus",
+            "meal"
+        ],
+        "object_id": 7
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 68,
+    "fields": {
+        "value": "14.70",
+        "size": 1,
+        "content_type": [
+            "menus",
+            "meal"
+        ],
+        "object_id": 6
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 69,
+    "fields": {
+        "value": "28.60",
+        "size": 2,
+        "content_type": [
+            "menus",
+            "meal"
+        ],
+        "object_id": 6
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 70,
+    "fields": {
+        "value": "38.70",
+        "size": 3,
+        "content_type": [
+            "menus",
+            "meal"
+        ],
+        "object_id": 6
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 71,
     "fields": {
         "value": "12.60",
         "size": 1,
-        "content_type": 8,
+        "content_type": [
+            "menus",
+            "meal"
+        ],
         "object_id": 5
     }
 },
 {
     "model": "menus.price",
-    "pk": 25,
+    "pk": 72,
     "fields": {
         "value": "24.30",
         "size": 2,
-        "content_type": 8,
+        "content_type": [
+            "menus",
+            "meal"
+        ],
         "object_id": 5
     }
 },
 {
     "model": "menus.price",
-    "pk": 26,
+    "pk": 73,
     "fields": {
         "value": "31.00",
         "size": 3,
-        "content_type": 8,
+        "content_type": [
+            "menus",
+            "meal"
+        ],
         "object_id": 5
     }
 },
 {
     "model": "menus.price",
-    "pk": 27,
+    "pk": 74,
     "fields": {
         "value": "6.00",
         "size": 7,
-        "content_type": 12,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
         "object_id": 19
     }
 },
 {
     "model": "menus.price",
-    "pk": 29,
+    "pk": 75,
     "fields": {
         "value": "3.00",
         "size": 7,
-        "content_type": 12,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
         "object_id": 17
     }
 },
 {
     "model": "menus.price",
-    "pk": 30,
+    "pk": 76,
     "fields": {
         "value": "3.00",
         "size": 7,
-        "content_type": 12,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
         "object_id": 16
     }
 },
 {
     "model": "menus.price",
-    "pk": 32,
+    "pk": 77,
     "fields": {
-        "value": "14.20",
-        "size": 8,
-        "content_type": 8,
-        "object_id": 4
+        "value": "3.50",
+        "size": 1,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 15
     }
 },
 {
     "model": "menus.price",
-    "pk": 33,
+    "pk": 78,
     "fields": {
-        "value": "13.20",
+        "value": "6.00",
+        "size": 2,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 15
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 79,
+    "fields": {
+        "value": "8.00",
+        "size": 3,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 15
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 80,
+    "fields": {
+        "value": "3.50",
+        "size": 1,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 13
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 81,
+    "fields": {
+        "value": "6.00",
+        "size": 2,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 13
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 82,
+    "fields": {
+        "value": "8.00",
+        "size": 3,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 13
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 83,
+    "fields": {
+        "value": "3.50",
+        "size": 1,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 12
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 84,
+    "fields": {
+        "value": "6.00",
+        "size": 2,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 12
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 85,
+    "fields": {
+        "value": "8.00",
+        "size": 3,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 12
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 86,
+    "fields": {
+        "value": "3.50",
+        "size": 1,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 11
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 87,
+    "fields": {
+        "value": "6.00",
+        "size": 2,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 11
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 88,
+    "fields": {
+        "value": "8.00",
+        "size": 3,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 11
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 89,
+    "fields": {
+        "value": "4.50",
         "size": 8,
-        "content_type": 8,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 10
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 90,
+    "fields": {
+        "value": "5.50",
+        "size": 5,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 10
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 91,
+    "fields": {
+        "value": "6.50",
+        "size": 6,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 10
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 92,
+    "fields": {
+        "value": "3.50",
+        "size": 1,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 9
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 93,
+    "fields": {
+        "value": "6.00",
+        "size": 2,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 9
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 94,
+    "fields": {
+        "value": "8.00",
+        "size": 3,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 9
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 95,
+    "fields": {
+        "value": "2.00",
+        "size": 1,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 8
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 96,
+    "fields": {
+        "value": "2.00",
+        "size": 2,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 8
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 97,
+    "fields": {
+        "value": "2.00",
+        "size": 3,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 8
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 98,
+    "fields": {
+        "value": "2.00",
+        "size": 1,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 7
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 99,
+    "fields": {
+        "value": "2.00",
+        "size": 2,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 7
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 100,
+    "fields": {
+        "value": "2.00",
+        "size": 3,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 7
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 101,
+    "fields": {
+        "value": "2.50",
+        "size": 1,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 6
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 102,
+    "fields": {
+        "value": "3.50",
+        "size": 2,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 6
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 103,
+    "fields": {
+        "value": "4.50",
+        "size": 3,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 6
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 104,
+    "fields": {
+        "value": "4.00",
+        "size": 7,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
         "object_id": 3
     }
 },
 {
     "model": "menus.price",
-    "pk": 34,
+    "pk": 105,
     "fields": {
-        "value": "13.80",
+        "value": "3.50",
         "size": 8,
-        "content_type": 8,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
         "object_id": 2
     }
 },
 {
     "model": "menus.price",
-    "pk": 35,
+    "pk": 106,
     "fields": {
-        "value": "9.90",
+        "value": "4.50",
+        "size": 5,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 2
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 107,
+    "fields": {
+        "value": "5.50",
+        "size": 6,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 2
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 108,
+    "fields": {
+        "value": "0.50",
         "size": 8,
-        "content_type": 8,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
         "object_id": 1
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 109,
+    "fields": {
+        "value": "1.00",
+        "size": 5,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 1
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 110,
+    "fields": {
+        "value": "1.50",
+        "size": 6,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 1
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 111,
+    "fields": {
+        "value": "2.50",
+        "size": 1,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 14
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 112,
+    "fields": {
+        "value": "3.50",
+        "size": 2,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 14
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 113,
+    "fields": {
+        "value": "4.50",
+        "size": 3,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 14
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 114,
+    "fields": {
+        "value": "0.50",
+        "size": 8,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 5
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 115,
+    "fields": {
+        "value": "1.00",
+        "size": 5,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 5
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 116,
+    "fields": {
+        "value": "1.50",
+        "size": 6,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 5
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 117,
+    "fields": {
+        "value": "0.50",
+        "size": 8,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 4
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 118,
+    "fields": {
+        "value": "1.00",
+        "size": 5,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 4
+    }
+},
+{
+    "model": "menus.price",
+    "pk": 119,
+    "fields": {
+        "value": "1.50",
+        "size": 6,
+        "content_type": [
+            "menus",
+            "topping"
+        ],
+        "object_id": 4
     }
 }
 ]
