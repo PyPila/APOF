@@ -12,9 +12,9 @@
     padding: 0;
 
     -webkit-transition: all .5s ease;
-       -moz-transition: all .5s ease;
-         -o-transition: all .5s ease;
-            transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
     white-space: nowrap;
 
     opacity: .95;
@@ -35,7 +35,6 @@
     position: absolute;
     top: 0;
 
-   
     margin: 0;
     padding: 0;
 
@@ -89,9 +88,9 @@
 
     content: '';
     -webkit-transition: width .2s ease-in;
-       -moz-transition: width .2s ease-in;
-        -ms-transition: width .2s ease-in;
-            transition: width .2s ease-in;
+    -moz-transition: width .2s ease-in;
+    -ms-transition: width .2s ease-in;
+    transition: width .2s ease-in;
 
     background-color: #1c1c1c;
 }
@@ -105,9 +104,9 @@
     width: 100%;
 
     -webkit-transition: width .2s ease-in;
-       -moz-transition: width .2s ease-in;
-        -ms-transition: width .2s ease-in;
-            transition: width .2s ease-in;
+    -moz-transition: width .2s ease-in;
+    -ms-transition: width .2s ease-in;
+    transition: width .2s ease-in;
 }
 
 .sidebar-nav li a:hover,
