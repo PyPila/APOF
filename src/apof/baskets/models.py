@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 
 from django.contrib.auth.models import User
 from django.db import models
+from django.db.models import Sum
 
 from menus.models import Meal, Size, Topping
 
@@ -51,3 +52,14 @@ class Order(models.Model):
             self.basket.pk,
             self.meal.name
         )
+
+    def get_restaurant_name(self):
+        return self.meal.menu.restaurant.name
+
+    def get_total_price(self):
+        meal_price = self.meal.prices.values('value').get(size=self.size)
+        toppings_price = self.toppings.filter(prices__size=self.size).aggregate(Sum('prices__value'))
+        total_price = meal_price['value']
+        if toppings_price['prices__value__sum']:
+            total_price += toppings_price['prices__value__sum']
+        return total_price
