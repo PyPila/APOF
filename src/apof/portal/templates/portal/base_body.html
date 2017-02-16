@@ -1,0 +1,27 @@
+{% extends "portal/base.html" %}
+{% load staticfiles %}
+
+{% block body %}
+    <div class="container-fluid">
+        <!--NAVIGATION -->
+        <div class="row">
+            {% include "portal/topbar.html" %}
+        </div>
+        <div class="row">
+            <div id="wrapper">
+                <!-- SIDEBAR -->
+                {% include "portal/sidebar.html" %}
+
+                <!-- CONTENT -->
+                <div id="content-wrapper">
+                    <div class="container">
+                        <div class="col-lg-12">
+                            {% block content %}
+                            {% endblock %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -18,35 +18,15 @@
         <link rel="stylesheet" href="{% static "portal/css/style.css" %}">
         <link rel="stylesheet" href="{% static "portal/css/topbar.css" %}">
         <link rel="stylesheet" href="{% static "portal/css/sidebar.css" %}">
-        <link rel="stylesheet" href="{% static "portal/css/mobile.css" %}">
         {% block style %}
         {% endblock %}
     </head>
 
     <body>
-        <div class="container-fluid">
-            <!--NAVIGATION -->
-            <div class="row">
-                {% include "portal/topbar.html" %}
-            </div>
-            <div class="row">
-                <div id="wrapper">
-                    <!-- SIDEBAR -->
-                    {% include "portal/sidebar.html" %}
-
-                    <!-- CONTENT -->
-                    <div id="content-wrapper">
-                        <div class="container">
-                            <div class="col-lg-12">
-                                {% block content %}
-                                {% endblock content %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% block body %}
+        {% endblock %}
     </body>
+
     <!--BOOTSTRAP SCRIPTS -->
     <script src="{% static "portal/js/jquery-3.1.1.min.js" %}" ></script>
     <script src="{% static "portal/js/tether.min.js" %}"></script>
