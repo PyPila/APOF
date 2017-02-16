@@ -32,6 +32,7 @@
 }
 
 #avatar{
+    z-index: 1000;
     right: 20px;
 
     width: 39px;
