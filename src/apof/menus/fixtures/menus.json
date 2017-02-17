@@ -779,7 +779,7 @@
         "pk":44,
         "fields":{
             "value":"13.20",
-            "size":5,
+            "size":8,
             "content_type":[
                 "menus",
                 "meal"
@@ -792,7 +792,7 @@
         "pk":45,
         "fields":{
             "value":"19.50",
-            "size":6,
+            "size":5,
             "content_type":[
                 "menus",
                 "meal"
@@ -805,7 +805,7 @@
         "pk":46,
         "fields":{
             "value":"22.90",
-            "size":3,
+            "size":6,
             "content_type":[
                 "menus",
                 "meal"
