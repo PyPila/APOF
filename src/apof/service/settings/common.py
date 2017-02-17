@@ -25,7 +25,7 @@ SECRET_KEY = 'cipp!me0m1s+xbe=8%v@rol$w#31mt5bj#91@nc@f9t*dcxw^5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Google authentication
@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'baskets',
     'menus',
     'portal',
     'restaurants',
