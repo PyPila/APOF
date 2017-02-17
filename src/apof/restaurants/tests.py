@@ -22,6 +22,17 @@ class RestaurantTestCase(TestCase):
             test_restaurant_name
         )
 
+    @patch('django.core.files.storage.default_storage._wrapped')
+    def test_get_phone_numbers(self, mocked_storage):
+        restaurant = Restaurant.objects.create(name='test restaurant2', logo=file_mock)
+        number1 = '012345678'
+        number2 = '876543210'
+        PhoneNumber.objects.bulk_create([
+            PhoneNumber(restaurant=restaurant, number=number1),
+            PhoneNumber(restaurant=restaurant, number=number2)
+        ])
+        self.assertEqual([number1, number2], restaurant.get_phone_numbers())
+
 
 class OpeningHoursTestCase(TestCase):
 
