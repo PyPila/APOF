@@ -1,6 +1,13 @@
 from django.contrib.auth.models import User
+from django.conf import settings
 from django.test import TestCase
 from django.urls import reverse
+
+from mock import patch, MagicMock
+from portal import pipeline
+from portal.models import UserProfile
+import shutil
+import tempfile
 
 
 class IndexTestCase(TestCase):
@@ -34,7 +41,7 @@ class LoginTestCase(TestCase):
             reverse('home'),
             status_code=302,
             target_status_code=302
-)
+        )
 
 
 class LogoutTestCase(TestCase):
@@ -47,4 +54,60 @@ class LogoutTestCase(TestCase):
         self.assertRedirects(
             response,
             '{}{}{}'.format(reverse('login'), '?next=', reverse('home'))
-)
+        )
+
+
+class UserProfileTestCase(TestCase):
+    fixtures = ['test_user_data.json']
+
+    def test_user_profile_is_automatically_created(self):
+        user = User.objects.get(username='christopher')
+        self.client.force_login(user)
+        self.assertIsInstance(
+            user.profile,
+            UserProfile
+        )
+
+    def test_user_profile_is_updated_on_user_save(self):
+        user = User.objects.get(username='christopher')
+        self.client.force_login(user)
+        user.username = 'christopherus'
+        user.save()
+        self.assertEqual(
+            user.profile.user.username,
+            'christopherus'
+        )
+
+
+class PipelineTestCase(TestCase):
+    fixtures = ['test_user_data.json']
+
+    def setUp(self):
+        """
+        Creates a temporary directory, and sets up response dict with 2 mocks
+        inside.
+        Those mocks are used to set function response['image'].get('url') to
+        return 'test'.
+        """
+        self.test_dir = tempfile.mkdtemp()
+        settings.MEDIA_ROOT = self.test_dir
+        self.backend_mock = MagicMock()
+        self.backend_mock.name = 'google-oauth2'
+        self.response_mock = {'image': MagicMock(get=MagicMock(side_effect=['test']))}
+
+    def tearDown(self):
+        shutil.rmtree(self.test_dir)
+
+    @patch('urllib2.urlopen')
+    def test_get_user_avatar(self, ContentFile_mock):
+        user = User.objects.get(username='christopher')
+        pipeline.get_avatar(
+            self.backend_mock,
+            None,
+            self.response_mock,
+            user,
+        )
+        self.assertEqual(
+            user.profile.avatar.url,
+            '/media/profiles/avatar.test'
+        )

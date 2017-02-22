@@ -8,13 +8,20 @@ from django.dispatch import receiver
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, related_name='profile')
-    avatar = models.URLField(max_length=140, blank=True)
+    avatar = models.ImageField(
+        max_length=140,
+        blank=True,
+        upload_to='profiles/'
+    )
 
     def get_avatar(self):
-        return self.avatar
+        return self.avatar.url
 
     def __str__(self):
         return 'Profile of user: {}'.format(self.user.username)
+
+    def __repr__(self):
+        return 'Profile of user: {}, Avatar: {}'.format(self.user.username, self.avatar)
 
 
 @receiver(post_save, sender=User)
