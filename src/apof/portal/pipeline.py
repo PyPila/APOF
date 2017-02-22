@@ -4,8 +4,10 @@ import urllib2
 
 def get_avatar(backend, strategy, response, user=None, *args, **kwargs):
     url = None
+
     if backend.name == 'google-oauth2':
         url = response['image'].get('url')
+
     if url:
         avatar = user.profile.avatar
         ext = url.split('.')[-1]
