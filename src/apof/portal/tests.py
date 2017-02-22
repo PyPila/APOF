@@ -1,13 +1,13 @@
-from django.contrib.auth.models import User
-from django.conf import settings
-from django.test import TestCase
-from django.urls import reverse
-
-from mock import patch, MagicMock
-from portal import pipeline
-from portal.models import UserProfile
 import shutil
 import tempfile
+
+from django.conf import settings
+from django.contrib.auth.models import User
+from django.test import TestCase
+from django.urls import reverse
+from mock import MagicMock, patch
+from portal import pipeline
+from portal.models import UserProfile
 
 
 class IndexTestCase(TestCase):
