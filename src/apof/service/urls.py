@@ -21,7 +21,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^portal/', include('portal.urls')),
-    url(r'^restaurants/', include('restaurants.urls'))
+    url(r'^restaurants/', include('restaurants.urls')),
+    url(r'^baskets/', include('baskets.urls'))
 ]
 
 if settings.DEBUG:

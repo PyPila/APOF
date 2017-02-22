@@ -47,9 +47,10 @@ class Order(models.Model):
         return '{} {}'.format(self.basket.owner, self.meal.name)
 
     def __repr__(self):
-        return '{} (Basket: {}, Meal: {})'.format(
+        return '{} (Basket: {}, Restaurant: {}, Meal: {})'.format(
             self.__class__.__name__,
             self.basket.pk,
+            self.meal.menu.restaurant,
             self.meal.name
         )
 

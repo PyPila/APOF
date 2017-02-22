@@ -1,0 +1,30 @@
+[
+    {
+        "model": "baskets.basket",
+        "pk": 1,
+        "fields": {
+            "owner": [
+                "john.doe"
+            ],
+            "created_at": "2017-02-13"
+        }
+    },
+    {
+        "model": "baskets.order",
+        "pk": 1,
+        "fields": {
+            "status": 0,
+            "meal": 3,
+            "size": 8,
+            "quantity": 1,
+            "basket": 3,
+            "created_at": "2017-02-14T13:44:41.566Z",
+            "edited_at": "2017-02-14T13:54:40.624Z",
+            "toppings": [
+                4,
+                5
+            ]
+        }
+    }
+]
+
