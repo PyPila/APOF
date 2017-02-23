@@ -1,6 +1,10 @@
 {% extends 'portal/base.html' %}
 {% load static get_item %}
 
+{% block style %}
+    <link rel="stylesheet" href="{% static 'baskets/css/badge.css' %}">
+{% endblock style %}
+
 {% block content %}
     <table class="table">
         {% regroup object_list by meal.menu.restaurant as restaurant_orders_list %}
