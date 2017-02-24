@@ -1,55 +1,67 @@
 #top-nav{
+    width: 100%;
     padding-top: 9px;
-    opacity: 0.95;
+
+    -webkit-transition: width .5s ease-in-out;
+    -moz-transition: width .5s ease-in-out;
+    -o-transition: width .5s ease-in-out;
+    transition: width .5s ease-in-out;
+
+    opacity: .95;
     background-color: #00aca9;
-   -webkit-transition: width 0.5s ease-in-out;
-    -moz-transition: width 0.5s ease-in-out;
-    -o-transition: width 0.5s ease-in-out;
-    transition: width 0.5s ease-in-out;
-    width:100%;
 }
 
 #menu-hamburger{
+    font-size: 26px;
+
     text-align: center;
-    font-size:26px;
     text-decoration: none;
-    color:black;
-}
 
-.navbar-header{
-    float:left;
-}
-
-#right-bar{
-    right:0;
-    padding-right: 20px;
-    position:fixed;
-}
-
-#avatar{
-    border-radius: 50%;
-    width:39px;
-    height:39px; 
-    right:20px;
-}
-
-#cart{
-    text-align: center;
-    border-radius: 50%;
-    font-size:26px;
-    text-decoration: none;
-    width:39px;
-    height: 39px;
-    right:100px;
-    position:fixed;
-    padding: 0;
     color: black;
 }
 
+.navbar-header{
+    float: left;
+}
+
+#right-bar{
+    position: fixed;
+    right: 0;
+
+    padding-right: 20px;
+}
+
+#avatar{
+    right: 20px;
+
+    width: 39px;
+    height: 39px;
+
+    border-radius: 50%;
+}
+
+#cart{
+    font-size: 26px;
+
+    position: fixed;
+    right: 100px;
+
+    width: 39px;
+    height: 39px;
+    padding: 0;
+
+    text-align: center;
+    text-decoration: none;
+
+    color: black;
+    border-radius: 50%;
+}
+
 #cart:hover{
-    background-color: black;
-    color: white;
     transition: all 1s ease;
+
+    color: white;
+    background-color: black;
 }
 
 #avatar-menu{
@@ -61,6 +73,19 @@
 }
 
 .navbar-brand a{
-    color: white;
     text-decoration: none;
+
+    color: white;
+}
+
+@media(max-width:768px){
+    #top-nav.fades{
+        width: 100%;
+    }
+
+    #sec-top-bar{
+        width: 20%;
+        margin-right: 10%;
+        margin-left: 80%;
+    }
 }
