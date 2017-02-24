@@ -7,6 +7,7 @@ from django.test import TestCase
 from mock import MagicMock, patch
 
 from baskets.models import Basket, Order
+from baskets.templatetags.get_item import get_item
 from baskets.views import OrderListView
 from menus.models import (
     Ingredient,
@@ -127,3 +128,11 @@ class OrderDeleteViewTestCase(OrderTestMixin):
         self.client.force_login(user)
         response = self.client.get(reverse('order-delete', kwargs={'pk': self.order.pk}))
         self.assertEqual(response.status_code, 200)
+
+
+class GetItemTagTestCase(TestCase):
+
+    def test_get_item(self):
+        test_dict = {'a': 1, '2': 'b'}
+        self.assertEqual(get_item(test_dict, 'a'), 1)
+        self.assertIsNone(get_item(test_dict, 'b'))
