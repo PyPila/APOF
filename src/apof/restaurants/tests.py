@@ -31,7 +31,10 @@ class RestaurantTestCase(TestCase):
             PhoneNumber(restaurant=restaurant, number=number1),
             PhoneNumber(restaurant=restaurant, number=number2)
         ])
-        self.assertEqual([number1, number2], restaurant.get_phone_numbers())
+        self.assertEqual(
+            [number1, number2],
+            restaurant.get_phone_numbers()
+        )
 
 
 class OpeningHoursTestCase(TestCase):
