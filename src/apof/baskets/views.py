@@ -32,4 +32,5 @@ class OrderListView(PermissionRequiredMixin, ListView):
 class OrderDeleteView(PermissionRequiredMixin, DeleteView):
     model = Order
     permission_required = ('baskets.delete_order', )
+    raise_exception = True
     success_url = reverse_lazy('order-list')

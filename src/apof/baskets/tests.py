@@ -8,7 +8,7 @@ from mock import MagicMock, patch
 
 from baskets.models import Basket, Order
 from baskets.templatetags.get_item import get_item
-from baskets.views import OrderListView
+from baskets.views import OrderDeleteView, OrderListView
 from menus.models import (
     Ingredient,
     Meal,
@@ -109,9 +109,9 @@ class OrderListViewTestCase(OrderTestMixin):
 class OrderDeleteViewTestCase(OrderTestMixin):
 
     def test_constants(self):
-        self.assertEqual(OrderListView.model, Order)
-        self.assertEqual(OrderListView.permission_required, ('baskets.delete_order', ))
-        self.assertEqual(OrderListView.ordering, ('meal__menu__restaurant', ))
+        self.assertEqual(OrderDeleteView.model, Order)
+        self.assertEqual(OrderDeleteView.permission_required, ('baskets.delete_order', ))
+        self.assertTrue(OrderDeleteView.raise_exception)
 
     def test_anonymous_user_gets_304(self):
         response = self.client.get(reverse('order-delete', kwargs={'pk': self.order.pk}))
