@@ -28,17 +28,21 @@
             {% for order in restaurant_orders.list %}
                 <tr>
                     <th scope="row"> {{ forloop.counter }}</th>
-                    <td><p class="badge
-                    {% if order.status == 0 %}
-                        badge-warning
-                    {% elif order.status == 1 %}
-                        badge-danger
-                    {% elif order.status == 2 %}
-                        badge-info
-                    {% elif order.status == 3 %}
-                        badge-success
-                    {% endif %}
-                    ">{{ order.get_status_display }}</p></td>
+                    <td>
+                        <p class="badge
+                            {% if order.status == 0 %}
+                                badge-warning
+                            {% elif order.status == 1 %}
+                                badge-danger
+                            {% elif order.status == 2 %}
+                                badge-info
+                            {% elif order.status == 3 %}
+                                badge-success
+                            {% endif %}
+                        ">
+                            {{ order.get_status_display }}
+                        </p>
+                    </td>
                     <td>{{ order.basket.owner }}</td>
                     <td>{{ order.get_restaurant_name }}</td>
                     <td>{{ order.meal.name }}</td>

@@ -20,8 +20,8 @@ class OrderListView(PermissionRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super(OrderListView, self).get_context_data(**kwargs)
         queryset = kwargs.pop('object_list', self.object_list)
-
         restaurants_total_sum = defaultdict(Decimal)
+
         for order in queryset:
             restaurants_total_sum[order.get_restaurant_name()] += order.get_total_price()
         context['restaurants_total_sum'] = restaurants_total_sum

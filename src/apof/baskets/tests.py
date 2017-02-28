@@ -28,8 +28,7 @@ class BasketTestCase(TestCase):
         self.assertEqual(str(basket), 'Basket christopher')
 
 
-class OrderTestMixin(TestCase):
-    fixtures = ['test_user_data.json']
+class OrderTestMixin:
 
     @patch('django.core.files.storage.default_storage._wrapped')
     def setUp(self, mocked_storage):
@@ -65,7 +64,8 @@ class OrderTestMixin(TestCase):
         self.order.toppings.set([test1_topping, test2_topping])
 
 
-class OrderTestCase(OrderTestMixin):
+class OrderTestCase(OrderTestMixin, TestCase):
+    fixtures = ['test_user_data.json']
 
     def test_string_representation(self):
         basket = Basket(owner=User.objects.get(username='christopher'))
@@ -81,7 +81,8 @@ class OrderTestCase(OrderTestMixin):
         self.assertEqual(self.order.get_total_price(), expected_total_price)
 
 
-class OrderListViewTestCase(OrderTestMixin):
+class OrderListViewTestCase(OrderTestMixin, TestCase):
+    fixtures = ['test_user_data.json']
 
     def test_constants(self):
         self.assertEqual(OrderListView.model, Order)
@@ -106,7 +107,8 @@ class OrderListViewTestCase(OrderTestMixin):
         self.assertEqual(response.status_code, 200)
 
 
-class OrderDeleteViewTestCase(OrderTestMixin):
+class OrderDeleteViewTestCase(OrderTestMixin, TestCase):
+    fixtures = ['test_user_data.json']
 
     def test_constants(self):
         self.assertEqual(OrderDeleteView.model, Order)
