@@ -2,29 +2,29 @@
 {% load static %}
 
 {% block style %}
-<style>
-    @media(min-width:600px) {
-        .prices {
-            display: block!important;
-            visibility: visible!important;
+    <style>
+        @media(min-width:600px) {
+            .prices {
+                display: block!important;
+                visibility: visible!important;
+            }
         }
-    }
-    .card {
-        margin-bottom: .5rem;
-    }
-    a.price-link {
-        color: #00aca9;
-    }
-    a.price-link:hover, a.price-link:focus, a.price-link:active {
-        color: #878787;
-    }
-    #meal-logo {
-        display: block;
-        margin: auto;
-        width: 255px;
-        height: 255px;
-    }
-</style>
+        .card {
+            margin-bottom: .5rem;
+        }
+        a.price-link {
+            color: #00aca9;
+        }
+        a.price-link:hover, a.price-link:focus, a.price-link:active {
+            color: #878787;
+        }
+        #meal-logo {
+            display: block;
+            margin: auto;
+            width: 255px;
+            height: 255px;
+        }
+    </style>
 {% endblock style %}
 
 {% block content %}
@@ -34,7 +34,7 @@
             {% for meal in meal_list %}
                 <div class="col-xl-3 col-sm-6 col-md-4">
                     <div class="card">
-                        <img class="card-img-top img-fluid" id="meal-logo" src="..." alt="Card image cap">
+                        <img class="card-img-top img-fluid" id="meal-logo" src="{{ meal.logo.url }}" alt="Card image cap">
                         <div class="card-block">
                             <h4 class="card-title">{{ meal.name }}</h4>
                             <p class="card-text">

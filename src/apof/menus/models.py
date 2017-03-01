@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelation
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
+from django.conf import settings
 
 from restaurants.models import Restaurant
 
@@ -46,6 +47,11 @@ class Meal(models.Model):
     name = models.CharField(max_length=150, blank=False)
     ingredients = models.ManyToManyField('Ingredient', blank=True)
     prices = GenericRelation('Price')
+    logo = models.ImageField(
+        blank=True,
+        upload_to='meals/',
+        default='/meals/meal_default.jpeg'
+    )
 
     class Meta:
         unique_together = ('menu', 'name')
@@ -56,7 +62,7 @@ class Meal(models.Model):
     def __repr__(self):
         return '{}(Menu: {}, Name: {})'.format(
             self.__class__.__name__,
-            self.menu,
+            self.menu, 
             self.name
         )
 
