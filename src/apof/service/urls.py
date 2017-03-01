@@ -22,6 +22,7 @@ from django.views.generic.base import RedirectView
 urlpatterns = [
     url(r'^$', RedirectView.as_view(url='/portal/')),
     url(r'^admin/', admin.site.urls),
+    url(r'^menus/', include('menus.urls')),
     url(r'^portal/', include('portal.urls')),
     url(r'^restaurants/', include('restaurants.urls'))
 ]
