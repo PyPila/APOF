@@ -12,7 +12,7 @@ def get_avatar(backend, strategy, response, user=None, *args, **kwargs):
         avatar = user.profile.avatar
         ext = url.split('.')[-1]
 
-        if avatar:
+        if avatar.url != '/media/avatars/base.jpg':
             avatar.delete()
         user.profile.avatar.save(
             '{0}.{1}'.format('avatar', ext),

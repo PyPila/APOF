@@ -1,6 +1,5 @@
 from __future__ import unicode_literals
 
-from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.signals import post_save
@@ -12,8 +11,8 @@ class UserProfile(models.Model):
     avatar = models.ImageField(
         max_length=140,
         blank=True,
-        upload_to='profiles/',
-        default='profiles/base.jpg',
+        upload_to='avatars/',
+        default='avatars/base.jpg',
     )
 
     def get_avatar(self):
@@ -23,7 +22,11 @@ class UserProfile(models.Model):
         return 'Profile of user: {}'.format(self.user.username)
 
     def __repr__(self):
-        return 'Profile of user: {}, Avatar: {}'.format(self.user.username, self.avatar)
+        return '{}(User: {}, Avatar: {})'.format(
+            self.__class__.__name__,
+            self.user.username,
+            self.avatar
+        )
 
 
 @receiver(post_save, sender=User)

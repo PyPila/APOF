@@ -99,5 +99,5 @@ class PipelineTestCase(TestCase):
         )
         self.assertEqual(
             user.profile.avatar.url,
-            '/media/profiles/avatar.test'
+            '/media/avatars/avatar.test'
         )
