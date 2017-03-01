@@ -1,5 +1,6 @@
-from django.core.files.base import ContentFile
 import urllib2
+
+from django.core.files.base import ContentFile
 
 
 def get_avatar(backend, strategy, response, user=None, *args, **kwargs):
