@@ -28,6 +28,6 @@ class UserProfile(models.Model):
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, **kwargs):
-    if kwargs['created']:
+    if kwargs.get('created'):
         UserProfile.objects.create(user=instance)
     instance.profile.save()
