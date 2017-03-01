@@ -62,7 +62,6 @@ class UserProfileTestCase(TestCase):
 
     def test_user_profile_is_automatically_created(self):
         user = User.objects.get(username='christopher')
-        self.client.force_login(user)
         self.assertIsInstance(
             user.profile,
             UserProfile
