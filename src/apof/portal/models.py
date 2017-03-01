@@ -1,5 +1,6 @@
 from __future__ import unicode_literals
 
+from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.signals import post_save
@@ -11,7 +12,8 @@ class UserProfile(models.Model):
     avatar = models.ImageField(
         max_length=140,
         blank=True,
-        upload_to='profiles/'
+        upload_to='profiles/',
+        default='profiles/base.jpg',
     )
 
     def get_avatar(self):

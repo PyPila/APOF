@@ -68,16 +68,6 @@ class UserProfileTestCase(TestCase):
             UserProfile
         )
 
-    def test_user_profile_is_updated_on_user_save(self):
-        user = User.objects.get(username='christopher')
-        self.client.force_login(user)
-        user.username = 'christopherus'
-        user.save()
-        self.assertEqual(
-            user.profile.user.username,
-            'christopherus'
-        )
-
 
 class PipelineTestCase(TestCase):
     fixtures = ['test_user_data.json']
