@@ -18,7 +18,7 @@ class UserProfile(models.Model):
     def get_avatar(self):
         return self.avatar.url
 
-    def __str__(self):
+    def __unicode__(self):
         return 'Profile of user: {}'.format(self.user.username)
 
     def __repr__(self):
