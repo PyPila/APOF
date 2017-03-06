@@ -1,12 +1,13 @@
+@import 'partials/mixins';
+@import 'partials/variables';
+
+
 #top-nav{
+    @include transition(.5s)
     width: 100%;
     padding-top: 9px;
-    -webkit-transition: width .5s ease-in-out;
-    -moz-transition: width .5s ease-in-out;
-    -o-transition: width .5s ease-in-out;
-    transition: width .5s ease-in-out;
     opacity: .95;
-    background-color: #00aca9;
+    background-color: $stx_color;
 }
 
 #menu-hamburger{
@@ -46,7 +47,7 @@
     border-radius: 50%;
 
     &:hover{
-        transition: all 1s ease;
+        @include transition(.5s)
         color: white;
         background-color: black;
     }

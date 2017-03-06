@@ -1,0 +1,6 @@
+@mixin transition($time){
+    -webkit-transition: width $time ease-in;
+    -moz-transition: width $time ease-in;
+    -ms-transition: width $time ease-in;
+    transition: width $time ease-in;
+}
