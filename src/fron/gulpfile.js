@@ -134,9 +134,9 @@ gulp.task('sass:watch', function(){
         '../**/*.html',
         ['html']
     );
-        gulp.watch(
-        [paths.deps.portal.js, paths.deps.restaurants.js],
-        ['scripts']
+    gulp.watch(
+    [paths.deps.portal.js, paths.deps.restaurants.js],
+    ['scripts']
     );
 });
 
