@@ -8,5 +8,4 @@ urlpatterns = [
         views.add_to_basket,
         name='add-meal-to-basket'
     ),
-    # url(r'^add/([0-9]+)$/', views.add_to_basket, name='add-meal-to-basket'),
 ]
