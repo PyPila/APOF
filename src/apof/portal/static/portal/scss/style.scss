@@ -4,12 +4,11 @@ body{
 
 .navbar-toggler{
     position: static;
-
     margin-right: 10px;
-}
 
-.navbar-toggler:hover{
-    cursor: pointer;
+    &:hover{
+        cursor: pointer;
+    }
 }
 
 #wrapper{
@@ -21,17 +20,15 @@ body{
 
 #wrapper.toggled{
     padding-left: 0;
-}
 
-#wrapper.toggled #sidebar-wrapper{
-    height: 350px;
-
-    border-right: solid 1px;
+    #sidebar-wrapper{
+        height: 350px;
+        border-right: solid 1px;
+    }
 }
 
 #content-wrapper{
     position: absolute;
-
     width: 100%;
     padding-right: 100px;
     padding-left: 100px;

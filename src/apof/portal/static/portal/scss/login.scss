@@ -6,26 +6,24 @@ body{
 }
 
 a {
-  color: white;
-  &:visited, &:hover {
     color: white;
-  }
+
+    &:visited, &:hover {
+        color: white;
+    }
 }
 
 #logo{
     display: block;
-
     margin-right: auto;
     margin-left: auto;
 }
 
 #submit{
     display: block;
-
     width: 200px;
     margin-right: auto;
     margin-left: auto;
-
     background-color: black;
 }
 
