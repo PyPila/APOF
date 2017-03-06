@@ -15,8 +15,7 @@ def add_to_basket(request, meal_id, meal_price_id):
         owner=request.user,
         created_at=datetime.today()
     )
-    order = Order.objects.create(meal=meal, size=meal_price.size, basket=basket)
-    basket.order_set.add(order=order)
+    Order.objects.create(meal=meal, size=meal_price.size, basket=basket)
 
     previous = HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     if previous:
