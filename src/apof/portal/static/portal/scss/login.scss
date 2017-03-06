@@ -1,0 +1,37 @@
+body{
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    background-color: #eee;
+}
+
+a {
+  color: white;
+  &:visited, &:hover {
+    color: white;
+  }
+}
+
+#logo{
+    display: block;
+
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#submit{
+    display: block;
+
+    width: 200px;
+    margin-right: auto;
+    margin-left: auto;
+
+    background-color: black;
+}
+
+@media(max-width:768px){
+    #logo{
+        width: 221px;
+        height: 132px;
+    }
+}

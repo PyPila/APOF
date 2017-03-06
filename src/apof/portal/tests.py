@@ -34,7 +34,7 @@ class LoginTestCase(TestCase):
             reverse('home'),
             status_code=302,
             target_status_code=302
-)
+    )
 
 
 class LogoutTestCase(TestCase):
@@ -47,4 +47,4 @@ class LogoutTestCase(TestCase):
         self.assertRedirects(
             response,
             '{}{}{}'.format(reverse('login'), '?next=', reverse('home'))
-)
+    )
