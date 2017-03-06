@@ -1,0 +1,17 @@
+{
+  "name": "",
+  "homepage": "https://github.com/RadekLejba/apof",
+  "authors": [
+    "Radek Lejba <radek.lejba@stxnext.pl>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
