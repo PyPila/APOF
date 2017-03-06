@@ -3,7 +3,6 @@ from __future__ import unicode_literals
 from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelation
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
-from django.conf import settings
 
 from restaurants.models import Restaurant
 
@@ -20,7 +19,7 @@ class Menu(models.Model):
 
 class Size(models.Model):
     menu = models.ForeignKey(Menu, blank=False, on_delete=models.CASCADE)
-    description = models.CharField(max_length=50, blank=True, unique=True, default='Normal size')
+    description = models.CharField(max_length=50, blank=True, default='Normal size')
     value = models.DecimalField(max_digits=3, decimal_places=0, blank=True)
     value_unit = models.CharField(max_length=15, blank=True)
 
@@ -62,7 +61,7 @@ class Meal(models.Model):
     def __repr__(self):
         return '{}(Menu: {}, Name: {})'.format(
             self.__class__.__name__,
-            self.menu, 
+            self.menu,
             self.name
         )
 

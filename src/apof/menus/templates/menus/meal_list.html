@@ -2,70 +2,48 @@
 {% load static %}
 
 {% block style %}
-    <style>
-        @media(min-width:600px) {
-            .prices {
-                display: block!important;
-                visibility: visible!important;
-            }
-        }
-        .card {
-            margin-bottom: .5rem;
-        }
-        a.price-link {
-            color: #00aca9;
-        }
-        a.price-link:hover, a.price-link:focus, a.price-link:active {
-            color: #878787;
-        }
-        #meal-logo {
-            display: block;
-            margin: auto;
-            width: 255px;
-            height: 255px;
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'menus/css/meal_list.css' %}"/>
 {% endblock style %}
 
 {% block content %}
-    <class class="row">
+    <div class="row">
         <div class="card-deck-wrapper">
             <div class="card-deck">
-            {% for meal in meal_list %}
-                <div class="col-xl-3 col-sm-6 col-md-4">
-                    <div class="card">
-                        <img class="card-img-top img-fluid" id="meal-logo" src="{{ meal.logo.url }}" alt="Card image cap">
-                        <div class="card-block">
-                            <h4 class="card-title">{{ meal.name }}</h4>
-                            <p class="card-text">
-                                Ingredients: {% for ingredient in meal.ingredients.all %}{{ingredient}}{% if not forloop.last %}, {% endif %}{% endfor %}
-                                <span class="hidden-sm-up float-right">
-                                    <a class="dropdown-item" data-toggle="collapse" href="#collapseExample{{meal.id}}" aria-expanded="false" aria-controls="collapseExample{{meal.id}}">
-                                        <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-                                    </a>
-                                </span>
-                            </p>
-                        </div>
-                        <div class="prices collapse in" id="collapseExample{{meal.id}}">
-                            <table class="table" style="margin-bottom: 0rem;">
-                                {% for price in meal.prices.all %}
-                                <tr>
-                                    <td style="padding-left: 1rem; padding-right: 1rem;">
-                                        {{ price.size }}
-                                    </td>
-                                    <td>
-                                        <span class="float-right">
-                                            <a href="#" class="price-link">{{ price }}</a>
-                                        </span>
-                                    </td>
-                                </tr>
-                                {% endfor %}
-                            </table>
+                {% for meal in meal_list %}
+                    <div class="col-xl-3 col-sm-6 col-md-4">
+                        <div class="card">
+                            <img class="card-img-top img-fluid" id="meal-logo" src="{{ meal.logo.url }}" alt="Card image cap">
+                            <div class="card-block">
+                                <h4 class="card-title">{{ meal.name }}</h4>
+                                <p class="card-text">
+                                    Ingredients: {% for ingredient in meal.ingredients.all %}{{ingredient}}{% if not forloop.last %}, {% endif %}{% endfor %}
+                                    <span class="hidden-sm-up float-right">
+                                        <a class="dropdown-item" data-toggle="collapse" href="#collapseExample{{meal.id}}" aria-expanded="false" aria-controls="collapseExample{{meal.id}}">
+                                            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                                        </a>
+                                    </span>
+                                </p>
+                            </div>
+                            <div class="prices collapse in" id="collapseExample{{meal.id}}">
+                                <table class="table" style="margin-bottom: 0rem;">
+                                    {% for price in meal.prices.all %}
+                                    <tr>
+                                        <td style="padding-left: 1rem; padding-right: 1rem;">
+                                            {{ price.size }}
+                                        </td>
+                                        <td>
+                                            <span class="float-right">
+                                                <a href="{% url 'add-meal-to-basket' meal.pk price.pk %}" class="price-link">{{ price }}</a>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </table>
+                            </div>
                         </div>
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
             </div>
         </div>
-    </class>
+    </div>
 {% endblock content %}

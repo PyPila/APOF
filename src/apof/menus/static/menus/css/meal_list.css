@@ -1,0 +1,25 @@
+@media(min-width:600px) {
+    .prices {
+        display: block!important;
+        visibility: visible!important;
+    }
+}
+
+.card {
+    margin-bottom: .5rem;
+}
+
+a.price-link {
+    color: #00aca9;
+}
+
+a.price-link:hover, a.price-link:focus, a.price-link:active {
+    color: #878787;
+}
+
+#meal-logo {
+    display: block;
+    margin: auto;
+    width: 255px;
+    height: 255px;
+}
