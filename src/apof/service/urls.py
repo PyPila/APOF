@@ -22,9 +22,9 @@ from django.views.generic.base import RedirectView
 urlpatterns = [
     url(r'^$', RedirectView.as_view(url='/portal/')),
     url(r'^admin/', admin.site.urls),
+    url(r'^baskets/', include('baskets.urls')),
     url(r'^portal/', include('portal.urls')),
-    url(r'^restaurants/', include('restaurants.urls')),
-    url(r'^baskets/', include('baskets.urls'))
+    url(r'^restaurants/', include('restaurants.urls'))
 ]
 
 if settings.DEBUG:

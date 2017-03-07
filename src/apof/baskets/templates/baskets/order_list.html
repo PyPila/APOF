@@ -24,7 +24,6 @@
                 </thead>
                 <tbody>
             {% endif %}
-            {{ order }}
             {% for order in restaurant_orders.list %}
                 <tr>
                     <th scope="row"> {{ forloop.counter }}</th>
@@ -70,9 +69,11 @@
                         </h5></td>
                         <td></td>
                         <td></td>
-                        <td><h5>
-                            {{ restaurants_total_sum|get_item:restaurant_orders.grouper.name }}
-                        </h5></td>
+                        <td>
+                            <h5>
+                                {{ restaurants_total_sum|get_item:restaurant_orders.grouper.name }}
+                            </h5>
+                        </td>
                         <td></td>
                     </tr>
                 {% endif %}
