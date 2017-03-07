@@ -6,7 +6,7 @@ from django.test import TestCase
 from django.urls import reverse
 from mock import patch, MagicMock
 
-from restaurants.models import Restaurant, OpeningHours, PhoneNumber
+from restaurants.models import OpeningHours, PhoneNumber, Restaurant
 
 
 file_mock = MagicMock(spec=File, name='FileMock')
@@ -31,10 +31,9 @@ class RestaurantTestCase(TestCase):
             PhoneNumber(restaurant=restaurant, number=number1),
             PhoneNumber(restaurant=restaurant, number=number2)
         ])
-        self.assertEqual(
-            [number1, number2],
-            restaurant.get_phone_numbers()
-        )
+        expected_result = [number1, number2]
+        result = restaurant.get_phone_numbers()
+        self.assertEqual(expected_result, result)
 
 
 class OpeningHoursTestCase(TestCase):

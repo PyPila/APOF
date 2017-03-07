@@ -46,13 +46,11 @@
                     <td>{{ order.get_restaurant_name }}</td>
                     <td>{{ order.meal.name }}</td>
                     <td>{{ order.size }}</td>
-                    {% if order.toppings %}
-                        <td>
-                            {% for topping in order.toppings.all %}
-                                {{ topping.ingredient.name }}{% if not forloop.last %}, {% endif %}
-                            {% endfor %}
-                        </td>
-                    {% endif %}
+                    <td>
+                        {% for topping in order.toppings.all %}
+                            {{ topping.ingredient.name }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </td>
                     <td>{{ order.get_total_price }}</td>
                     <td>
                         <a href="{% url 'order-delete' order.pk %}" type="button" class="btn btn-danger">Remove</a>
@@ -62,11 +60,13 @@
                     <tr>
                         <th scope="row"></th>
                         <td></td>
-                        <td colspan="3"><h5>
-                            {% for number in restaurant_orders.grouper.get_phone_numbers %}
-                                {{ number }}{% if not forloop.last %}, {% endif %}
-                            {% endfor %}
-                        </h5></td>
+                        <td colspan="3">
+                            <h5>
+                                {% for number in restaurant_orders.grouper.get_phone_numbers %}
+                                    {{ number }}{% if not forloop.last %}, {% endif %}
+                                {% endfor %}
+                            </h5>
+                        </td>
                         <td></td>
                         <td></td>
                         <td>

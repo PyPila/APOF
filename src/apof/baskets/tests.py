@@ -90,11 +90,11 @@ class OrderListViewTestCase(OrderTestMixin, TestCase):
         self.assertTrue(OrderListView.raise_exception)
         self.assertEqual(OrderListView.ordering, ('meal__menu__restaurant', ))
 
-    def test_anonymous_user_gets_304(self):
+    def test_anonymous_user_gets_403(self):
         response = self.client.get(reverse('order-list'))
         self.assertEqual(response.status_code, 403)
 
-    def test_logged_user_without_permission_gets_304(self):
+    def test_logged_user_without_permission_gets_403(self):
         self.client.force_login(User.objects.get(username='christopher'))
         response = self.client.get(reverse('order-list'))
         self.assertEqual(response.status_code, 403)
@@ -115,11 +115,11 @@ class OrderDeleteViewTestCase(OrderTestMixin, TestCase):
         self.assertEqual(OrderDeleteView.permission_required, ('baskets.delete_order', ))
         self.assertTrue(OrderDeleteView.raise_exception)
 
-    def test_anonymous_user_gets_304(self):
+    def test_anonymous_user_gets_403(self):
         response = self.client.get(reverse('order-delete', kwargs={'pk': self.order.pk}))
         self.assertEqual(response.status_code, 403)
 
-    def test_logged_user_without_permission_gets_304(self):
+    def test_logged_user_without_permission_gets_403(self):
         self.client.force_login(User.objects.get(username='christopher'))
         response = self.client.get(reverse('order-delete', kwargs={'pk': self.order.pk}))
         self.assertEqual(response.status_code, 403)
@@ -135,6 +135,9 @@ class OrderDeleteViewTestCase(OrderTestMixin, TestCase):
 class GetItemTagTestCase(TestCase):
 
     def test_get_item(self):
-        test_dict = {'a': 1, '2': 'b'}
+        test_dict = {
+            'a': 1,
+            '2': 'b'
+        }
         self.assertEqual(get_item(test_dict, 'a'), 1)
         self.assertIsNone(get_item(test_dict, 'b'))
