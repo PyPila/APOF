@@ -81,7 +81,7 @@ gulp.task('html', function(){
 });
 
 
-gulp.task('sass:watch', function(){
+gulp.task('watch', function(){
     gulp.watch(
         ['src/scss/**/*.scss'],
         ['sass']
@@ -104,4 +104,4 @@ gulp.task('sass:watch', function(){
 gulp.task('build', ['sass','required_deps', 'html', 'scripts', 'images']);
 
 
-gulp.task('default', ['build', 'sass:watch', 'browser-sync']);
+gulp.task('default', ['build', 'watch', 'browser-sync']);

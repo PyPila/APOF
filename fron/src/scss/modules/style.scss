@@ -40,5 +40,12 @@ body{
     .row{
         padding: 0;
         padding-top: 20px;
+        &.toggled{
+            .sidebar{
+                width: 100%;
+                height: 95%;
+                border-right: solid 1px;
+            }
+        }
     }
 }
