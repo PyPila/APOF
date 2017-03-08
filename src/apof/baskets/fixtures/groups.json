@@ -1,0 +1,25 @@
+[
+    {
+        "model":"auth.group",
+        "fields":{
+            "name":"moderators",
+            "permissions":[
+                [
+                    "add_order",
+                    "baskets",
+                    "order"
+                ],
+                [
+                    "change_order",
+                    "baskets",
+                    "order"
+                ],
+                [
+                    "delete_order",
+                    "baskets",
+                    "order"
+                ]
+            ]
+        }
+    }
+]
