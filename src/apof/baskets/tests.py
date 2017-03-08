@@ -9,7 +9,7 @@ from menus.models import (
     Meal,
     Menu,
     Price,
-    Size,
+    Size
 )
 from restaurants.models import Restaurant
 
@@ -60,12 +60,15 @@ class AddToBasketViewTestCase(TestCase):
         response = self.client.get(self.get_url(self.meal, self.price))
         self.assertRedirects(
             response,
-            '{}{}{}'.format(reverse('login'), '?next=', self.get_url(self.meal, self.price))
+            '{}{}{}'.format(
+                reverse('login'),
+                '?next=',
+                self.get_url(self.meal, self.price)
+            )
         )
 
     def test_logged_user_can_create_order_with_meal_in_basket(self):
         self.client.force_login(self.user)
-        self.assertEqual(Order.objects.all().count(), 0)
         response = self.client.get(self.get_url(self.meal, self.price))
         self.assertEqual(response.status_code, 302)
         self.assertEqual(Order.objects.all().count(), 1)
@@ -73,3 +76,15 @@ class AddToBasketViewTestCase(TestCase):
         self.assertEqual(order.basket.owner, self.user)
         self.assertEqual(order.meal, self.meal)
         self.assertEqual(order.size, self.size)
+
+    def test_logged_user_is_redirected_after_creating_order(self):
+        self.client.force_login(self.user)
+        expected_url = reverse('meal-list', kwargs={'restaurant_pk': 1})
+        response = self.client.get(
+            self.get_url(
+                self.meal,
+                self.price
+            ),
+            HTTP_REFERER=expected_url
+        )
+        self.assertRedirects(response, expected_url)

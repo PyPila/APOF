@@ -1,25 +1,34 @@
-@media(min-width:600px) {
+@media(min-width:600px){
     .prices {
         display: block!important;
         visibility: visible!important;
     }
 }
 
-.card {
+.card{
     margin-bottom: .5rem;
 }
 
-a.price-link {
+a.price-link{
     color: #00aca9;
 }
 
-a.price-link:hover, a.price-link:focus, a.price-link:active {
+a.price-link:hover, a.price-link:focus, a.price-link:active{
     color: #878787;
 }
 
-#meal-logo {
+#meal-logo{
     display: block;
     margin: auto;
     width: 255px;
     height: 255px;
+}
+
+table#meal-sizes{
+    margin-bottom: 0rem;
+}
+
+td#meal-size{
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
