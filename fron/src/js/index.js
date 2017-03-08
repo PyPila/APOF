@@ -1,10 +1,10 @@
 $('#menu-toggle').click(function(event) {
     event.preventDefault();
-    $('#wrapper').toggleClass('toggled');
+    $('.row').toggleClass('toggled');
 });
 
 $(document).ready(function () {
-    var topNav = $('#top-nav');
+    var topNav = $('.navbar fixed-top');
 
     $(window).scroll(function() {
         if ($(this).scrollTop() > 50) {
