@@ -1,0 +1,78 @@
+@import 'partials/mixins';
+@import 'partials/variables';
+
+
+.nav{
+    &.fixed-top{
+        @include transition(.5s)
+        width: 100%;
+        padding-top: 9px;
+        padding-bottom:9px;
+        opacity: .95;
+        background-color: $stx_color;
+        &.fades{
+            width: 210px;
+        }
+        .navbar-toggler{
+            font-size: 26px;
+            text-decoration: none;
+            color: black;
+            text-align: center;
+            &::before{
+                margin-top: 9px;
+                margin-left: 9px;
+            }
+        }
+        .navbar-brand{
+            a{
+                text-decoration: none;
+                color: white;
+            }
+        }
+        .nav{
+            position: fixed;
+            right: 0;
+            padding-right: 20px;
+            /*Cart*/
+            .nav-link{
+                transition: background-color 0.5s ease;
+                font-size: 26px;
+                position: fixed;
+                right: 100px;
+                width: 39px;
+                height: 39px;
+                padding: 0;
+                text-align: center;
+                text-decoration: none;
+                color: black;
+                border-radius: 50%;
+                &:hover{
+                    color: white;
+                    background-color: black;
+                }
+            }
+            #avatar{
+                right: 20px;
+                width: 39px;
+                height: 39px;
+                border-radius: 50%;
+            }
+            .dropdown-item{
+                color:black;
+            }
+        }
+    }
+}
+
+
+@media(max-width:768px){
+    #top-nav.fades{
+        width: 100%;
+    }
+
+    #sec-top-bar{
+        width: 20%;
+        margin-right: 10%;
+        margin-left: 80%;
+    }
+}

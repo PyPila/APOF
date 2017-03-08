@@ -15,24 +15,17 @@ body{
     }
 }
 
-#wrapper{
+.row{
     @include transition(.5s)
-}
 
-#wrapper.toggled{
-    padding-left: 0;
+    &.toggled{
+        padding-left: 0;
 
-    #sidebar-wrapper{
-        height: 350px;
-        border-right: solid 1px;
+        .sidebar{
+            height: 350px;
+            border-right: solid 1px;
+        }
     }
-}
-
-#content-wrapper{
-    position: absolute;
-    width: 100%;
-    padding-right: 100px;
-    padding-left: 100px;
 }
 
 .content-container{
@@ -44,7 +37,7 @@ body{
         padding-top: 64px;
     }
 
-    #content-wrapper{
+    .row{
         padding: 0;
         padding-top: 20px;
     }
