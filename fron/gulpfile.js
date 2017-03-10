@@ -1,10 +1,8 @@
 var browserSync = require('browser-sync').create(),
-    cleanCSS = require('gulp-clean-css'),
     gulp = require('gulp'),
     merge = require('merge-stream'),
     plumber = require('gulp-plumber'),
-    rename = require('gulp-rename')
-    sass = require('gulp-sass')
+    sass = require('gulp-sass'),
     uglify = require('gulp-uglify');
 
 
@@ -12,13 +10,13 @@ const paths = {
     deps: {
         js: [
             'node_modules/bootstrap/dist/js/bootstrap.min.js',
-            'node_modules/bootstrap-material-design/dist/js/material.min.js',
+            'bower_components/bootstrap-material-design/dist/bootstrap-material-design-iife.min.js',
             'node_modules/jquery/dist/jquery.min.js',
             'node_modules/tether/dist/js/tether.min.js'
         ],
         css: [
-            'node_modules/bootstrap/dist/css/bootstrap.min.css',
-            'node_modules/bootstrap/dist/css/bootstrap-material-design.min.css',
+            'node_modules/bootstrap/dist/css/bootstrap.css',
+            'bower_components/bootstrap-material-design/dist/bootstrap-material-design.css',
             'node_modules/font-awesome/css/font-awesome.css'
         ],
         fonts: [
@@ -58,7 +56,7 @@ gulp.task('scripts', function(){
 
 
 gulp.task('images', function(){
-    return  gulp.src('dist/images/*.*')
+    return  gulp.src('src/images/*.*')
         .pipe(plumber())
         .pipe(gulp.dest('dist/images'))
         .pipe(browserSync.stream());

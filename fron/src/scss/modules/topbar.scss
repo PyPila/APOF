@@ -1,13 +1,9 @@
-@import 'partials/mixins';
-@import 'partials/variables';
-
-
 .nav{
     &.fixed-top{
         @include transition(.5s)
         width: 100%;
-        padding-top: 9px;
-        padding-bottom:9px;
+        padding-top: 5px;
+        padding-bottom:5px;
         opacity: .95;
         background-color: $stx_color;
         &.fades{
