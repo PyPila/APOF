@@ -91,3 +91,4 @@ ENV/
 # Build systems
 node_modules/
 dist/
+bower_components/
