@@ -8,7 +8,7 @@ const paths = {
     deps: {
         js: [
             'node_modules/bootstrap/dist/js/bootstrap.min.js',
-            'bower_components/bootstrap-material-design/dist/bootstrap-material-design-iife.min.js',
+            'bower_components/bootstrap-material-design/dist/bootstrap-material-design.iife.js',
             'node_modules/jquery/dist/jquery.min.js',
             'node_modules/tether/dist/js/tether.min.js'
         ],
