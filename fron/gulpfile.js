@@ -1,9 +1,7 @@
 var browserSync = require('browser-sync').create(),
     gulp = require('gulp'),
-    merge = require('merge-stream'),
     plumber = require('gulp-plumber'),
-    sass = require('gulp-sass'),
-    uglify = require('gulp-uglify');
+    sass = require('gulp-sass');
 
 
 const paths = {
