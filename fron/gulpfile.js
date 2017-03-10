@@ -1,14 +1,15 @@
 var browserSync = require('browser-sync').create(),
     gulp = require('gulp'),
     plumber = require('gulp-plumber'),
-    sass = require('gulp-sass');
+    sass = require('gulp-sass'),
+    uglify = require('gulp-uglify');
 
 
 const paths = {
     deps: {
         js: [
             'node_modules/bootstrap/dist/js/bootstrap.min.js',
-            'bower_components/bootstrap-material-design/dist/bootstrap-material-design.iife.js',
+            'bower_components/bootstrap-material-design/dist/bootstrap-material-design-iife.min.js',
             'node_modules/jquery/dist/jquery.min.js',
             'node_modules/tether/dist/js/tether.min.js'
         ],
