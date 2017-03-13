@@ -4,3 +4,9 @@
     -ms-transition: width $time ease-in;
     transition: width $time ease-in;
 }
+
+@mixin shadow{
+    -webkit-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);
+}
