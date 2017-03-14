@@ -23,7 +23,8 @@ urlpatterns = [
     url(r'^$', RedirectView.as_view(url='/portal/')),
     url(r'^admin/', admin.site.urls),
     url(r'^portal/', include('portal.urls')),
-    url(r'^restaurants/', include('restaurants.urls'))
+    url(r'^restaurants/', include('restaurants.urls')),
+    url(r'^basket/', include('baskets.urls'))
 ]
 
 if settings.DEBUG:
