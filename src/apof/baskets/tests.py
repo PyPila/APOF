@@ -46,7 +46,7 @@ class AddToBasketViewTestCase(TestCase):
         self.meal = Meal.objects.create(menu=menu, name='test_meal')
         self.price = Price.objects.create(value=22.99, size=self.size, content_object=self.meal)
 
-    def get_url(self, meal, price):
+    def _get_url(self, meal, price):
         url = reverse(
             'add-meal-to-basket',
             kwargs={
@@ -57,19 +57,19 @@ class AddToBasketViewTestCase(TestCase):
         return url
 
     def test_anonymous_user_is_redirected_to_login_view(self):
-        response = self.client.get(self.get_url(self.meal, self.price))
+        response = self.client.get(self._get_url(self.meal, self.price))
         self.assertRedirects(
             response,
             '{}{}{}'.format(
                 reverse('login'),
                 '?next=',
-                self.get_url(self.meal, self.price)
+                self._get_url(self.meal, self.price)
             )
         )
 
     def test_logged_user_can_create_order_with_meal_in_basket(self):
         self.client.force_login(self.user)
-        response = self.client.get(self.get_url(self.meal, self.price))
+        response = self.client.get(self._get_url(self.meal, self.price))
         self.assertEqual(response.status_code, 302)
         self.assertEqual(Order.objects.all().count(), 1)
         order = Order.objects.get(pk=1)
@@ -81,7 +81,7 @@ class AddToBasketViewTestCase(TestCase):
         self.client.force_login(self.user)
         expected_url = reverse('meal-list', kwargs={'restaurant_pk': 1})
         response = self.client.get(
-            self.get_url(
+            self._get_url(
                 self.meal,
                 self.price
             ),

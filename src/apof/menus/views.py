@@ -11,6 +11,8 @@ class MealListView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         queryset = super(MealListView, self).get_queryset()
         restaurant_pk = self.kwargs.get('restaurant_pk')
+
         if restaurant_pk:
             queryset = queryset.filter(menu__restaurant__pk=restaurant_pk)
+
         return queryset

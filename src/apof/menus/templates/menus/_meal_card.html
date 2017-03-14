@@ -1,0 +1,17 @@
+<div class="card">
+    <img class="card-img-top img-fluid" id="meal-logo" src="{{ meal.logo.url }}" alt="Card image cap">
+    <div class="card-block">
+        <h4 class="card-title">{{ meal.name }}</h4>
+        <p class="card-text">
+            Ingredients: {% for ingredient in meal.ingredients.all %}{{ingredient}}{% if not forloop.last %}, {% endif %}{% endfor %}
+            <span class="hidden-sm-up float-right">
+                <a class="dropdown-item" data-toggle="collapse" href="#collapseExample{{meal.id}}" aria-expanded="false" aria-controls="collapseExample{{meal.id}}">
+                    <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                </a>
+            </span>
+        </p>
+    </div>
+    {% with prices=meal.prices.all %}
+        {% include "menus/_meal_prices.html" %}
+    {% endwith %}
+</div>
