@@ -7,6 +7,7 @@ from menus.models import Meal
 class MealListView(LoginRequiredMixin, ListView):
     model = Meal
     context_object_name = 'meal_list'
+    ordering = ['category__name']
 
     def get_queryset(self):
         queryset = super(MealListView, self).get_queryset()

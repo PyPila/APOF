@@ -7,15 +7,22 @@
 
 {% block content %}
     <div class="row">
-        <div class="card-deck-wrapper">
-            <div class="card-deck">
-                {% for meal in meal_list %}
-                    <div class="col-sm-6 col-md-4 col-xl-3">
-                        {% include "menus/_meal_card.html" %}
-                    </div>
-                {% endfor %}
+        {% regroup meal_list by category.name as category_list %}
+        {% for category in category_list %}
+            <div id="meal-category-line">
+                <h3 id="meal-category-header" class="pull-left">
+                    {{ category.grouper }}
+                </h3>
             </div>
-
-        </div>
+            <div class="card-deck-wrapper col-sm-12">
+                <div class="card-deck">
+                {% for meal in category.list %}
+                        <div class="col-sm-6 col-md-4 col-xl-3">
+                            {% include "menus/_meal_card.html" %}
+                        </div>
+                {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
     </div>
 {% endblock content %}

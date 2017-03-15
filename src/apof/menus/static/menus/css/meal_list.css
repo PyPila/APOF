@@ -9,11 +9,20 @@
     margin-bottom: .5rem;
 }
 
-a.price-link{
+a.price-link,
+h3#meal-category-header{
     color: #00aca9;
 }
 
-a.price-link:hover, a.price-link:focus, a.price-link:active{
+div#meal-category-line{
+    border-bottom: 1px solid;
+    width: 100%;
+    margin: 0 0 1em;
+}
+
+a.price-link:hover,
+a.price-link:focus,
+a.price-link:active{
     color: #878787;
 }
 

@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.contrib.contenttypes.admin import GenericTabularInline
 
 from .models import (
+    Category,
     Ingredient,
     Meal,
     Menu,
@@ -19,7 +20,7 @@ class MealAdmin(admin.ModelAdmin):
     inlines = [
         PriceInline
     ]
-    list_display = ('name', 'menu')
+    list_display = ('name', 'category', 'menu')
     list_filter = ('menu', )
 
 
@@ -29,6 +30,10 @@ class ToppingAdmin(admin.ModelAdmin):
     ]
     list_display = ('ingredient', 'menu')
     list_filter = ('menu', )
+
+
+class CategoryAdmin(admin.ModelAdmin):
+    pass
 
 
 class PriceAdmin(admin.ModelAdmin):
@@ -48,6 +53,7 @@ class SizeAdmin(admin.ModelAdmin):
     list_filter = ('menu', )
 
 
+admin.site.register(Category, CategoryAdmin)
 admin.site.register(Ingredient, IngredientAdmin)
 admin.site.register(Meal, MealAdmin)
 admin.site.register(Menu, MenuAdmin)

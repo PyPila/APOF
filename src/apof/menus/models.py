@@ -41,6 +41,22 @@ class Size(models.Model):
         )
 
 
+class Category(models.Model):
+    name = models.CharField(max_length=128, unique=True)
+
+    class Meta:
+        verbose_name_plural = "categories"
+
+    def __unicode__(self):
+        return self.name
+
+    def __repr__(self):
+        return '{}(Name: {})'.format(
+            self.__class__.__name__,
+            self.name
+        )
+
+
 class Meal(models.Model):
     menu = models.ForeignKey(Menu, blank=False, on_delete=models.CASCADE)
     name = models.CharField(max_length=150, blank=False)
@@ -51,6 +67,7 @@ class Meal(models.Model):
         upload_to='meals/',
         default='/meals/meal_default.jpeg'
     )
+    category = models.ForeignKey(Category, blank=True, null=True, on_delete=models.PROTECT)
 
     class Meta:
         unique_together = ('menu', 'name')

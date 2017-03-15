@@ -3,6 +3,7 @@ from django.test import TestCase
 from django.urls import reverse
 
 from menus.models import (
+    Category,
     Ingredient,
     Meal,
     Menu,
@@ -34,6 +35,14 @@ class SizeTestCase(TestCase):
         size = Size(menu=menu, description='Test size', value='32', value_unit='cm')
         expected_result = 'Test size (32 cm)'
         self.assertEqual(str(size), expected_result)
+
+
+class CategoryTestCase(TestCase):
+
+    def test_string_representation(self):
+        category_name = 'test category'
+        category = Category(name=category_name)
+        self.assertEqual(str(category), category_name)
 
 
 class MealTestCase(TestCase):
