@@ -1,8 +1,8 @@
 from django.conf.urls import url
 
-from .views import basket_view
+from . import views
 
 
 urlpatterns = [
-    url(r'^$', basket_view, name='basket')
+    url(r'^$', views.UserBasketView.as_view(), name='basket')
 ]

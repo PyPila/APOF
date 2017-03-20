@@ -1,8 +1,59 @@
-.table{
-    tbody{
-        tr{
+@media(max-width: 600px){
+    table{
+        thead{
+            display:none;
+        }
+        tbody{
+            tr{
+                &:last-child{
+                    border-bottom: 2px solid black;
+                }
+                .btn{
+                    width:36%;
+                    margin:1.5em 0;
+                    .btn{
+                        width:36%;
+                        margin:1.5em 0;
+                    }
+                    .btn-info{
+                        float:left;
+                        background-color:red;
+                    }
+                    .btn-danger{
+                        float:right;
+                    }
+                }
+                td{
+                    &:first-child{
+                        background: #333;
+                        color: #fff;
+                    }
+                    display:block;
+                    padding: .6rem;
+                    min-width:320px;
+                    .form-control{
+                        width:20%;
+                        display: inline !important;
+                    }
+                    &:before{
+                        content: attr(data-th);
+                        font-weight: bold;
+                        display:inline-block;
+                        width: 8rem;
+                    }
+                    .form-control{
+                        width:20%;
+                        display: inline !important;
+                    }
+                }
+            }
+        }
+        tfoot{
             td{
-                vertical-align: middle;
+                display:block;
+                .btn{
+                    display:block;
+                }
             }
         }
     }

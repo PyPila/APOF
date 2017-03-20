@@ -1,0 +1,77 @@
+{% extends 'portal/base_body.html' %}
+{% load static %}
+
+
+{% block content %}
+    <table class="table table-hover table-condensed table-responsive">
+        {% for basket in object_list %}
+        {% for order in basket.order_set.all %}
+            {% if forloop.first %}
+                <thead>
+                    <tr>
+                        <th>Restaurant</th>
+                        <th>Meal</th>
+                        <th>Size</th>
+                        <th>Toppings</th>
+                        <th>Price</th>
+                        <th></th>
+                        <th>Total Price</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+            {% endif %}
+                <tr>
+                    <td data-th="Product">
+                        <div class="row">
+                            <div class="col-sm-3 hidden-sm-down"><img src="http://placehold.it/100x100" alt="..." class="img-fluid"/></div>
+                            <div class="col-sm-9">
+                                {{order.meal.menu.restaurant.name}}
+                            </div>
+                        </div>
+                    </td>
+                    <td>{{ order.meal.name }}</td>
+                    <td>{{ order.size }}</td>
+                    <td>
+                        {% for topping in order.toppings.all %}
+                            {{ topping.ingredient.name }}{% if not forloop.last %}, {% endif %}
+                       {% endfor %}
+                    </td>
+                    <td>{{ order.get_total_price }}$1.99</td>
+                    <td>
+                        <input type="number" class="form-control text-center" value="1">
+                    </td>
+                    <td>
+                        {{ order.get_total_price }}$1.99
+                    </td>
+                    <td>
+                        <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
+                        <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
+                    </td>
+                </tr>
+                {% if forloop.last %}
+                </tbody>
+                <tfoot>
+                    <tr class="hidden-md-up">
+                        <td class="text-center"><strong>Total 1.99</strong></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+                        <td colspan="2" class="hidden-sm-down"></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="text-center hidden-sm-down"><strong>Total $1.99</strong></td>
+                        <td>
+                            <a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tfoot>
+                {% endif %}
+        {% endfor %}
+        {% endfor %}
+    </table>
+{% endblock content %}
+
