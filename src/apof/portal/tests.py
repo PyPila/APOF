@@ -1,15 +1,11 @@
-import shutil
-import tempfile
-
-from django.conf import settings
 from django.contrib.auth.models import User
 from django.test import TestCase
 from django.urls import reverse
-from mock import MagicMock, Mock, patch, mock_open
-from django.core.files import File
+
+from mock import MagicMock, Mock, patch
+
 from portal import pipeline
 from portal.models import UserProfile
-from django.core.files.storage import Storage
 
 
 class IndexTestCase(TestCase):
