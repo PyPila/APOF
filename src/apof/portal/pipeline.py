@@ -1,5 +1,4 @@
 import urllib2
-
 from django.core.files.base import ContentFile
 
 
@@ -8,9 +7,9 @@ def get_avatar(backend, strategy, response, user=None, *args, **kwargs):
 
     if backend.name == 'google-oauth2':
         url = response['image'].get('url')
-
-    if url:
+    if hasattr(user, 'profile'):
         avatar = user.profile.avatar
+    if url:
         ext = url.split('.')[-1]
 
         if avatar.url != '/media/avatars/base.jpg':

@@ -5,10 +5,11 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from django.test import TestCase
 from django.urls import reverse
-from mock import MagicMock, patch
-
+from mock import MagicMock, Mock, patch, mock_open
+from django.core.files import File
 from portal import pipeline
 from portal.models import UserProfile
+from django.core.files.storage import Storage
 
 
 class IndexTestCase(TestCase):
@@ -70,27 +71,32 @@ class UserProfileTestCase(TestCase):
 
 
 class PipelineTestCase(TestCase):
+    """
+    Tests if user get avatar inside pipeline
+    """
     fixtures = ['test_user_data.json']
 
     def setUp(self):
         """
-        Creates a temporary directory, and sets up response dict with 2 mocks
-        inside.
         Those mocks are used to set function response['image'].get('url') to
         return 'test'.
         """
-        self.test_dir = tempfile.mkdtemp()
-        settings.MEDIA_ROOT = self.test_dir
         self.backend_mock = MagicMock()
         self.backend_mock.name = 'google-oauth2'
         self.response_mock = {'image': MagicMock(get=MagicMock(side_effect=['test']))}
 
-    def tearDown(self):
-        shutil.rmtree(self.test_dir)
-
+    @patch('django.core.files.storage.default_storage._wrapped')
     @patch('urllib2.urlopen')
-    def test_get_user_avatar(self, ContentFile_mock):
+    def test_get_user_avatar(self, urllib_mock, storage_mock):
+        storage_mock.url = MagicMock(name='url')
+        storage_mock.url.return_value = '/tmp/test1.jpg'
+        storage_mock.save = MagicMock(name='save')
+        storage_mock.save.return_value = '/tmp/test1.jpg'
+        url_mock = Mock()
+        url_mock.read.side_effect = ['test']
+        urllib_mock.return_value = url_mock
         user = User.objects.get(username='christopher')
+
         pipeline.get_avatar(
             self.backend_mock,
             None,
@@ -99,5 +105,5 @@ class PipelineTestCase(TestCase):
         )
         self.assertEqual(
             user.profile.avatar.url,
-            '/media/avatars/avatar.test'
+            '/tmp/test1.jpg'
         )
