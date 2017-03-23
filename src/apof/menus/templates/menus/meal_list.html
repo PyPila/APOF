@@ -1,0 +1,28 @@
+{% extends "portal/base_body.html" %}
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static "menus/css/meal_list.css" %}"/>
+{% endblock style %}
+
+{% block content %}
+    <div class="row">
+        {% regroup meal_list by category.name as category_list %}
+        {% for category in category_list %}
+            <div class="meal-category-line">
+                <h3 class="pull-left meal-category-header">
+                    {{ category.grouper }}
+                </h3>
+            </div>
+            <div class="card-deck-wrapper col-sm-12">
+                <div class="card-deck">
+                {% for meal in category.list %}
+                        <div class="col-sm-6 col-md-4 col-xl-3">
+                            {% include "menus/_meal_card.html" %}
+                        </div>
+                {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}
