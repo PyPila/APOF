@@ -1,0 +1,34 @@
+a {
+    color: white;
+
+    &:visited, &:hover {
+        color: white;
+    }
+}
+
+.container{
+    row{
+        img{
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .btn-primary{
+            &.btn-lg{
+                color: white;
+                display: block;
+                width: 270px;
+                margin-right: auto;
+                margin-left: auto;
+                background-color: black;
+            }
+        }
+    }
+}
+
+@media(max-width:768px){
+    #logo{
+        width: 221px;
+        height: 132px;
+    }
+}

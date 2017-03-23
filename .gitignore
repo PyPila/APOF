@@ -87,3 +87,8 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# Build systems
+node_modules/
+dist/
+bower_components/
