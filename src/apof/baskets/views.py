@@ -18,7 +18,7 @@ class UserBasketView(LoginRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         queryset = kwargs.pop('object_list', self.object_list)
         queryset = queryset.filter(owner=self.request.user)
-        queryset = queryset.filter(created_at__lte=datetime.date(2017, 3, 15))
+        queryset = queryset.filter(created_at__lte=datetime.date(2017, 3, 22))
         print queryset
         context = {
             'object_list': queryset

@@ -1,6 +1,6 @@
 {% load staticfiles %}
-<nav class="nav fixed-top navbar-light" id="top-nav">
-    <a id="menu-toggle" href="#">
+<nav class="nav fixed-top navbar-light">
+    <a class="menu-toggle" href="#">
         <button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fa fa-bars" aria-hidden="true"></i>
         </button>
@@ -15,9 +15,9 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" id="avatar" aria-expanded="false" style="background-image: url({% static "images/avatar.jpg" %});">
+            <a class="nav-link avatar" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="background-image: url({% static "images/avatar.jpg" %});">
             </a>
-            <div class="dropdown-menu dropdown-menu-right mr-auto" id="avatar-menu">
+            <div class="dropdown-menu dropdown-menu-right mr-auto">
                 <a class="dropdown-item" href="#">Action</a>
                 <a class="dropdown-item" href="#">Another action</a>
                 <a class="dropdown-item" href="#">Admin panel</a>

@@ -51,14 +51,14 @@
                 &:hover{
                     @include shadow
                 }
-            }
-            #avatar{
-                right: 20px;
-                width: 39px;
-                height: 39px;
-                border-radius: 50%;
-                &:hover{
-                    box-shadow:none;
+                &.avatar{
+                    right: 20px;
+                    width: 39px;
+                    height: 39px;
+                    border-radius: 50%;
+                    &:hover{
+                        box-shadow:none;
+                    }
                 }
             }
             .dropdown-menu{

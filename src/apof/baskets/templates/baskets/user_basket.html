@@ -10,6 +10,7 @@
                 <thead>
                     <tr>
                         <th>Restaurant</th>
+                        <th class="hidden-sm-down"></th>
                         <th>Meal</th>
                         <th>Size</th>
                         <th>Toppings</th>
@@ -23,31 +24,27 @@
                 <tbody>
             {% endif %}
                 <tr>
-                    <td data-th="Product">
-                        <div class="row">
-                            <div class="col-sm-3 hidden-sm-down"><img src="http://placehold.it/100x100" alt="..." class="img-fluid"/></div>
-                            <div class="col-sm-9">
-                                {{order.meal.menu.restaurant.name}}
-                            </div>
-                        </div>
+                    <td>{{order.meal.menu.restaurant.name}}</td>
+                    <td class="hidden-sm-down">
+                        <div><img src="http://placehold.it/100x100" alt="..." class="img-fluid"/></div>
                     </td>
-                    <td>{{ order.meal.name }}</td>
-                    <td>{{ order.size }}</td>
-                    <td>
+                    <td data-th="Product">{{ order.meal.name }}</td>
+                    <td data-th="Size">{{ order.size }}</td>
+                    <td data-th="Toppings">
                         {% for topping in order.toppings.all %}
                             {{ topping.ingredient.name }}{% if not forloop.last %}, {% endif %}
                        {% endfor %}
                     </td>
-                    <td>{{ order.get_total_price }}$1.99</td>
-                    <td>
+                    <td data-th="Price">{{ order.get_total_price }}</td>
+                    <td data-th="Ammount">
                         <input type="number" class="form-control text-center" value="1">
                     </td>
-                    <td>
-                        {{ order.get_total_price }}$1.99
+                    <td data-th="Total price">
+                        {{ order.get_total_price }}
                     </td>
                     <td>
                         <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
-                        <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
+                        <button class="btn btn-danger btn-sm" onclick="{{ order.delete }}"><i class="fa fa-trash-o"></i></button>
                     </td>
                 </tr>
                 {% if forloop.last %}
@@ -59,9 +56,10 @@
                     <tr>
                         <td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
                         <td colspan="2" class="hidden-sm-down"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td class="hidden-sm-down"></td>
+                        <td class="hidden-sm-down"></td>
+                        <td class="hidden-sm-down"></td>
+                        <td class="hidden-sm-down"></td>
                         <td class="text-center hidden-sm-down"><strong>Total $1.99</strong></td>
                         <td>
                             <a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i>
