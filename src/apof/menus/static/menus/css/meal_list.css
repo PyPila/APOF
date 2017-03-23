@@ -10,11 +10,11 @@
 }
 
 a.price-link,
-h3#meal-category-header{
+h3.meal-category-header{
     color: #00aca9;
 }
 
-div#meal-category-line{
+div.meal-category-line{
     border-bottom: 1px solid;
     width: 100%;
     margin: 0 0 1em;
@@ -26,18 +26,18 @@ a.price-link:active{
     color: #878787;
 }
 
-#meal-logo{
+.meal-logo{
     display: block;
     margin: auto;
     width: 255px;
     height: 255px;
 }
 
-table#meal-sizes{
+table.meal-sizes{
     margin-bottom: 0rem;
 }
 
-td#meal-size{
-    padding-left: 1rem;
+td.meal-size{
+    padding-left: 1rem !important;
     padding-right: 1rem;
 }

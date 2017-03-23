@@ -9,8 +9,8 @@
     <div class="row">
         {% regroup meal_list by category.name as category_list %}
         {% for category in category_list %}
-            <div id="meal-category-line">
-                <h3 id="meal-category-header" class="pull-left">
+            <div class="meal-category-line">
+                <h3 class="pull-left meal-category-header">
                     {{ category.grouper }}
                 </h3>
             </div>

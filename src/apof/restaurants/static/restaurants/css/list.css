@@ -11,3 +11,8 @@
     width: 255px;
     height: 255px;
 }
+
+a.btn.menu-link,
+a.btn.website{
+    background-color: #00aca9;
+}
