@@ -6,19 +6,24 @@ a {
     }
 }
 
-#logo{
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-#submit{
-    color: white;
-    display: block;
-    width: 270px;
-    margin-right: auto;
-    margin-left: auto;
-    background-color: black;
+.container{
+    row{
+        img{
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .btn-primary{
+            &.btn-lg{
+                color: white;
+                display: block;
+                width: 270px;
+                margin-right: auto;
+                margin-left: auto;
+                background-color: black;
+            }
+        }
+    }
 }
 
 @media(max-width:768px){
