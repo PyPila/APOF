@@ -9,15 +9,14 @@
         <link rel="icon" href="../../favicon.ico">
         <title>APOF</title>
         <!-- Bootstrap with material -->
-        <link rel="stylesheet" href="{% static "portal/css/material.min.css" %}">
+        <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+        <link rel="stylesheet" href="{% static "css/bootstrap-material-design.css" %}">
 
-        <!-- Fontello fonts -->
-        <link rel="stylesheet" href="{% static "portal/css/font-awesome/css/font-awesome.min.css" %}">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="{% static "css/font-awesome.css" %}">
 
         <!-- Custom styles for this template -->
-        <link rel="stylesheet" href="{% static "portal/css/style.css" %}">
-        <link rel="stylesheet" href="{% static "portal/css/topbar.css" %}">
-        <link rel="stylesheet" href="{% static "portal/css/sidebar.css" %}">
+        <link rel="stylesheet" href="{% static "css/main.css" %}">
         {% block style %}
         {% endblock %}
     </head>
@@ -28,11 +27,11 @@
     </body>
 
     <!--BOOTSTRAP SCRIPTS -->
-    <script src="{% static "portal/js/jquery-3.1.1.min.js" %}"></script>
-    <script src="{% static "portal/js/tether.min.js" %}"></script>
-    <script src="{% static "portal/js/bootstrap.min.js" %}"></script>
+    <script src="{% static "js/jquery.min.js" %}" ></script>
+    <script src="{% static "js/tether.min.js" %}"></script>
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
     <!--Material script -->
-    <script src="{% static "portal/js/material.min.js" %}"></script>
+    <script src="{% static "js/bootstrap-material-design.iife.js" %}"></script>
     <!--Script for sidebar hidding -->
-    <script src="{% static "portal/js/index.js" %}"></script>
+    <script src="{% static "js/index.js" %}"></script>
 </html>

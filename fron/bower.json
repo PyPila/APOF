@@ -1,0 +1,20 @@
+{
+  "name": "fron",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Radek Lejba <radek.lejba@stxnext.pl>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/RadekLejba/apof",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-material-design": "^4.0.2"
+  }
+}

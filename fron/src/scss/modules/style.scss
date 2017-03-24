@@ -1,0 +1,49 @@
+body{
+    padding-top: 96px;
+}
+
+.navbar-toggler{
+    position: static;
+    margin-right: 10px;
+
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.row{
+    @include transition(.5s)
+
+    &.toggled{
+        padding-left: 0;
+
+        .sidebar{
+            height: 350px;
+            border-right: solid 1px;
+        }
+    }
+}
+
+.content-container{
+    float: left;
+}
+
+@media(max-width:768px){
+    body{
+        padding-top: 64px;
+        .sidebar{
+            width: 100%;
+        }
+    }
+
+    .row{
+        padding: 0;
+        padding-top: 20px;
+        &.toggled{
+            .sidebar{
+                height: 95%;
+                border-right: solid 1px;
+            }
+        }
+    }
+}

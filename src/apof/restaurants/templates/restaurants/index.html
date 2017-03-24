@@ -1,18 +1,15 @@
 {% extends 'portal/base_body.html' %}
 {% load static %}
 
-{% block style %}
-<link rel="stylesheet" href="{% static 'restaurants/css/list.css' %}"/>
-{% endblock style %}
-
 {% block content %}
     <div class="row">
+    {% lorem 10 p %}
         {% for restaurant in restaurants %}
             <div class="col-xl-3 col-sm-6 col-md-4">
                 <div class="card-deck">
                     <div class="card" >
                         <div class="card-image mx-auto">
-                            <img id="restaurant_logo" class="card-img-top img-fluid" src="{{ restaurant.logo.url }}" alt="Card image cap">
+                            <img class="card-img-top img-fluid" src="{{ restaurant.logo.url }}" alt="Card image cap">
                         </div>
                         <div class="card-block">
                             <h5>{{ restaurant.name }}</h5>
