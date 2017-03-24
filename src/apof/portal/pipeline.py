@@ -1,4 +1,6 @@
 import urllib2
+import os
+from django.conf import settings
 from django.core.files.base import ContentFile
 
 
@@ -11,8 +13,7 @@ def get_avatar(backend, strategy, response, user=None, *args, **kwargs):
         avatar = user.profile.avatar
     if url:
         ext = url.split('.')[-1]
-
-        if avatar.url != '/media/avatars/base.jpg':
+        if avatar.url != os.path.join(settings.MEDIA_URL, 'avatars/base.jpg'):
             avatar.delete()
         user.profile.avatar.save(
             '{0}.{1}'.format('avatar', ext),

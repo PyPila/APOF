@@ -77,26 +77,26 @@ class PipelineTestCase(TestCase):
         Those mocks are used to set function response['image'].get('url') to
         return 'test'.
         """
-        self.backend_mock = MagicMock()
-        self.backend_mock.name = 'google-oauth2'
-        self.response_mock = {'image': MagicMock(get=MagicMock(side_effect=['test']))}
+        self.mock_backend = MagicMock()
+        self.mock_backend.name = 'google-oauth2'
+        self.mock_response = {'image': MagicMock(get=MagicMock(side_effect=['test']))}
 
     @patch('django.core.files.storage.default_storage._wrapped')
     @patch('urllib2.urlopen')
-    def test_get_user_avatar(self, urllib_mock, storage_mock):
-        storage_mock.url = MagicMock(name='url')
-        storage_mock.url.return_value = '/tmp/test1.jpg'
-        storage_mock.save = MagicMock(name='save')
-        storage_mock.save.return_value = '/tmp/test1.jpg'
+    def test_get_user_avatar(self, mock_urllib, mock_storage):
+        mock_storage.url = MagicMock(name='url')
+        mock_storage.url.return_value = '/tmp/test1.jpg'
+        mock_storage.save = MagicMock(name='save')
+        mock_storage.save.return_value = '/tmp/test1.jpg'
         url_mock = Mock()
         url_mock.read.side_effect = ['test']
-        urllib_mock.return_value = url_mock
+        mock_urllib.return_value = url_mock
         user = User.objects.get(username='christopher')
 
         pipeline.get_avatar(
-            self.backend_mock,
+            self.mock_backend,
             None,
-            self.response_mock,
+            self.mock_response,
             user,
         )
         self.assertEqual(
