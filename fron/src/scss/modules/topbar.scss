@@ -72,13 +72,17 @@
 }
 
 @media(max-width:768px){
-    #top-nav.fades{
-        width: 100%;
-    }
+    .nav{
+        &.fixed-top{
+            &.fades{
+                width: 100%;
+            }
 
-    #sec-top-bar{
-        width: 20%;
-        margin-right: 10%;
-        margin-left: 80%;
+            #sec-top-bar{
+                width: 20%;
+                margin-right: 10%;
+                margin-left: 80%;
+            }
+        }
     }
 }

@@ -24,7 +24,7 @@
                 <tbody>
             {% endif %}
                 <tr>
-                    <td>{{order.meal.menu.restaurant.name}}</td>
+                    <td>{{ order.meal.menu.restaurant.name }}</td>
                     <td class="hidden-sm-down">
                         <div><img src="http://placehold.it/100x100" alt="..." class="img-fluid"/></div>
                     </td>
@@ -33,9 +33,9 @@
                     <td data-th="Toppings">
                         {% for topping in order.toppings.all %}
                             {{ topping.ingredient.name }}{% if not forloop.last %}, {% endif %}
-                       {% endfor %}
+                        {% endfor %}
                     </td>
-                    <td data-th="Price">{{ order.get_total_price }}</td>
+                    <td data-th="Price" value="3">{{ order.get_total_price }}</td>
                     <td data-th="Ammount">
                         <input type="number" class="form-control text-center" value="1">
                     </td>
