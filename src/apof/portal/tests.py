@@ -88,9 +88,9 @@ class PipelineTestCase(TestCase):
         mock_storage.url.return_value = '/tmp/test1.jpg'
         mock_storage.save = MagicMock(name='save')
         mock_storage.save.return_value = '/tmp/test1.jpg'
-        url_mock = Mock()
-        url_mock.read.side_effect = ['test']
-        mock_urllib.return_value = url_mock
+        mock_url = Mock()
+        mock_url.read.side_effect = ['test']
+        mock_urllib.return_value = mock_url
         user = User.objects.get(username='christopher')
 
         pipeline.get_avatar(
