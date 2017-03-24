@@ -1,10 +1,6 @@
 {% extends "portal/base_body.html" %}
 {% load static %}
 
-{% block style %}
-    <link rel="stylesheet" href="{% static "menus/css/meal_list.css" %}"/>
-{% endblock style %}
-
 {% block content %}
     <div class="row">
         {% regroup meal_list by category.name as category_list %}
