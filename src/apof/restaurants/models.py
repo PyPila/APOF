@@ -25,6 +25,9 @@ class Restaurant(models.Model):
     def __repr__(self):
         return '{}(Name: {})'.format(self.__class__.__name__, self.name)
 
+    def get_phone_numbers(self):
+        return [phone_number.number for phone_number in self.phonenumber_set.all()]
+
 
 class OpeningHours(models.Model):
     restaurant = models.ForeignKey('Restaurant')
