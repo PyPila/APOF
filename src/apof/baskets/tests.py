@@ -25,6 +25,7 @@ class BasketTestCase(TestCase):
 
     def test_string_representation(self):
         basket = Basket(owner=User.objects.get(username='christopher'))
+
         self.assertEqual(str(basket), 'Basket christopher')
 
 
@@ -71,6 +72,7 @@ class OrderTestCase(OrderTestMixin, TestCase):
         basket = Basket(owner=User.objects.get(username='christopher'))
         meal = Meal(menu=Menu(restaurant=Restaurant(name='restaurant')), name='soup')
         order = Order(basket=basket, meal=meal)
+
         self.assertEqual(str(order), 'christopher soup')
 
     def test_get_restaurant(self):
@@ -78,6 +80,7 @@ class OrderTestCase(OrderTestMixin, TestCase):
 
     def test_get_total_price(self):
         expected_total_price = Decimal('26.74')
+
         self.assertEqual(self.order.get_total_price(), expected_total_price)
 
 
@@ -92,11 +95,13 @@ class OrderListViewTestCase(OrderTestMixin, TestCase):
 
     def test_anonymous_user_gets_403(self):
         response = self.client.get(reverse('order-list'))
+
         self.assertEqual(response.status_code, 403)
 
     def test_logged_user_without_permission_gets_403(self):
         self.client.force_login(User.objects.get(username='christopher'))
         response = self.client.get(reverse('order-list'))
+
         self.assertEqual(response.status_code, 403)
 
     def test_logged_user_with_permission(self):
@@ -104,6 +109,7 @@ class OrderListViewTestCase(OrderTestMixin, TestCase):
         user.user_permissions.add(Permission.objects.get(codename='delete_order'))
         self.client.force_login(user)
         response = self.client.get(reverse('order-list'))
+
         self.assertEqual(response.status_code, 200)
 
 
@@ -117,11 +123,13 @@ class OrderDeleteViewTestCase(OrderTestMixin, TestCase):
 
     def test_anonymous_user_gets_403(self):
         response = self.client.get(reverse('order-delete', kwargs={'pk': self.order.pk}))
+
         self.assertEqual(response.status_code, 403)
 
     def test_logged_user_without_permission_gets_403(self):
         self.client.force_login(User.objects.get(username='christopher'))
         response = self.client.get(reverse('order-delete', kwargs={'pk': self.order.pk}))
+
         self.assertEqual(response.status_code, 403)
 
     def test_logger_user_with_permission(self):
@@ -129,6 +137,7 @@ class OrderDeleteViewTestCase(OrderTestMixin, TestCase):
         user.user_permissions.add(Permission.objects.get(codename='delete_order'))
         self.client.force_login(user)
         response = self.client.get(reverse('order-delete', kwargs={'pk': self.order.pk}))
+
         self.assertEqual(response.status_code, 200)
 
 
@@ -139,5 +148,6 @@ class GetItemTagTestCase(TestCase):
             'a': 1,
             '2': 'b'
         }
+
         self.assertEqual(get_item(test_dict, 'a'), 1)
         self.assertIsNone(get_item(test_dict, 'b'))
