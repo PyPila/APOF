@@ -13,4 +13,13 @@ $(document).ready(function () {
             $(topNav).removeClass('fades');
         }
     });
+    $('.btn-info').on('click', function(){
+        var price = $(this).parent().siblings('.price'),
+            price_val = price.attr('value'),
+            ammount = $(this).parent().siblings('.ammount'),
+            ammount_val = ammount.children().val(),
+            price = price_val * ammount,
+            total_price = $(this).parent().siblings('.total-price');
+        total_price.html(price);
+    });
 });

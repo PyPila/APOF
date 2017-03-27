@@ -35,11 +35,11 @@
                             {{ topping.ingredient.name }}{% if not forloop.last %}, {% endif %}
                         {% endfor %}
                     </td>
-                    <td data-th="Price" value="3">{{ order.get_total_price }}</td>
-                    <td data-th="Ammount">
+                    <td data-th="Price" class="price" value="3">12{{ order.get_total_price }}</td>
+                    <td data-th="Ammount" class="ammount">
                         <input type="number" class="form-control text-center" value="1">
                     </td>
-                    <td data-th="Total price">
+                    <td data-th="Total price" class='total-price'>
                         {{ order.get_total_price }}
                     </td>
                     <td>
