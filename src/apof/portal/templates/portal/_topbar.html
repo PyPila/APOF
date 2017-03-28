@@ -23,13 +23,13 @@
                 <a class="dropdown-item" href="#">Admin panel</a>
                 {% if request.user.is_superuser %}
                     <a class="dropdown-item" href="{% url 'order-list' %}">Orders</a>
-                    {% else %}
-                        {% for group in request.user.groups.all %}
-                            {% if group.name == 'moderators' %}
-                                <a class="dropdown-item" href="{% url 'order-list' %}">Orders</a>
-                            {% endif %}
-                        {% endfor %}
-                    {% endif %}
+                {% else %}
+                    {% for group in request.user.groups.all %}
+                        {% if group.name == 'moderators' %}
+                            <a class="dropdown-item" href="{% url 'order-list' %}">Orders</a>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
             </div>
