@@ -22,7 +22,7 @@
                 <a class="dropdown-item" href="#">Another action</a>
                 <a class="dropdown-item" href="#">Admin panel</a>
                 {% if request.user.is_superuser %}
-                        <a class="dropdown-item" href="{% url 'order-list' %}">Orders</a>
+                    <a class="dropdown-item" href="{% url 'order-list' %}">Orders</a>
                     {% else %}
                         {% for group in request.user.groups.all %}
                             {% if group.name == 'moderators' %}
