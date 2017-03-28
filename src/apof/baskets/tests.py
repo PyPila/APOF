@@ -19,7 +19,6 @@ class BasketTest(TestCase):
 
     def test_string_representation(self):
         basket = Basket(owner=User.objects.get(username='christopher'))
-
         self.assertEqual(str(basket), 'Basket christopher')
 
 
@@ -29,8 +28,8 @@ class OrderTest(TestCase):
     def test_string_representation(self):
         basket = Basket(owner=User.objects.get(username='christopher'))
         meal = Meal(menu=Menu(restaurant=Restaurant(name='restaurant')), name='soup')
-        order = Order(basket=basket, meal=meal)
 
+        order = Order(basket=basket, meal=meal)
         self.assertEqual(str(order), 'christopher soup')
 
 
@@ -60,7 +59,6 @@ class AddToBasketViewTestCase(TestCase):
 
     def test_anonymous_user_is_redirected_to_login_view(self):
         response = self.client.get(self._get_url(self.meal, self.price))
-
         self.assertRedirects(
             response,
             '{}{}{}'.format(
@@ -72,9 +70,9 @@ class AddToBasketViewTestCase(TestCase):
 
     def test_logged_user_can_create_order_with_meal_in_basket(self):
         self.client.force_login(self.user)
+
         response = self.client.get(self._get_url(self.meal, self.price))
         order = Order.objects.get(pk=1)
-
         self.assertEqual(response.status_code, 302)
         self.assertEqual(Order.objects.all().count(), 1)
         self.assertEqual(order.basket.owner, self.user)
@@ -84,6 +82,7 @@ class AddToBasketViewTestCase(TestCase):
     def test_logged_user_is_redirected_after_creating_order(self):
         self.client.force_login(self.user)
         expected_url = reverse('meal-list', kwargs={'restaurant_pk': 1})
+
         response = self.client.get(
             self._get_url(
                 self.meal,
@@ -91,5 +90,4 @@ class AddToBasketViewTestCase(TestCase):
             ),
             HTTP_REFERER=expected_url
         )
-
         self.assertRedirects(response, expected_url)
