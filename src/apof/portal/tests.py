@@ -20,6 +20,7 @@ class IndexTestCase(TestCase):
 
     def test_logged_user_is_not_redirected(self):
         self.client.force_login(User.objects.get(username='christopher'))
+
         response = self.client.get(reverse('home'))
         self.assertRedirects(response, '/restaurants/')
 
@@ -33,6 +34,7 @@ class LoginTestCase(TestCase):
 
     def test_logged_user_is_redirected_to_restaurant_view(self):
         self.client.force_login(User.objects.get(username='christopher'))
+
         response = self.client.get(reverse('login'))
         self.assertRedirects(
             response,
@@ -48,6 +50,7 @@ class LogoutTestCase(TestCase):
     def test_user_logout(self):
         self.client.force_login(User.objects.get(username='christopher'))
         self.client.get(reverse('logout'))
+
         response = self.client.get(reverse('home'))
         self.assertRedirects(
             response,
