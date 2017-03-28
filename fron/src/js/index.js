@@ -18,8 +18,8 @@ $(document).ready(function () {
             price_val = price.attr('value'),
             ammount = $(this).parent().siblings('.ammount'),
             ammount_val = ammount.children().val(),
-            price = price_val * ammount,
+            price = price_val * ammount_val,
             total_price = $(this).parent().siblings('.total-price');
-        total_price.html(price);
+        total_price.html(price + 'zl');
     });
 });
