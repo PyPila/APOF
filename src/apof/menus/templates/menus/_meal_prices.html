@@ -1,0 +1,16 @@
+<div class="prices collapse in" id="collapseExample{{meal.id}}">
+    <table class="table meal-sizes">
+        {% for price in prices %}
+            <tr>
+                <td class="meal-size">
+                    {{ price.size }}
+                </td>
+                <td>
+                    <span class="float-right">
+                        <a href="{% url 'add-meal-to-basket' meal.pk price.pk %}" class="price-link">{{ price }}</a>
+                    </span>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>

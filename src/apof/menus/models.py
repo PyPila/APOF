@@ -19,7 +19,7 @@ class Menu(models.Model):
 
 class Size(models.Model):
     menu = models.ForeignKey(Menu, blank=False, on_delete=models.CASCADE)
-    description = models.CharField(max_length=50, blank=True, unique=True, default='Normal size')
+    description = models.CharField(max_length=50, blank=True, default='Normal size')
     value = models.DecimalField(max_digits=3, decimal_places=0, blank=True)
     value_unit = models.CharField(max_length=15, blank=True)
 
@@ -41,11 +41,33 @@ class Size(models.Model):
         )
 
 
+class Category(models.Model):
+    name = models.CharField(max_length=128, unique=True)
+
+    class Meta:
+        verbose_name_plural = "categories"
+
+    def __unicode__(self):
+        return self.name
+
+    def __repr__(self):
+        return '{}(Name: {})'.format(
+            self.__class__.__name__,
+            self.name
+        )
+
+
 class Meal(models.Model):
     menu = models.ForeignKey(Menu, blank=False, on_delete=models.CASCADE)
     name = models.CharField(max_length=150, blank=False)
     ingredients = models.ManyToManyField('Ingredient', blank=True)
     prices = GenericRelation('Price')
+    logo = models.ImageField(
+        blank=True,
+        upload_to='meals/',
+        default='/meals/meal_default.jpeg'
+    )
+    category = models.ForeignKey(Category, blank=True, null=True, on_delete=models.PROTECT)
 
     class Meta:
         unique_together = ('menu', 'name')

@@ -3,12 +3,17 @@ from __future__ import unicode_literals
 from collections import defaultdict
 from decimal import Decimal
 
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
+from django.utils.timezone import datetime
 from django.views.generic import ListView
 from django.views.generic.edit import DeleteView
 
-from .models import Order
+from baskets.models import Basket, Order
+from menus.models import Meal, Price
 
 
 class OrderListView(PermissionRequiredMixin, ListView):
@@ -34,3 +39,19 @@ class OrderDeleteView(PermissionRequiredMixin, DeleteView):
     permission_required = ('baskets.delete_order', )
     raise_exception = True
     success_url = reverse_lazy('order-list')
+
+
+@login_required
+def add_meal_to_basket(request, meal_id, meal_price_id):
+    previous = request.META.get('HTTP_REFERER')
+    meal_price = get_object_or_404(Price, pk=meal_price_id)
+    meal = Meal.objects.get(pk=meal_id)
+    basket, created = Basket.objects.get_or_create(
+        owner=request.user,
+        created_at=datetime.today()
+    )
+    Order.objects.create(meal=meal, size=meal_price.size, basket=basket)
+
+    if previous:
+        return HttpResponseRedirect(previous)
+    return redirect('restaurant-list')
