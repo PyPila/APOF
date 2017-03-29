@@ -1,14 +1,11 @@
 .nav{
-    &.fixed-top{
+    &.navbar-light{
         @include transition(.5s)
         width: 100%;
         padding-top: 6px;
         padding-bottom:5px;
         opacity: .95;
-        background-color: $stx_color;
-        &.fades{
-            width: 210px;
-        }
+        background-color: $main_color;
         .navbar-toggler{
             transition: box-shadow 0.3s ease-in-out;
             font-size: 26px;

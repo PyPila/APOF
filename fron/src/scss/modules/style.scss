@@ -1,5 +1,4 @@
 body{
-    padding-top: 96px;
 }
 
 .navbar-toggler{
@@ -20,6 +19,14 @@ body{
         .sidebar{
             height: 350px;
             border-right: solid 1px;
+        }
+    }
+    &.logo{
+        background-color: $main_color;
+        height: 200px;
+        img{
+            height:200px;
+            margin:auto;
         }
     }
 }
