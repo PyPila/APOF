@@ -13,7 +13,4 @@ $(document).ready(function () {
             $(topNav).removeClass('fades');
         }
     });
-    $('.navbar-toggle').on('click', function(){
-        $('.sidebar').hide();
-    });
 });

@@ -1,4 +1,5 @@
 body{
+    padding-top: 80px;
 }
 
 .navbar-toggler{
@@ -12,12 +13,14 @@ body{
 
 .row{
     @include transition(.5s)
-
+    .sidebar{
+        left:-350px;
+    }
     &.toggled{
         padding-left: 0;
 
         .sidebar{
-            height: 350px;
+            left:0px;
             border-right: solid 1px;
         }
     }
@@ -39,7 +42,9 @@ body{
     body{
         padding-top: 64px;
         .sidebar{
+            height: 0;
             width: 100%;
+            left:0px !important;
         }
     }
 
@@ -48,8 +53,11 @@ body{
         padding-top: 20px;
         &.toggled{
             .sidebar{
-                height: 95%;
+                height: 100%;
                 border-right: solid 1px;
+                ul{
+                    height: 33%;
+                }
             }
         }
     }
