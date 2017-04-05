@@ -133,30 +133,27 @@ class AdminTestCase(TestCase):
 
     def test_price_in_line(self):
         priceinlineMRO = PriceInline.__mro__
-        self.assertIs(priceinlineMRO[0], PriceInline)
-        self.assertIs(priceinlineMRO[1], GenericTabularInline)
-        self.assertIs(priceinlineMRO[2], GenericInlineModelAdmin)
-        self.assertIs(priceinlineMRO[3], InlineModelAdmin)
-        self.assertIs(priceinlineMRO[4], BaseModelAdmin)
-        self.assertIs(priceinlineMRO[5], object)
+        expectedMRO = (
+            PriceInline,
+            GenericTabularInline,
+            GenericInlineModelAdmin,
+            InlineModelAdmin,
+            BaseModelAdmin,
+            object
+        )
+        self.assertEqual(priceinlineMRO, expectedMRO)
 
     def test_meal_admin(self):
         mealadminMRO = MealAdmin.__mro__
-        self.assertIs(mealadminMRO[0], MealAdmin)
-        self.assertIs(mealadminMRO[1], ModelAdmin)
-        self.assertIs(mealadminMRO[2], BaseModelAdmin)
-        self.assertIs(mealadminMRO[3], object)
+        expectedMRO = (MealAdmin, ModelAdmin, BaseModelAdmin, object)
+        self.assertEqual(mealadminMRO, expectedMRO)
 
     def test_topping_admin(self):
         toppingadminMRO = ToppingAdmin.__mro__
-        self.assertIs(toppingadminMRO[0], ToppingAdmin)
-        self.assertIs(toppingadminMRO[1], ModelAdmin)
-        self.assertIs(toppingadminMRO[2], BaseModelAdmin)
-        self.assertIs(toppingadminMRO[3], object)
+        expectedMRO = (ToppingAdmin, ModelAdmin, BaseModelAdmin, object)
+        self.assertEqual(toppingadminMRO, expectedMRO)
 
     def test_size_admin(self):
         sizeadminMRO = SizeAdmin.__mro__
-        self.assertIs(sizeadminMRO[0], SizeAdmin)
-        self.assertIs(sizeadminMRO[1], ModelAdmin)
-        self.assertIs(sizeadminMRO[2], BaseModelAdmin)
-        self.assertIs(sizeadminMRO[3], object)
+        expectedMRO = (SizeAdmin, ModelAdmin, BaseModelAdmin, object)
+        self.assertEqual(sizeadminMRO, expectedMRO)
