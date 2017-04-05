@@ -8,19 +8,20 @@ from setuptools import find_packages, setup
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 install_requires = [
+    'coverage==4.3.4',
+    'django-nose==1.4.4 ',
     'django>=1.10',
     'mysql-python==1.2.5',
     'pillow==4.0.0',
     'social-auth-app-django==1.0.1',
 ]
 develop_requires = [
-    'pdbpp',
-    'ipython',
-    'readline',
-    'mock',
     'coverage==4.3.4',
-    'django-nose==1.4.4'
-
+    'django-nose==1.4.4',
+    'ipython',
+    'mock',
+    'pdbpp',
+    'readline',
 ]
 
 setup(

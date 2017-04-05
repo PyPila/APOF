@@ -60,6 +60,19 @@ INSTALLED_APPS = [
     'portal',
     'restaurants',
 ]
+OWN_APPS = [
+    'baskets',
+    'menus',
+    'portal',
+    'restaurants',
+]
+
+COVER_PACKAGE = ','.join(OWN_APPS)
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+NOSE_ARGS = [
+    '--with-coverage',
+    '--cover-package={}'.format(COVER_PACKAGE)
+]
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
