@@ -1,7 +1,19 @@
+from django.contrib.admin import ModelAdmin
 from django.contrib.auth.models import User
+from django.contrib.contenttypes.admin import (
+    GenericTabularInline,
+    GenericInlineModelAdmin
+)
+from django.contrib.admin.options import InlineModelAdmin, BaseModelAdmin
 from django.test import TestCase
 from django.urls import reverse
 
+from menus.admin import (
+    PriceInline,
+    MealAdmin,
+    ToppingAdmin,
+    SizeAdmin
+)
 from menus.models import (
     Category,
     Ingredient,
@@ -115,3 +127,36 @@ class MealListViewTestCase(TestCase):
 
         response = self.client.get(reverse('meal-list', kwargs={'restaurant_pk': 1}))
         self.assertEqual(response.status_code, 200)
+
+
+class AdminTestCase(TestCase):
+
+    def test_price_in_line(self):
+        priceinlineMRO = PriceInline.__mro__
+        self.assertIs(priceinlineMRO[0], PriceInline)
+        self.assertIs(priceinlineMRO[1], GenericTabularInline)
+        self.assertIs(priceinlineMRO[2], GenericInlineModelAdmin)
+        self.assertIs(priceinlineMRO[3], InlineModelAdmin)
+        self.assertIs(priceinlineMRO[4], BaseModelAdmin)
+        self.assertIs(priceinlineMRO[5], object)
+
+    def test_meal_admin(self):
+        mealadminMRO = MealAdmin.__mro__
+        self.assertIs(mealadminMRO[0], MealAdmin)
+        self.assertIs(mealadminMRO[1], ModelAdmin)
+        self.assertIs(mealadminMRO[2], BaseModelAdmin)
+        self.assertIs(mealadminMRO[3], object)
+
+    def test_topping_admin(self):
+        toppingadminMRO = ToppingAdmin.__mro__
+        self.assertIs(toppingadminMRO[0], ToppingAdmin)
+        self.assertIs(toppingadminMRO[1], ModelAdmin)
+        self.assertIs(toppingadminMRO[2], BaseModelAdmin)
+        self.assertIs(toppingadminMRO[3], object)
+
+    def test_size_admin(self):
+        sizeadminMRO = SizeAdmin.__mro__
+        self.assertIs(sizeadminMRO[0], SizeAdmin)
+        self.assertIs(sizeadminMRO[1], ModelAdmin)
+        self.assertIs(sizeadminMRO[2], BaseModelAdmin)
+        self.assertIs(sizeadminMRO[3], object)

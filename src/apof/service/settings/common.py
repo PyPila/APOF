@@ -53,11 +53,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_nose',
+    'social_django',
     'baskets',
     'menus',
     'portal',
     'restaurants',
-    'social_django',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -94,7 +95,22 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'apof.service.wsgi.application'
 
+# Django nose
+OWN_APPS = [
+    'baskets',
+    'menus',
+    'portal',
+    'restaurants',
+]
 
+COVER_PACKAGE = ','.join(OWN_APPS)
+
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+NOSE_ARGS = [
+    '--with-coverage',
+    '--cover-package={}'.format(COVER_PACKAGE)
+]
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 

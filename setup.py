@@ -18,6 +18,9 @@ develop_requires = [
     'ipython',
     'readline',
     'mock',
+    'coverage==4.3.4',
+    'django-nose==1.4.4'
+
 ]
 
 setup(

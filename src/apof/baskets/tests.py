@@ -1,5 +1,8 @@
 from decimal import Decimal
 
+from django.contrib.admin import ModelAdmin
+from django.contrib.admin.options import BaseModelAdmin
+from django.contrib.admin.filters import SimpleListFilter, ListFilter
 from django.contrib.auth.models import Permission, User
 
 from django.core.files import File
@@ -7,6 +10,7 @@ from django.shortcuts import reverse
 from django.test import TestCase
 from mock import MagicMock, patch
 
+from baskets.admin import RestaurantListFilter, OrderAdmin, BasketAdmin
 from baskets.models import Basket, Order
 from baskets.templatetags.get_item import get_item
 from baskets.views import OrderDeleteView, OrderListView
@@ -62,6 +66,7 @@ class OrderTestMixin:
             size=size
         )
         self.order.toppings.set([test1_topping, test2_topping])
+        self.data_mock = MagicMock()
 
 
 class OrderTestCase(OrderTestMixin, TestCase):
@@ -206,3 +211,49 @@ class AddToBasketViewTestCase(TestCase):
             HTTP_REFERER=expected_url
         )
         self.assertRedirects(response, expected_url)
+
+
+class AdminTestCase(OrderTestMixin, TestCase):
+    fixtures = ['test_user_data.json']
+
+    def test_admin_restaurant_list(self):
+        filterMRO = RestaurantListFilter.__mro__
+        testFilter = RestaurantListFilter(
+            self.data_mock,
+            self.data_mock,
+            self.data_mock,
+            self.data_mock
+        )
+        data1 = testFilter.lookups(self.data_mock, self.data_mock)
+        data2 = testFilter.queryset(self.data_mock, data1)
+
+        self.assertIs(filterMRO[0], RestaurantListFilter)
+        self.assertIs(filterMRO[1], SimpleListFilter)
+        self.assertIs(filterMRO[2], ListFilter)
+        self.assertIs(filterMRO[3], object)
+        self.assertEqual(data1[0][1], 'test restaurant2')
+        self.assertEqual(data2[0][1], 'test restaurant2')
+
+    def test_admin_order(self):
+        orderMRO = OrderAdmin.__mro__
+        testOrder = OrderAdmin(self.data_mock, self.data_mock)
+        data1 = testOrder.get_meal_name(self.order)
+        data2 = testOrder.get_order_price(self.order)
+        data3 = testOrder.get_order_restaurant_name(self.order)
+        data4 = testOrder.get_toppings(self.order)
+
+        self.assertIs(orderMRO[0], OrderAdmin)
+        self.assertIs(orderMRO[1], ModelAdmin)
+        self.assertIs(orderMRO[2], BaseModelAdmin)
+        self.assertIs(orderMRO[3], object)
+        self.assertEqual(data1, 'test_meal')
+        self.assertEqual(data2, Decimal('26.74'))
+        self.assertEqual(data3, 'test restaurant2')
+        self.assertEqual(data4, 'test1_ingredient, test2_ingredient')
+
+    def test_admin_basket(self):
+        basketMRO = BasketAdmin.__mro__
+        self.assertIs(basketMRO[0], BasketAdmin)
+        self.assertIs(basketMRO[1], ModelAdmin)
+        self.assertIs(basketMRO[2], BaseModelAdmin)
+        self.assertIs(basketMRO[3], object)
