@@ -1,3 +1,4 @@
+from django.apps.config import AppConfig
 from django.contrib.admin import ModelAdmin
 from django.contrib.auth.models import User
 from django.contrib.contenttypes.admin import (
@@ -8,6 +9,7 @@ from django.contrib.admin.options import InlineModelAdmin, BaseModelAdmin
 from django.test import TestCase
 from django.urls import reverse
 
+from menus.apps import MenusConfig
 from menus.admin import (
     PriceInline,
     MealAdmin,
@@ -157,3 +159,10 @@ class AdminTestCase(TestCase):
         sizeadminMRO = SizeAdmin.__mro__
         expectedMRO = (SizeAdmin, ModelAdmin, BaseModelAdmin, object)
         self.assertEqual(sizeadminMRO, expectedMRO)
+
+
+class AppsTestCase(TestCase):
+    def test_BasketConfig_mro(self):
+        MenusConfigMRO = MenusConfig.__mro__
+        expectedMRO = (MenusConfig, AppConfig, object)
+        self.assertEqual(MenusConfigMRO, expectedMRO)

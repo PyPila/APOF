@@ -47,31 +47,18 @@ SOCIAL_AUTH_LOGIN_REDIRECT_URL = 'home'
 # Application definition
 
 INSTALLED_APPS = [
+    'django_nose',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_nose',
     'social_django',
     'baskets',
     'menus',
     'portal',
     'restaurants',
-]
-OWN_APPS = [
-    'baskets',
-    'menus',
-    'portal',
-    'restaurants',
-]
-
-COVER_PACKAGE = ','.join(OWN_APPS)
-TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
-NOSE_ARGS = [
-    '--with-coverage',
-    '--cover-package={}'.format(COVER_PACKAGE)
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -122,6 +109,8 @@ TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
 NOSE_ARGS = [
     '--with-coverage',
+    '--cover-erase',
+    '--cover-html',
     '--cover-package={}'.format(COVER_PACKAGE)
 ]
 # Database

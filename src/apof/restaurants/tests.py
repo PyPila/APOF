@@ -1,5 +1,6 @@
 from datetime import time
 
+from django.apps.config import AppConfig
 from django.contrib.auth.models import User
 from django.core.files import File
 from django.test import TestCase
@@ -7,6 +8,7 @@ from django.urls import reverse
 from mock import patch, MagicMock
 
 from restaurants.models import OpeningHours, PhoneNumber, Restaurant
+from restaurants.apps import RestaurantsConfig
 
 
 file_mock = MagicMock(spec=File, name='FileMock')
@@ -91,3 +93,10 @@ class RestaurantListTestCase(TestCase):
         self.assertEqual(
             [restaurant1, restaurant2], list(response.context['restaurants'])
         )
+
+
+class AppsTestCase(TestCase):
+    def test_BasketConfig_mro(self):
+        RestaurantsConfigMRO = RestaurantsConfig.__mro__
+        expectedMRO = (RestaurantsConfig, AppConfig, object)
+        self.assertEqual(RestaurantsConfigMRO, expectedMRO)

@@ -1,17 +1,15 @@
 from decimal import Decimal
+from mock import MagicMock, patch
 
-from django.contrib.admin import ModelAdmin
-from django.contrib.admin.options import BaseModelAdmin
+from django.apps.config import AppConfig
 from django.contrib.admin.filters import SimpleListFilter, ListFilter
-from django.contrib.auth.models import Permission, User
-
 from django.contrib.admin.options import ModelAdmin, BaseModelAdmin
-from django.contrib.admin.filters import SimpleListFilter, ListFilter
+from django.contrib.auth.models import Permission, User
 from django.core.files import File
 from django.shortcuts import reverse
 from django.test import TestCase
-from mock import MagicMock, patch
 
+from baskets.apps import BasketsConfig
 from baskets.admin import RestaurantListFilter, OrderAdmin, BasketAdmin
 from baskets.models import Basket, Order
 from baskets.templatetags.get_item import get_item
@@ -261,3 +259,10 @@ class AdminTestCase(OrderTestMixin, TestCase):
         filterMRO = RestaurantListFilter.__mro__
         expectedMRO = (RestaurantListFilter, SimpleListFilter, ListFilter, object)
         self.assertEqual(filterMRO, expectedMRO)
+
+
+class AppsTestCase(TestCase):
+    def test_BasketConfig_mro(self):
+        BasketsConfigMRO = BasketsConfig.__mro__
+        expectedMRO = (BasketsConfig, AppConfig, object)
+        self.assertEqual(BasketsConfigMRO, expectedMRO)
