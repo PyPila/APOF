@@ -35,7 +35,7 @@ AUTHENTICATION_BACKENDS = (
 )
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '961510843960-pkq4rui76l9seb31fnh2t8r84avo1vor.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'ay0Uv2xm7bDRv6zeptwKzOsY'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'Cl6iF6ZixrPKTHFio1CiSZD_'
 SOCIAL_AUTH_GOOGLE_OAUTH2_WHITELISTED_DOMAINS = ['stxnext.pl']
 SOCIAL_AUTH_USER_MODEL = 'auth.User'
 
@@ -47,7 +47,6 @@ SOCIAL_AUTH_LOGIN_REDIRECT_URL = 'home'
 # Application definition
 
 INSTALLED_APPS = [
-    'django_nose',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -55,6 +54,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'social_django',
+    'django_nose',
+    'coverage',
     'baskets',
     'menus',
     'portal',
@@ -108,10 +109,14 @@ COVER_PACKAGE = ','.join(OWN_APPS)
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
 NOSE_ARGS = [
+    '--cover-tests',
     '--with-coverage',
     '--cover-erase',
     '--cover-html',
-    '--cover-package={}'.format(COVER_PACKAGE)
+    '--detailed-errors',
+    '--with-id',
+    '--cover-package={}'.format(COVER_PACKAGE),
+    '--verbosity=2',
 ]
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases

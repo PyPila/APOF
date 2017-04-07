@@ -92,3 +92,5 @@ ENV/
 node_modules/
 dist/
 bower_components/
+cover/
+.noseids

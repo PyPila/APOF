@@ -13,7 +13,7 @@ install_requires = [
     'django>=1.10',
     'mysql-python==1.2.5',
     'pillow==4.0.0',
-    'social-auth-app-django==1.0.1',
+    'social-auth-app-django==1.1.0',
 ]
 develop_requires = [
     'coverage==4.3.4',
