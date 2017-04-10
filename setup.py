@@ -8,12 +8,11 @@ from setuptools import find_packages, setup
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 install_requires = [
-    'coverage==4.3.4',
-    'django-nose==1.4.4 ',
     'django>=1.10',
     'mysql-python==1.2.5',
     'pillow==4.0.0',
     'social-auth-app-django==1.1.0',
+    'click==6.7'
 ]
 develop_requires = [
     'coverage==4.3.4',
@@ -41,6 +40,11 @@ setup(
     extras_require={
         'develop': develop_requires,
     },
+    entry_points={
+        'console_scripts': [
+            'apofcmd = apof.command_runner:command',
+        ],
+    },
     classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',
@@ -50,6 +54,6 @@ setup(
         'Programming Language :: Python',
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 2.12',
+        'Programming Language :: Python :: 2.7.12',
     ],
 )

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from restaurants.models import Restaurant
+from apof.restaurants.models import Restaurant
 from .models import Basket, Order
 
 

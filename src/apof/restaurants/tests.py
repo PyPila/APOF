@@ -7,9 +7,8 @@ from django.test import TestCase
 from django.urls import reverse
 from mock import patch, MagicMock
 
-from restaurants.models import OpeningHours, PhoneNumber, Restaurant
-from restaurants.apps import RestaurantsConfig
-
+from apof.restaurants.models import OpeningHours, PhoneNumber, Restaurant
+from apof.restaurants.apps import RestaurantsConfig
 
 file_mock = MagicMock(spec=File, name='FileMock')
 file_mock.name = 'test1.jpg'
