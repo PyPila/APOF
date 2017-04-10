@@ -100,9 +100,6 @@ class PipelineTestCase(TestCase):
             self.mock_backend,
             None,
             self.mock_response,
-            user,
+            user
         )
-        self.assertEqual(
-            user.profile.avatar.url,
-            '/tmp/test1.jpg'
-        )
+        self.assertEqual(user.profile.avatar.url, '/tmp/test1.jpg')
