@@ -1,9 +1,8 @@
-from mock import MagicMock, patch
-
 from django.core.files import File
 from django.contrib.auth.models import User, Permission
 from django.test import TestCase
 from django.urls import reverse
+from mock import MagicMock, patch
 
 from apof.baskets.models import Order, Basket
 from apof.baskets.tests.utils import OrderTestMixin

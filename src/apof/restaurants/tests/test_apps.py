@@ -6,6 +6,7 @@ from apof.restaurants.apps import RestaurantsConfig
 
 class AppsTestCase(TestCase):
     def test_BasketConfig_mro(self):
-        RestaurantsConfigMRO = RestaurantsConfig.__mro__
-        expectedMRO = (RestaurantsConfig, AppConfig, object)
-        self.assertEqual(RestaurantsConfigMRO, expectedMRO)
+        self.assertEqual(
+            RestaurantsConfig.__mro__,
+            (RestaurantsConfig, AppConfig, object)
+        )

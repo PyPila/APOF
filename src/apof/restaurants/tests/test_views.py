@@ -1,9 +1,8 @@
-from mock import patch, MagicMock
-
 from django.contrib.auth.models import User
 from django.core.files import File
 from django.test import TestCase
 from django.urls import reverse
+from mock import patch, MagicMock
 
 from apof.restaurants.models import Restaurant
 

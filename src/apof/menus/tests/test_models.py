@@ -1,16 +1,7 @@
 from django.test import TestCase
 
 from apof.menus.tests.utils import MenusTestMixin
-from apof.menus.models import (
-    Category,
-    Ingredient,
-    Meal,
-    Menu,
-    Price,
-    Size,
-    Topping
-)
-from apof.restaurants.models import Restaurant
+from apof.menus.models import Size
 
 
 class MenuTestCase(MenusTestMixin, TestCase):

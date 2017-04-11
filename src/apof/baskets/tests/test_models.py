@@ -30,8 +30,7 @@ class OrderTestCase(OrderTestMixin, TestCase):
         self.assertEqual(self.order.get_restaurant_name(), 'test restaurant2')
 
     def test_get_total_price(self):
-        expected_total_price = Decimal('26.74')
-        self.assertEqual(self.order.get_total_price(), expected_total_price)
+        self.assertEqual(self.order.get_total_price(), Decimal('26.74'))
 
     def test_repr(self):
         self.assertEqual(

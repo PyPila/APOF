@@ -64,7 +64,6 @@ class RestaurantListFilterTestCase(OrderTestMixin, TestCase):
 
 
 class AdminTestCase(OrderTestMixin, TestCase):
-
     fixtures = ['test_user_data.json']
 
     def test_admin_get_meal_name(self):
