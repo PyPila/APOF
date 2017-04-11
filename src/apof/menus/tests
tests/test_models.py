@@ -1,21 +1,5 @@
-from django.apps.config import AppConfig
-from django.contrib.admin import ModelAdmin
-from django.contrib.auth.models import User
-from django.contrib.contenttypes.admin import (
-    GenericTabularInline,
-    GenericInlineModelAdmin
-)
-from django.contrib.admin.options import InlineModelAdmin, BaseModelAdmin
 from django.test import TestCase
-from django.urls import reverse
 
-from apof.menus.apps import MenusConfig
-from apof.menus.admin import (
-    PriceInline,
-    MealAdmin,
-    ToppingAdmin,
-    SizeAdmin
-)
 from apof.menus.models import (
     Category,
     Ingredient,
@@ -103,66 +87,3 @@ class PriceTestCase(TestCase):
 
         price = Price(value='24.99', size=size, content_object=meal)
         self.assertEqual(str(price), expected_result)
-
-
-class MealListViewTestCase(TestCase):
-    fixtures = ['test_user_data.json']
-
-    def setUp(self):
-        self.user = User.objects.get(username='christopher')
-
-    def test_anonymous_user_is_redirected_to_login_view(self):
-        response = self.client.get(reverse('meal-list', kwargs={'restaurant_pk': 1}))
-
-        redirect_url = '{}{}{}'.format(
-            reverse('login'),
-            '?next=',
-            reverse(
-                'meal-list',
-                kwargs={'restaurant_pk': 1}
-            )
-        )
-        self.assertRedirects(response, redirect_url)
-
-    def test_logged_user_is_not_redirected(self):
-        self.client.force_login(self.user)
-
-        response = self.client.get(reverse('meal-list', kwargs={'restaurant_pk': 1}))
-        self.assertEqual(response.status_code, 200)
-
-
-class AdminTestCase(TestCase):
-
-    def test_price_in_line(self):
-        priceinlineMRO = PriceInline.__mro__
-        expectedMRO = (
-            PriceInline,
-            GenericTabularInline,
-            GenericInlineModelAdmin,
-            InlineModelAdmin,
-            BaseModelAdmin,
-            object
-        )
-        self.assertEqual(priceinlineMRO, expectedMRO)
-
-    def test_meal_admin(self):
-        mealadminMRO = MealAdmin.__mro__
-        expectedMRO = (MealAdmin, ModelAdmin, BaseModelAdmin, object)
-        self.assertEqual(mealadminMRO, expectedMRO)
-
-    def test_topping_admin(self):
-        toppingadminMRO = ToppingAdmin.__mro__
-        expectedMRO = (ToppingAdmin, ModelAdmin, BaseModelAdmin, object)
-        self.assertEqual(toppingadminMRO, expectedMRO)
-
-    def test_size_admin(self):
-        sizeadminMRO = SizeAdmin.__mro__
-        expectedMRO = (SizeAdmin, ModelAdmin, BaseModelAdmin, object)
-        self.assertEqual(sizeadminMRO, expectedMRO)
-
-
-class AppsTestCase(TestCase):
-    def test_BasketConfig_mro(self):
-        MenusConfigMRO = MenusConfig.__mro__
-        expectedMRO = (MenusConfig, AppConfig, object)
-        self.assertEqual(MenusConfigMRO, expectedMRO)
