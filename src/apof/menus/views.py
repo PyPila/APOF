@@ -1,7 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.list import ListView
 
-from menus.models import Meal
+from apof.menus.models import Meal
 
 
 class MealListView(LoginRequiredMixin, ListView):

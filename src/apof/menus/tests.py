@@ -9,14 +9,14 @@ from django.contrib.admin.options import InlineModelAdmin, BaseModelAdmin
 from django.test import TestCase
 from django.urls import reverse
 
-from menus.apps import MenusConfig
-from menus.admin import (
+from apof.menus.apps import MenusConfig
+from apof.menus.admin import (
     PriceInline,
     MealAdmin,
     ToppingAdmin,
     SizeAdmin
 )
-from menus.models import (
+from apof.menus.models import (
     Category,
     Ingredient,
     Meal,
@@ -25,7 +25,7 @@ from menus.models import (
     Size,
     Topping
 )
-from restaurants.models import Restaurant
+from apof.restaurants.models import Restaurant
 
 
 class MenuTestCase(TestCase):

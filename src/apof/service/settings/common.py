@@ -34,7 +34,9 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend'
 )
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '961510843960-pkq4rui76l9seb31fnh2t8r84avo1vor.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = (
+    '961510843960-pkq4rui76l9seb31fnh2t8r84avo1vor.apps.googleusercontent.com'
+)
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'Cl6iF6ZixrPKTHFio1CiSZD_'
 SOCIAL_AUTH_GOOGLE_OAUTH2_WHITELISTED_DOMAINS = ['stxnext.pl']
 SOCIAL_AUTH_USER_MODEL = 'auth.User'
@@ -45,6 +47,12 @@ SOCIAL_AUTH_LOGIN_REDIRECT_URL = 'home'
 
 
 # Application definition
+OUR_APPS = [
+    'apof.baskets',
+    'apof.menus',
+    'apof.portal',
+    'apof.restaurants',
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -56,11 +64,7 @@ INSTALLED_APPS = [
     'social_django',
     'django_nose',
     'coverage',
-    'baskets',
-    'menus',
-    'portal',
-    'restaurants',
-]
+] + OUR_APPS
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
@@ -97,27 +101,19 @@ TEMPLATES = [
 WSGI_APPLICATION = 'apof.service.wsgi.application'
 
 # Django nose
-OWN_APPS = [
-    'baskets',
-    'menus',
-    'portal',
-    'restaurants',
-]
-
-COVER_PACKAGE = ','.join(OWN_APPS)
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
-NOSE_ARGS = [
-    '--cover-tests',
-    '--with-coverage',
-    '--cover-erase',
-    '--cover-html',
-    '--detailed-errors',
-    '--with-id',
-    '--cover-package={}'.format(COVER_PACKAGE),
-    '--verbosity=2',
-]
+# NOSE_ARGS = [
+#     '--cover-tests',
+#     '--with-coverage',
+#     '--cover-erase',
+#     '--cover-html',
+#     '--detailed-errors',
+#     '--with-id',
+#     '--cover-package={}'.format(','.join(OUR_APPS),
+#     '--verbosity=2',
+# ]
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 

@@ -1,6 +1,6 @@
 from django.conf.urls import url
 
-from baskets import views
+from apof.baskets import views
 
 urlpatterns = [
     url(

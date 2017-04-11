@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.db.models import Sum
 
-from menus.models import Meal, Size, Topping
+from apof.menus.models import Meal, Size, Topping
 
 
 ORDER_STATUS = (

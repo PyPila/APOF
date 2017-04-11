@@ -12,8 +12,8 @@ from django.utils.timezone import datetime
 from django.views.generic import ListView
 from django.views.generic.edit import DeleteView
 
-from baskets.models import Basket, Order
-from menus.models import Meal, Price
+from apof.baskets.models import Basket, Order
+from apof.menus.models import Meal, Price
 
 
 class OrderListView(PermissionRequiredMixin, ListView):

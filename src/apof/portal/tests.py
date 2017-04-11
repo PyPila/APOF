@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.test import TestCase
 from django.urls import reverse
 
-from portal.apps import PortalConfig
+from apof.portal.apps import PortalConfig
 
 class IndexTestCase(TestCase):
     fixtures = ['test_user_data.json']
