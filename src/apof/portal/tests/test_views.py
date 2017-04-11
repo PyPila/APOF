@@ -1,9 +1,7 @@
-from django.apps.config import AppConfig
 from django.contrib.auth.models import User
 from django.test import TestCase
 from django.urls import reverse
 
-from apof.portal.apps import PortalConfig
 
 class IndexTestCase(TestCase):
     fixtures = ['test_user_data.json']
@@ -27,6 +25,7 @@ class LoginTestCase(TestCase):
     def test_anonymous_user_is_not_redirected(self):
         response = self.client.get(reverse('login'))
         self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'registration/login.html')
 
     def test_logged_user_is_redirected_to_restaurant_view(self):
         self.client.force_login(User.objects.get(username='christopher'))
@@ -50,10 +49,3 @@ class LogoutTestCase(TestCase):
             response,
             '{}{}{}'.format(reverse('login'), '?next=', reverse('home'))
         )
-
-
-class AppsTestCase(TestCase):
-    def test_BasketConfig_mro(self):
-        PortalConfigMRO = PortalConfig.__mro__
-        expectedMRO = (PortalConfig, AppConfig, object)
-        self.assertEqual(PortalConfigMRO, expectedMRO)
