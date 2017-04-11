@@ -1,3 +1,5 @@
+from decimal import Decimal
+
 from django.contrib.admin import SimpleListFilter, ListFilter, ModelAdmin
 from django.contrib.admin.options import BaseModelAdmin
 from django.test import TestCase
@@ -59,3 +61,24 @@ class RestaurantListFilterTestCase(OrderTestMixin, TestCase):
         data2 = testFilter.queryset(self.data_mock, data1)
         self.assertEqual(data1[0][1], 'test restaurant2')
         self.assertEqual(data2[0][1], 'test restaurant2')
+
+
+class AdminTestCase(OrderTestMixin, TestCase):
+
+    fixtures = ['test_user_data.json']
+
+    def test_admin_get_meal_name(self):
+        data = self.test_order.get_meal_name(self.order)
+        self.assertEqual(data, 'test_meal')
+
+    def test_admin_get_order_price(self):
+        data = self.test_order.get_order_price(self.order)
+        self.assertEqual(data, Decimal('26.74'))
+
+    def test_admin_get_order_restaurant_name(self):
+        data = self.test_order.get_order_restaurant_name(self.order)
+        self.assertEqual(data, 'test restaurant2')
+
+    def test_admin_get_toppings(self):
+        data = self.test_order.get_toppings(self.order)
+        self.assertEqual(data, 'test1_ingredient, test2_ingredient')
