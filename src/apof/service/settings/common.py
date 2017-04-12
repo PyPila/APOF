@@ -47,13 +47,6 @@ SOCIAL_AUTH_LOGIN_REDIRECT_URL = 'home'
 
 
 # Application definition
-OUR_APPS = [
-    'apof.baskets',
-    'apof.menus',
-    'apof.portal',
-    'apof.restaurants',
-]
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
