@@ -5,6 +5,7 @@ from apof.portal.apps import PortalConfig
 
 
 class AppsTestCase(TestCase):
+
     def test_BasketConfig_mro(self):
         self.assertEqual(
             PortalConfig.__mro__,

@@ -9,6 +9,7 @@ from apof.baskets.tests.utils import OrderTestMixin
 
 
 class OrderAdminTestCase(TestCase):
+
     def test_inheritance(self):
         self.assertEqual(
             OrderAdmin.__mro__,
@@ -42,6 +43,7 @@ class OrderAdminTestCase(TestCase):
 
 
 class BasketAdminTestCase(TestCase):
+
     def test_inheritance(self):
         self.assertEqual(
             BasketAdmin.__mro__,

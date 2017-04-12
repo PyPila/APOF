@@ -5,6 +5,7 @@ from apof.baskets.apps import BasketsConfig
 
 
 class AppsTestCase(TestCase):
+
     def test_BasketConfig_mro(self):
         self.assertEqual(
             BasketsConfig.__mro__,

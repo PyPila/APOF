@@ -61,10 +61,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'social_django',
-    'django_nose',
     'coverage',
-] + OUR_APPS
+    'django_nose',
+    'social_django',
+    'apof.baskets',
+    'apof.menus',
+    'apof.portal',
+    'apof.restaurants'
+]
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
@@ -100,23 +104,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'apof.service.wsgi.application'
 
-# Django nose
-
-TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
-
-# NOSE_ARGS = [
-#     '--cover-tests',
-#     '--with-coverage',
-#     '--cover-erase',
-#     '--cover-html',
-#     '--detailed-errors',
-#     '--with-id',
-#     '--cover-package={}'.format(','.join(OUR_APPS),
-#     '--verbosity=2',
-# ]
-# Database
-# https://docs.djangoproject.com/en/1.9/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -127,6 +114,11 @@ DATABASES = {
         'PORT': '3306',
     }
 }
+
+
+# Django nose
+
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
 
 # Password validation

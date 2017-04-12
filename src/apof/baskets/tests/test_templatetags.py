@@ -4,6 +4,7 @@ from apof.baskets.templatetags.get_item import get_item
 
 
 class GetItemTagTestCase(TestCase):
+
     def test_get_item(self):
         test_dict = {
             'a': 1,
