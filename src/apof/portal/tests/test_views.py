@@ -25,6 +25,7 @@ class LoginTestCase(TestCase):
     def test_anonymous_user_is_not_redirected(self):
         response = self.client.get(reverse('login'))
         self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'registration/login.html')
 
     def test_logged_user_is_redirected_to_restaurant_view(self):
         self.client.force_login(User.objects.get(username='christopher'))

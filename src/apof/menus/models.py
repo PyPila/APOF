@@ -4,7 +4,7 @@ from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelatio
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
 
-from restaurants.models import Restaurant
+from apof.restaurants.models import Restaurant
 
 
 class Menu(models.Model):
