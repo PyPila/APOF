@@ -4,7 +4,14 @@ from mock import patch, MagicMock
 
 from apof.baskets.admin import OrderAdmin
 from apof.baskets.models import Order, Basket
-from apof.menus.models import Size, Meal, Menu, Topping, Ingredient, Price
+from apof.menus.models import (
+    Size,
+    Meal,
+    Menu,
+    Topping,
+    Ingredient,
+    Price
+)
 from apof.restaurants.models import Restaurant
 
 

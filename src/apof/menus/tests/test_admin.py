@@ -17,30 +17,47 @@ from apof.menus.admin import (
 class AdminTestCase(TestCase):
 
     def test_price_in_line(self):
-        expectedMRO = (
-            PriceInline,
-            GenericTabularInline,
-            GenericInlineModelAdmin,
-            InlineModelAdmin,
-            BaseModelAdmin,
-            object
+        self.assertEqual(
+            PriceInline.__mro__,
+            (
+                PriceInline,
+                GenericTabularInline,
+                GenericInlineModelAdmin,
+                InlineModelAdmin,
+                BaseModelAdmin,
+                object
+            )
         )
-        self.assertEqual(PriceInline.__mro__, expectedMRO)
 
     def test_meal_admin(self):
         self.assertEqual(
             MealAdmin.__mro__,
-            (MealAdmin, ModelAdmin, BaseModelAdmin, object)
+            (
+                MealAdmin,
+                ModelAdmin,
+                BaseModelAdmin,
+                object
+            )
         )
 
     def test_topping_admin(self):
         self.assertEqual(
             ToppingAdmin.__mro__,
-            (ToppingAdmin, ModelAdmin, BaseModelAdmin, object)
+            (
+                ToppingAdmin,
+                ModelAdmin,
+                BaseModelAdmin,
+                object
+            )
         )
 
     def test_size_admin(self):
         self.assertEqual(
             SizeAdmin.__mro__,
-            (SizeAdmin, ModelAdmin, BaseModelAdmin, object)
+            (
+                SizeAdmin,
+                ModelAdmin,
+                BaseModelAdmin,
+                object
+            )
         )

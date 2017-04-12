@@ -11,7 +11,13 @@ from apof.baskets.tests.utils import OrderTestMixin
 class OrderAdminTestCase(TestCase):
     def test_inheritance(self):
         self.assertEqual(
-            OrderAdmin.__mro__, (OrderAdmin, ModelAdmin, BaseModelAdmin, object)
+            OrderAdmin.__mro__,
+            (
+                OrderAdmin,
+                ModelAdmin,
+                BaseModelAdmin,
+                object
+            )
         )
 
     def test_constants(self):
@@ -30,14 +36,21 @@ class OrderAdminTestCase(TestCase):
         )
         self.assertEqual(
             OrderAdmin.list_filter,
-            ('basket__created_at', 'status', RestaurantListFilter)
+            (
+                'basket__created_at', 'status', RestaurantListFilter)
         )
 
 
 class BasketAdminTestCase(TestCase):
     def test_inheritance(self):
         self.assertEqual(
-            BasketAdmin.__mro__, (BasketAdmin, ModelAdmin, BaseModelAdmin, object)
+            BasketAdmin.__mro__,
+            (
+                BasketAdmin,
+                ModelAdmin,
+                BaseModelAdmin,
+                object
+            )
         )
 
 
@@ -47,7 +60,12 @@ class RestaurantListFilterTestCase(OrderTestMixin, TestCase):
     def test_inheritance(self):
         self.assertEqual(
             RestaurantListFilter.__mro__,
-            (RestaurantListFilter, SimpleListFilter, ListFilter, object)
+            (
+                RestaurantListFilter,
+                SimpleListFilter,
+                ListFilter,
+                object
+            )
         )
 
     def test_admin_restaurant_list(self):

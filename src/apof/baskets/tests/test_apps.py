@@ -8,5 +8,9 @@ class AppsTestCase(TestCase):
     def test_BasketConfig_mro(self):
         self.assertEqual(
             BasketsConfig.__mro__,
-            (BasketsConfig, AppConfig, object)
+            (
+                BasketsConfig,
+                AppConfig,
+                object
+            )
         )

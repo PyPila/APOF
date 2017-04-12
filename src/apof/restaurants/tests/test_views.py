@@ -41,5 +41,6 @@ class RestaurantListTestCase(TestCase):
         self.assertTemplateUsed(response, 'restaurants/index.html')
         self.assertTemplateUsed(response, 'portal/base.html')
         self.assertEqual(
-            [restaurant1, restaurant2], list(response.context['restaurants'])
+            [restaurant1, restaurant2],
+            list(response.context['restaurants'])
         )
