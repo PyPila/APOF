@@ -6,19 +6,12 @@ from apof.portal import pipeline
 
 
 class PipelineTestCase(TestCase):
-    """
-    Tests if user get avatar inside pipeline
-    """
-    fixtures = ['test_user_data.json']
 
     def setUp(self):
-        """
-        Those mocks are used to set function response['image'].get('url') to
-        return 'test'.
-        """
         self.mock_backend = MagicMock()
         self.mock_backend.name = 'google-oauth2'
         self.mock_response = {'image': MagicMock(get=MagicMock(side_effect=['test']))}
+        self.user = User.objects.create(username='christopher_sour')
 
     @patch('django.core.files.storage.default_storage._wrapped')
     @patch('urllib2.urlopen')
@@ -30,12 +23,11 @@ class PipelineTestCase(TestCase):
         mock_url = Mock()
         mock_url.read.side_effect = ['test']
         mock_urllib.return_value = mock_url
-        user = User.objects.get(username='christopher')
 
         pipeline.get_avatar(
             self.mock_backend,
             None,
             self.mock_response,
-            user
+            self.user
         )
-        self.assertEqual(user.profile.avatar.url, '/tmp/test1.jpg')
+        self.assertEqual(self.user.profile.avatar.url, '/tmp/test1.jpg')
