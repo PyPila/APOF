@@ -5,10 +5,9 @@ from apof.portal.models import UserProfile
 
 
 class UserProfileTestCase(TestCase):
-    fixtures = ['test_user_data.json']
 
     def setUp(self):
-        self.user = User.objects.get(username='christopher')
+        self.user = User.objects.create(username='christopher_sour')
 
     def test_user_profile_is_automatically_created(self):
         self.assertIsInstance(
@@ -17,10 +16,10 @@ class UserProfileTestCase(TestCase):
         )
 
     def test_string_representation(self):
-        self.assertEqual(str(self.user.profile), 'Profile of user: christopher')
+        self.assertEqual(str(self.user.profile), 'Profile of user: christopher_sour')
 
     def test_repr(self):
         self.assertEqual(
             repr(self.user.profile),
-            'UserProfile(User: christopher, Avatar: avatars/base.jpg)'
+            'UserProfile(User: christopher_sour, Avatar: avatars/base.jpg)'
         )
