@@ -54,14 +54,3 @@ class LogoutTestCase(TestCase):
             response,
             '{}{}{}'.format(reverse('login'), '?next=', reverse('home'))
         )
-
-
-class UserProfileTestCase(TestCase):
-    fixtures = ['test_user_data.json']
-
-    def test_user_profile_is_automatically_created(self):
-        user = User.objects.get(username='christopher')
-        self.assertIsInstance(
-            user.profile,
-            UserProfile
-        )

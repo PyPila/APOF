@@ -1,5 +1,6 @@
-import urllib2
 import os
+import urllib2
+
 from django.conf import settings
 from django.core.files.base import ContentFile
 
