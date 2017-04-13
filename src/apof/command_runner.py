@@ -23,7 +23,7 @@ def django(context, args):
 )
 @click.argument('args', nargs=-1, type=click.UNPROCESSED)
 @click.pass_context
-def test(context, args):
+def cover(context, args):
     import coverage
     cov = coverage.Coverage()
     cov.start()
