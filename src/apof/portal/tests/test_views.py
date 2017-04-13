@@ -2,6 +2,8 @@ from django.contrib.auth.models import User
 from django.test import TestCase
 from django.urls import reverse
 
+from apof.portal.models import UserProfile
+
 
 class IndexTestCase(TestCase):
     fixtures = ['test_user_data.json']
@@ -15,6 +17,7 @@ class IndexTestCase(TestCase):
 
     def test_logged_user_is_not_redirected(self):
         self.client.force_login(User.objects.get(username='christopher'))
+
         response = self.client.get(reverse('home'))
         self.assertRedirects(response, '/restaurants/')
 
@@ -25,9 +28,11 @@ class LoginTestCase(TestCase):
     def test_anonymous_user_is_not_redirected(self):
         response = self.client.get(reverse('login'))
         self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'registration/login.html')
 
     def test_logged_user_is_redirected_to_restaurant_view(self):
         self.client.force_login(User.objects.get(username='christopher'))
+
         response = self.client.get(reverse('login'))
         self.assertRedirects(
             response,
@@ -43,6 +48,7 @@ class LogoutTestCase(TestCase):
     def test_user_logout(self):
         self.client.force_login(User.objects.get(username='christopher'))
         self.client.get(reverse('logout'))
+
         response = self.client.get(reverse('home'))
         self.assertRedirects(
             response,

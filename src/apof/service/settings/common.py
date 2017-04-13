@@ -34,8 +34,10 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend'
 )
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '961510843960-pkq4rui76l9seb31fnh2t8r84avo1vor.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'ay0Uv2xm7bDRv6zeptwKzOsY'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = (
+    '961510843960-pkq4rui76l9seb31fnh2t8r84avo1vor.apps.googleusercontent.com'
+)
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'Cl6iF6ZixrPKTHFio1CiSZD_'
 SOCIAL_AUTH_GOOGLE_OAUTH2_WHITELISTED_DOMAINS = ['stxnext.pl']
 SOCIAL_AUTH_USER_MODEL = 'auth.User'
 
@@ -43,9 +45,20 @@ LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = 'home'
 
+SOCIAL_AUTH_PIPELINE = (
+    'social_core.pipeline.social_auth.social_details',
+    'social_core.pipeline.social_auth.social_uid',
+    'social_core.pipeline.social_auth.auth_allowed',
+    'social_core.pipeline.social_auth.social_user',
+    'social_core.pipeline.user.get_username',
+    'social_core.pipeline.user.create_user',
+    'social_core.pipeline.social_auth.associate_user',
+    'social_core.pipeline.social_auth.load_extra_data',
+    'social_core.pipeline.user.user_details',
+    'apof.portal.pipeline.get_avatar',
+)
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -53,11 +66,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'baskets',
-    'menus',
-    'portal',
-    'restaurants',
+    'coverage',
+    'django_nose',
     'social_django',
+    'apof.baskets',
+    'apof.menus',
+    'apof.portal',
+    'apof.restaurants'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -94,10 +109,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'apof.service.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/1.9/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -108,6 +119,11 @@ DATABASES = {
         'PORT': '3306',
     }
 }
+
+
+# Django nose
+
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
 
 # Password validation

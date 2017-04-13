@@ -1,0 +1,80 @@
+{% extends 'portal/base_body.html' %}
+{% load static get_item %}
+
+{% block content %}
+    <table class="table">
+        {% regroup object_list by meal.menu.restaurant as restaurant_orders_list %}
+        {% for restaurant_orders in restaurant_orders_list %}
+            {% if forloop.first %}
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Status</th>
+                        <th>User</th>
+                        <th>Restaurant</th>
+                        <th>Meal</th>
+                        <th>Size</th>
+                        <th>Toppings</th>
+                        <th>Total price</th>
+                    </tr>
+                </thead>
+                <tbody>
+            {% endif %}
+            {% for order in restaurant_orders.list %}
+                <tr>
+                    <th scope="row"> {{ forloop.counter }}</th>
+                    <td>
+                        <p class="badge
+                            {% if order.status == 0 %}
+                                badge-warning
+                            {% elif order.status == 1 %}
+                                badge-danger
+                            {% elif order.status == 2 %}
+                                badge-info
+                            {% elif order.status == 3 %}
+                                badge-success
+                            {% endif %}
+                        ">
+                            {{ order.get_status_display }}
+                        </p>
+                    </td>
+                    <td>{{ order.basket.owner }}</td>
+                    <td>{{ order.get_restaurant_name }}</td>
+                    <td>{{ order.meal.name }}</td>
+                    <td>{{ order.size }}</td>
+                    <td>
+                        {% for topping in order.toppings.all %}
+                            {{ topping.ingredient.name }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>{{ order.get_total_price }}</td>
+                    <td>
+                        <a href="{% url 'order-delete' order.pk %}" type="button" class="btn btn-danger">Remove</a>
+                    </td>
+                </tr>
+                {% if forloop.last %}
+                    <tr>
+                        <th scope="row"></th>
+                        <td></td>
+                        <td colspan="3">
+                            <h5>
+                                {% for number in restaurant_orders.grouper.get_phone_numbers %}
+                                    {{ number }}{% if not forloop.last %}, {% endif %}
+                                {% endfor %}
+                            </h5>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <h5>
+                                {{ restaurants_total_sum|get_item:restaurant_orders.grouper.name }}
+                            </h5>
+                        </td>
+                        <td></td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}

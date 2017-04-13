@@ -3,7 +3,8 @@ from __future__ import unicode_literals
 from django.contrib.auth.models import User
 from django.db import models
 from django.db.models import Sum
-from menus.models import Meal, Size, Topping
+
+from apof.menus.models import Meal, Size, Topping
 
 
 ORDER_STATUS = (
@@ -52,11 +53,15 @@ class Order(models.Model):
         return '{} {}'.format(self.basket.owner, self.meal.name)
 
     def __repr__(self):
-        return '{} (Basket: {}, Meal: {})'.format(
+        return '{} (Basket: {}, Restaurant: {}, Meal: {})'.format(
             self.__class__.__name__,
             self.basket.pk,
+            self.meal.menu.restaurant,
             self.meal.name
         )
+
+    def get_restaurant_name(self):
+        return self.meal.menu.restaurant.name
 
     def get_total_price(self):
         meal_price = self.meal.prices.values('value').get(size=self.size)
@@ -65,5 +70,4 @@ class Order(models.Model):
         total_price = meal_price['value']
         if toppings_price['prices__value__sum']:
             total_price += toppings_price['prices__value__sum']
-        print total_price
         return total_price

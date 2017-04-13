@@ -15,12 +15,21 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link avatar" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="background-image: url({% static "images/avatar.jpg" %});">
+            <a class="nav-link avatar" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="background-image: url({{ user.profile.get_avatar }});">
             </a>
             <div class="dropdown-menu dropdown-menu-right mr-auto">
                 <a class="dropdown-item" href="#">Action</a>
                 <a class="dropdown-item" href="#">Another action</a>
                 <a class="dropdown-item" href="#">Admin panel</a>
+                {% if request.user.is_superuser %}
+                    <a class="dropdown-item" href="{% url 'order-list' %}">Orders</a>
+                {% else %}
+                    {% for group in request.user.groups.all %}
+                        {% if group.name == 'moderators' %}
+                            <a class="dropdown-item" href="{% url 'order-list' %}">Orders</a>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
             </div>
