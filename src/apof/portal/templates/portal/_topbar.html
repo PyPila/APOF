@@ -15,7 +15,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link avatar" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="background-image: url({% static "images/avatar.jpg" %});">
+            <a class="nav-link avatar" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="background-image: url({{ user.profile.get_avatar }});">
             </a>
             <div class="dropdown-menu dropdown-menu-right mr-auto">
                 <a class="dropdown-item" href="#">Action</a>
