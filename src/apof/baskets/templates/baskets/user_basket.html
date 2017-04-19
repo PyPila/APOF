@@ -43,7 +43,7 @@
                     </td>
                     <td>
                         <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
-                        <button class="btn btn-danger btn-sm" onclick="{{ order.delete }}"><i class="fa fa-trash-o"></i></button>
+                        <a href="{% url 'user-order-delete' order.pk %}" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></a>
                     </td>
                 </tr>
                 {% if forloop.last %}

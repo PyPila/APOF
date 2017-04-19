@@ -11,7 +11,7 @@ from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.utils.timezone import datetime
 from django.views.generic import ListView
-from django.views.generic.edit import DeleteView
+from django.views.generic.edit import DeleteView, UpdateView
 
 from apof.baskets.models import Basket, Order
 from apof.menus.models import Meal, Price
@@ -43,6 +43,8 @@ class OrderListView(PermissionRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super(OrderListView, self).get_context_data(**kwargs)
         queryset = kwargs.pop('object_list', self.object_list)
+        queryset = queryset.filter(basket__is_confirmed=True)
+        context['object_list'] = queryset
         restaurants_total_sum = defaultdict(Decimal)
 
         for order in queryset:
@@ -50,6 +52,18 @@ class OrderListView(PermissionRequiredMixin, ListView):
         context['restaurants_total_sum'] = restaurants_total_sum
 
         return context
+
+
+class BasketConfirmationView(LoginRequiredMixin, UpdateView):
+    model = Basket
+    raise_exception = True
+    success_url = reverse_lazy('basket')
+
+
+class OrderDeleteUserView(LoginRequiredMixin, DeleteView):
+    model = Order
+    raise_exception = True
+    success_url = reverse_lazy('basket')
 
 
 class OrderDeleteView(PermissionRequiredMixin, DeleteView):

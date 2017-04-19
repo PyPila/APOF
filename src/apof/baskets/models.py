@@ -24,6 +24,7 @@ class Basket(models.Model):
         related_name='basket'
     )
     created_at = models.DateField(auto_now_add=True)
+    is_confirmed = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['-created_at']
