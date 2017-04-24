@@ -1,10 +1,13 @@
 {% extends 'portal/base_body.html' %}
 {% load static %}
 
-
 {% block content %}
     <table class="table table-hover table-condensed table-responsive">
         {% for basket in object_list %}
+        {% if basket.is_confirmed %}
+            <h2>CONFIRMED</h2>
+        {% endif %}
+            {% include "baskets/_delete_basket_button.html" %}
         {% for order in basket.order_set.all %}
             {% if forloop.first %}
                 <thead>
@@ -22,31 +25,10 @@
                 </thead>
                 <tbody>
             {% endif %}
-                <tr>
-                    <td>{{ order.meal.menu.restaurant.name }}</td>
-                    <td class="hidden-sm-down">
-                        <div><img src="http://placehold.it/100x100" alt="..." class="img-fluid"/></div>
-                    </td>
-                    <td data-th="Product">{{ order.meal.name }}</td>
-                    <td data-th="Size">{{ order.size }}</td>
-                    <td data-th="Toppings">
-                        {% for topping in order.toppings.all %}
-                            {{ topping.ingredient.name }}{% if not forloop.last %}, {% endif %}
-                        {% endfor %}
-                    </td>
-                    <td data-th="Price" class="price" value="3">12{{ order.get_total_price }}</td>
-                    <td data-th="Ammount" class="ammount">
-                        <input type="number" class="form-control text-center" value="1">
-                    </td>
-                    <td data-th="Total price" class='total-price'>
-                        {{ order.get_total_price }}
-                    </td>
-                    <td>
-                        <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
-                        <a href="{% url 'user-order-delete' order.pk %}" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></a>
-                    </td>
-                </tr>
-                {% if forloop.last %}
+            <!--Order-->
+            {% include "baskets/_order.html" %}
+            <!--/Order-->
+            {% if forloop.last %}
                 </tbody>
                 <tfoot>
                     <tr class="hidden-md-up">
@@ -58,11 +40,12 @@
                         <td class="hidden-sm-down"></td>
                         <td class="hidden-sm-down"></td>
                         <td class="hidden-sm-down"></td>
-                        <td class="hidden-sm-down"></td>
+                        <td>
+                            placeholder
+                        </td>
                         <td class="text-center hidden-sm-down"><strong>Total $1.99</strong></td>
                         <td>
-                            <a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i>
-                            </a>
+                            {% include "baskets/_confirm_basket_button.html" %}
                         </td>
                     </tr>
                 </tfoot>

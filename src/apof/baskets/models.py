@@ -43,7 +43,7 @@ class Order(models.Model):
     size = models.ForeignKey(Size, on_delete=models.PROTECT)
     toppings = models.ManyToManyField(Topping, blank=True)
     quantity = models.IntegerField(blank=True, default=1)
-    basket = models.ForeignKey(Basket, blank=False, on_delete=models.PROTECT)
+    basket = models.ForeignKey(Basket, blank=False)
     created_at = models.DateTimeField(auto_now_add=True)
     edited_at = models.DateTimeField(auto_now=True)
 

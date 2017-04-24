@@ -13,6 +13,7 @@ $(document).ready(function () {
             $(topNav).removeClass('fades');
         }
     });
+
     $('.btn-info').on('click', function(){
         var price = $(this).parent().siblings('.price'),
             price_val = price.attr('value'),
@@ -21,5 +22,15 @@ $(document).ready(function () {
             price = price_val * ammount_val,
             total_price = $(this).parent().siblings('.total-price');
         total_price.html(price + 'zl');
+    });
+
+    $('.btn.btn-danger').on('click', function(){
+        var modal = $(this).siblings('.modal');
+        modal.modal('toggle');
+    });
+
+    $('.btn.btn-success.btn-block').on('click', function(){
+        var modal = $(this).siblings('.modal');
+        modal.modal('toggle');
     });
 });

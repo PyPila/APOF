@@ -1,0 +1,20 @@
+{% extends 'portal/base_body.html' %}
+{% load static %}
+
+{% block content %}
+{% if object.is_confirmed %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ object.is_confirmed }}
+        <p>{{ delete_message }}</p>
+        <input type="submit" class="btn btn-danger" value="Cancel" />
+    </form>
+{% else %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ object.is_confirmed }}
+        <p>{{ confirm_message }}</p>
+        <input type="submit" class="btn btn-danger" value="Confirm" />
+    </form>
+{% endif %}
+{% endblock content %}

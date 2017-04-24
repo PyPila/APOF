@@ -1,0 +1,45 @@
+{% load static %}
+
+<tr>
+    <td>{{ order.meal.menu.restaurant.name }}</td>
+    <td class="hidden-sm-down">
+        <div><img src="{{ order.meal.logo.url }}" alt="..." class="img-fluid"/></div>
+    </td>
+    <td data-th="Product">{{ order.meal.name }}</td>
+    <td data-th="Size">{{ order.size }}</td>
+    <td data-th="Toppings">
+        {% for topping in order.toppings.all %}
+            {{ topping.ingredient.name }}{% if not forloop.last %}, {% endif %}
+        {% endfor %}
+    </td>
+    <td data-th="Price" class="price" value="{{ order.get_total_price }}">{{ order.get_total_price }}</td>
+    <td data-th="Ammount" class="ammount">
+        <input type="number" class="form-control text-center" value="1">
+    </td>
+    <td data-th="Total price" class='total-price'>
+        {{ order.get_total_price }}
+    </td>
+    <td>
+    <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
+    <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
+    <!-- Modal -->
+    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">Are you sure you want to delete this order?</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <a href="{% url 'user-order-delete' order.pk %}" type="button" class="btn btn-primary">delete order</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Modal -->
+    </td>
+</tr>

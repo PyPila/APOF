@@ -6,7 +6,7 @@ from decimal import Decimal
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.mixins import PermissionRequiredMixin
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.utils.timezone import datetime
@@ -57,13 +57,56 @@ class OrderListView(PermissionRequiredMixin, ListView):
 class BasketConfirmationView(LoginRequiredMixin, UpdateView):
     model = Basket
     raise_exception = True
+    fields = ['is_confirmed']
     success_url = reverse_lazy('basket')
+
+    def get(self, request, *args, **kwargs):
+        return self.post(request, *args, **kwargs)
+
+    def get_object(self, queryset=None):
+        obj = super(BasketConfirmationView, self).get_object()
+        if not obj.owner == self.request.user:
+            raise Http404
+        return obj
+
+    def post(self, args, **kwargs):
+        self.object = self.get_object()
+        if self.object.is_confirmed:
+            self.object.is_confirmed = False
+        else:
+            self.object.is_confirmed = True
+        self.object.save()
+        return redirect('basket')
+
+
+class BasketDeleteUserView(LoginRequiredMixin, DeleteView):
+    model = Basket
+    raise_exception = True
+    success_url = reverse_lazy('basket')
+
+    def get(self, request, *args, **kwargs):
+        return self.post(request, *args, **kwargs)
+
+    def get_object(self, queryset=None):
+        obj = super(BasketDeleteUserView, self).get_object()
+        if not obj.owner == self.request.user:
+            raise Http404
+        return obj
 
 
 class OrderDeleteUserView(LoginRequiredMixin, DeleteView):
     model = Order
     raise_exception = True
     success_url = reverse_lazy('basket')
+
+    def get(self, request, *args, **kwargs):
+        return self.post(request, *args, **kwargs)
+
+    def get_object(self, queryset=None):
+        obj = super(OrderDeleteUserView, self).get_object()
+        if not obj.basket.owner == self.request.user:
+            raise Http404
+        return obj
 
 
 class OrderDeleteView(PermissionRequiredMixin, DeleteView):

@@ -67,7 +67,12 @@ class Meal(models.Model):
         upload_to='meals/',
         default='/meals/meal_default.jpeg'
     )
-    category = models.ForeignKey(Category, blank=True, null=True, on_delete=models.PROTECT)
+    category = models.ForeignKey(
+        Category,
+        blank=True,
+        null=True,
+        on_delete=models.PROTECT
+    )
 
     class Meta:
         unique_together = ('menu', 'name')
