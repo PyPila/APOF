@@ -16,8 +16,13 @@ urlpatterns = [
         name='confirm-basket'
     ),
     url(
+        r'^update-quantity/(?P<pk>[0-9]+)$',
+        views.OrderQuantityUpdateView.as_view(),
+        name='update-quantity'
+    ),
+    url(
         r'^delbasket/(?P<pk>[0-9]+)$',
-        views.BasketDeleteUserView.as_view(),
+        views.UserBasketDelete.as_view(),
         name='user-basket-delete'
     ),
     url(

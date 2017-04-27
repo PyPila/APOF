@@ -64,7 +64,7 @@ class Order(models.Model):
     def get_restaurant_name(self):
         return self.meal.menu.restaurant.name
 
-    def get_total_price(self):
+    def get_price(self):
         meal_price = self.meal.prices.values('value').get(size=self.size)
         toppings = self.toppings.filter(prices__size=self.size)
         toppings_price = toppings.aggregate(Sum('prices__value'))
@@ -72,3 +72,6 @@ class Order(models.Model):
         if toppings_price['prices__value__sum']:
             total_price += toppings_price['prices__value__sum']
         return total_price
+
+    def get_total_price(self):
+        return self.get_price() * self.quantity

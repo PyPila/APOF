@@ -1,9 +1,28 @@
+
+    h2{
+        float:left;
+    }
+    .basket-delete{
+        width:10%;
+        float:right;
+    }
+    td{
+        max-width: 200px;
+        max-height:200px;
+    }
+
+
 @media(max-width: 600px){
     table{
-        .btn{
-            &.btn-danger{
-                height:200px !important;
-            }
+        h2{
+
+        }
+        .basket-delete{
+            width:30%;
+        }
+        td{
+            max-width: initial;
+            max-height:initial;
         }
         thead{
             display:none;

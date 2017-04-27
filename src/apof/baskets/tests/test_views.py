@@ -6,7 +6,12 @@ from mock import MagicMock, patch
 
 from apof.baskets.models import Order, Basket
 from apof.baskets.tests.utils import OrderTestMixin
-from apof.baskets.views import OrderListView, OrderDeleteView
+from apof.baskets.views import (
+    OrderListView,
+    OrderDeleteView,
+    UserBasketView,
+    UserBasketDelete
+)
 from apof.menus.models import (
     Meal,
     Menu,
@@ -136,4 +141,52 @@ class OrderDeleteViewTestCase(OrderTestMixin, TestCase):
         self.client.force_login(user)
 
         response = self.client.get(reverse('order-delete', kwargs={'pk': self.order.pk}))
+        self.assertEqual(response.status_code, 302)
+
+
+class UserBasketViewTestCase(TestCase):
+    fixtures = ['test_user_data.json']
+
+    def test_constants(self):
+        self.assertEqual(UserBasketView.model, Basket)
+        self.assertTrue(UserBasketView.raise_exception)
+
+    def test_anonymous_user_gets_403(self):
+        response = self.client.get(reverse('basket'))
+        self.assertEqual(response.status_code, 403)
+
+    def test_logged_user(self):
+        self.client.force_login(User.objects.get(username='christopher'))
+
+        response = self.client.get(reverse('basket'))
         self.assertEqual(response.status_code, 200)
+
+
+class UserBasketDeleteViewTestCase(OrderTestMixin, TestCase):
+    fixtures = ['test_user_data.json']
+
+    def test_constants(self):
+        self.assertEqual(UserBasketDelete.model, Basket)
+        self.assertTrue(UserBasketDelete.raise_exception)
+
+    def test_anonymous_user_gets_403(self):
+        response = self.client.get(
+            reverse('user-basket-delete', kwargs={'pk': self.order.basket.pk})
+        )
+        self.assertEqual(response.status_code, 403)
+
+    def test_logged_user(self):
+        self.client.force_login(User.objects.get(username='christopher'))
+
+        response = self.client.get(
+            reverse('user-basket-delete', kwargs={'pk': self.order.basket.pk})
+        )
+        self.assertEqual(response.status_code, 302)
+
+    def test_user_cant_delete_someone_else_basket(self):
+        self.client.force_login(User.objects.get(username='christopher'))
+
+        response = self.client.get(
+            reverse('user-basket-delete', kwargs={'pk': self.order.basket.pk})
+        )
+        self.assertEqual(response.status_code, 302)
