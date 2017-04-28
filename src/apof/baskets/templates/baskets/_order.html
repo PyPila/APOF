@@ -14,7 +14,7 @@
     </td>
     <td data-th="Price" class="price" value="{{ order.get_price }}">{{ order.get_price }}zł</td>
     <td data-th="Ammount" class="ammount">
-        <form action={% url 'update-quantity' order.pk %} method="POST" class="form">
+        <form action={% url 'user-update-quantity' order.pk %} method="POST" class="form">
             {% csrf_token %}
             <select name="quantity" class="custom-select mb-2 mr-sm-2 mb-sm-0">
                 {% for i in 1|range:11 %}

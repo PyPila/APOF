@@ -12,22 +12,22 @@ urlpatterns = [
     ),
     url(
         r'^confirm/(?P<pk>[0-9]+)$',
-        views.BasketConfirmationView.as_view(),
-        name='confirm-basket'
+        views.UserBasketConfirmationView.as_view(),
+        name='user-confirm-basket'
     ),
     url(
         r'^update-quantity/(?P<pk>[0-9]+)$',
-        views.OrderQuantityUpdateView.as_view(),
-        name='update-quantity'
+        views.UserOrderQuantityUpdateView.as_view(),
+        name='user-update-quantity'
     ),
     url(
         r'^delbasket/(?P<pk>[0-9]+)$',
-        views.UserBasketDelete.as_view(),
+        views.UserBasketDeleteView.as_view(),
         name='user-basket-delete'
     ),
     url(
         r'^del/(?P<pk>[0-9]+)/delete$',
-        views.OrderDeleteUserView.as_view(),
+        views.UserOrderDeleteView.as_view(),
         name='user-order-delete'
     ),
     url(r'^orders/$', views.OrderListView.as_view(), name='order-list'),

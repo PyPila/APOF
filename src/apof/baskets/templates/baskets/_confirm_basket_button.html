@@ -12,7 +12,7 @@
                 <div class="modal-body">Are you sure you want to cancel confirmation?</div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <a href="{% url 'confirm-basket' basket.pk %}" type="button" class="btn btn-secondary">Cancel confirmation</a>
+                    <a href="{% url 'user-confirm-basket' basket.pk %}" type="button" class="btn btn-secondary">Cancel confirmation</a>
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@
                 <div class="modal-body">Are you sure you want to confirm this basket?</div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <a href="{% url 'confirm-basket' basket.pk %}" type="button" class="btn btn-secondary">Confirm</a>
+                    <a href="{% url 'user-confirm-basket' basket.pk %}" type="button" class="btn btn-secondary">Confirm</a>
                 </div>
             </div>
         </div>

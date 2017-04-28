@@ -37,7 +37,7 @@ class UserBasketView(LoginRequiredMixin, ListView):
         return context
 
 
-class BasketConfirmationView(LoginRequiredMixin, UpdateView):
+class UserBasketConfirmationView(LoginRequiredMixin, UpdateView):
     model = Basket
     raise_exception = True
     fields = ['is_confirmed']
@@ -46,8 +46,10 @@ class BasketConfirmationView(LoginRequiredMixin, UpdateView):
         return self.post(request, *args, **kwargs)
 
     def get_object(self, queryset=None):
-        obj = super(BasketConfirmationView, self).get_object()
+        obj = super(UserBasketConfirmationView, self).get_object()
         if not obj.owner == self.request.user:
+            raise Http404
+        if not obj.created_at == datetime.today().date():
             raise Http404
         return obj
 
@@ -61,7 +63,7 @@ class BasketConfirmationView(LoginRequiredMixin, UpdateView):
         return redirect('basket')
 
 
-class UserBasketDelete(LoginRequiredMixin, DeleteView):
+class UserBasketDeleteView(LoginRequiredMixin, DeleteView):
     model = Basket
     raise_exception = True
     success_url = reverse_lazy('basket')
@@ -70,7 +72,7 @@ class UserBasketDelete(LoginRequiredMixin, DeleteView):
         return self.post(request, *args, **kwargs)
 
     def get_object(self, queryset=None):
-        obj = super(UserBasketDelete, self).get_object()
+        obj = super(UserBasketDeleteView, self).get_object()
         if not obj.owner == self.request.user:
             raise Http404
         if not obj.created_at == datetime.today().date():
@@ -78,16 +80,17 @@ class UserBasketDelete(LoginRequiredMixin, DeleteView):
         return obj
 
 
-class OrderQuantityUpdateView(LoginRequiredMixin, UpdateView):
+class UserOrderQuantityUpdateView(LoginRequiredMixin, UpdateView):
     model = Order
     raise_exception = True
     fields = ['quantity']
+    success_url = reverse_lazy('basket')
 
     def get(self, request, *args, **kwargs):
         return self.post(request, *args, **kwargs)
 
     def get_object(self, queryset=None):
-        obj = super(OrderQuantityUpdateView, self).get_object()
+        obj = super(UserOrderQuantityUpdateView, self).get_object()
         if not obj.basket.owner == self.request.user:
             raise Http404
         if not obj.basket.created_at == datetime.today().date():
@@ -101,7 +104,7 @@ class OrderQuantityUpdateView(LoginRequiredMixin, UpdateView):
         return redirect('basket')
 
 
-class OrderDeleteUserView(LoginRequiredMixin, DeleteView):
+class UserOrderDeleteView(LoginRequiredMixin, DeleteView):
     model = Order
     raise_exception = True
     success_url = reverse_lazy('basket')
@@ -110,7 +113,7 @@ class OrderDeleteUserView(LoginRequiredMixin, DeleteView):
         return self.post(request, *args, **kwargs)
 
     def get_object(self, queryset=None):
-        obj = super(OrderDeleteUserView, self).get_object()
+        obj = super(UserOrderDeleteView, self).get_object()
         if not obj.basket.owner == self.request.user:
             raise Http404
         if not obj.basket.created_at == datetime.today().date():

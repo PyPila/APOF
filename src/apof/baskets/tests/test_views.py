@@ -1,7 +1,8 @@
-from django.core.files import File
 from django.contrib.auth.models import User, Permission
+from django.core.files import File
 from django.test import TestCase
 from django.urls import reverse
+from django.utils.timezone import datetime
 from mock import MagicMock, patch
 
 from apof.baskets.models import Order, Basket
@@ -10,7 +11,9 @@ from apof.baskets.views import (
     OrderListView,
     OrderDeleteView,
     UserBasketView,
-    UserBasketDelete
+    UserBasketConfirmationView,
+    UserBasketDeleteView,
+    UserOrderQuantityUpdateView
 )
 from apof.menus.models import (
     Meal,
@@ -144,7 +147,7 @@ class OrderDeleteViewTestCase(OrderTestMixin, TestCase):
         self.assertEqual(response.status_code, 302)
 
 
-class UserBasketViewTestCase(TestCase):
+class UserBasketViewTestCase(OrderTestMixin, TestCase):
     fixtures = ['test_user_data.json']
 
     def test_constants(self):
@@ -156,18 +159,74 @@ class UserBasketViewTestCase(TestCase):
         self.assertEqual(response.status_code, 403)
 
     def test_logged_user(self):
-        self.client.force_login(User.objects.get(username='christopher'))
+        self.client.force_login(self.user1)
 
         response = self.client.get(reverse('basket'))
         self.assertEqual(response.status_code, 200)
+
+
+class UserBasketConfirmationViewTestCase(OrderTestMixin, TestCase):
+    fixtures = ['test_user_data.json']
+
+    def test_constants(self):
+        self.assertEqual(UserBasketConfirmationView.model, Basket)
+        self.assertTrue(UserBasketConfirmationView.raise_exception)
+
+    def test_anonymous_user_gets_403(self):
+        response = self.client.get(
+            reverse('user-confirm-basket', kwargs={'pk': self.order.basket.pk})
+        )
+        self.assertEqual(response.status_code, 403)
+
+    def test_logged_user(self):
+        self.client.force_login(self.user1)
+        pk = self.order.basket.pk
+
+        response = self.client.get(
+            reverse('user-confirm-basket', kwargs={'pk': pk})
+        )
+        self.assertEqual(response.status_code, 302)
+        self.assertTrue(
+            self.user1.basket.values('is_confirmed').get(pk=pk)['is_confirmed']
+        )
+        self.client.get(
+            reverse('user-confirm-basket', kwargs={'pk': pk})
+        )
+        self.assertFalse(
+            self.user1.basket.values('is_confirmed').get(pk=pk)['is_confirmed']
+        )
+
+    def test_user_cant_confirm_someone_else_basket(self):
+        self.client.force_login(self.user1)
+
+        response = self.client.get(
+            reverse(
+                'user-confirm-basket',
+                kwargs={'pk': self.someone_else_order.basket.pk}
+            )
+        )
+        self.assertEqual(response.status_code, 404)
+
+    def test_user_cant_confirm_old_basket(self):
+        self.client.force_login(self.user1)
+        self.order.basket.created_at = datetime(2012, 12, 21, 0, 0, 0, 0)
+        self.order.basket.save()
+
+        response = self.client.get(
+            reverse(
+                'user-confirm-basket',
+                kwargs={'pk': self.order.basket.pk}
+            )
+        )
+        self.assertEqual(response.status_code, 404)
 
 
 class UserBasketDeleteViewTestCase(OrderTestMixin, TestCase):
     fixtures = ['test_user_data.json']
 
     def test_constants(self):
-        self.assertEqual(UserBasketDelete.model, Basket)
-        self.assertTrue(UserBasketDelete.raise_exception)
+        self.assertEqual(UserBasketDeleteView.model, Basket)
+        self.assertTrue(UserBasketDeleteView.raise_exception)
 
     def test_anonymous_user_gets_403(self):
         response = self.client.get(
@@ -176,17 +235,80 @@ class UserBasketDeleteViewTestCase(OrderTestMixin, TestCase):
         self.assertEqual(response.status_code, 403)
 
     def test_logged_user(self):
-        self.client.force_login(User.objects.get(username='christopher'))
+        self.client.force_login(self.user1)
 
         response = self.client.get(
             reverse('user-basket-delete', kwargs={'pk': self.order.basket.pk})
+        )
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(0, self.user1.basket.count())
+
+    def test_user_cant_delete_someone_else_basket(self):
+        self.client.force_login(self.user1)
+
+        response = self.client.get(
+            reverse(
+                'user-basket-delete',
+                kwargs={'pk': self.someone_else_order.basket.pk}
+            )
+        )
+        self.assertEqual(response.status_code, 404)
+
+    def test_user_cant_delete_old_basket(self):
+        self.client.force_login(self.user1)
+        self.order.basket.created_at = datetime(2012, 12, 21, 0, 0, 0, 0)
+        self.order.basket.save()
+
+        response = self.client.get(
+            reverse(
+                'user-basket-delete',
+                kwargs={'pk': self.order.basket.pk}
+            )
+        )
+        self.assertEqual(response.status_code, 404)
+
+
+class UserOrderQuantityUpdateViewTestCase(OrderTestMixin, TestCase):
+    fixtures = ['test_user_data.json']
+
+    def test_constants(self):
+        self.assertEqual(UserOrderQuantityUpdateView.model, Order)
+        self.assertTrue(UserOrderQuantityUpdateView.raise_exception)
+
+    def test_anonymous_user_gets_403(self):
+        response = self.client.get(
+            reverse('user-update-quantity', kwargs={'pk': self.order.basket.pk})
+        )
+        self.assertEqual(response.status_code, 403)
+
+    def test_logged_user(self):
+        self.client.force_login(self.user1)
+
+        response = self.client.get(
+            reverse('user-update-quantity', kwargs={'pk': self.order.pk})
         )
         self.assertEqual(response.status_code, 302)
 
     def test_user_cant_delete_someone_else_basket(self):
-        self.client.force_login(User.objects.get(username='christopher'))
+        self.client.force_login(self.user1)
 
         response = self.client.get(
-            reverse('user-basket-delete', kwargs={'pk': self.order.basket.pk})
+            reverse(
+                'user-basket-delete',
+                kwargs={'pk': self.someone_else_order.basket.pk}
+            )
         )
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, 404)
+
+    def test_user_cant_delete_old_basket(self):
+        self.client.force_login(self.user1)
+        self.order.basket.created_at = datetime(2012, 12, 21, 0, 0, 0, 0)
+        self.order.basket.save()
+
+        response = self.client.get(
+            reverse(
+                'user-basket-delete',
+                kwargs={'pk': self.order.basket.pk}
+            )
+        )
+        self.assertEqual(response.status_code, 404)

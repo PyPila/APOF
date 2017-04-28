@@ -42,8 +42,17 @@ class OrderTestMixin(object):
             Price(value=2.5, size=size, content_object=test1_topping),
             Price(value=1.25, size=size, content_object=test2_topping)
         ])
+        self.user1 = User.objects.get(username='christopher')
+        self.user2 = User.objects.get(username='christopher_sour')
         self.order = Order.objects.create(
-            basket=Basket.objects.create(owner=User.objects.get(username='christopher')),
+            basket=Basket.objects.create(owner=self.user1),
+            meal=test_meal,
+            size=size
+        )
+        self.someone_else_order = Order.objects.create(
+            basket=Basket.objects.create(
+                owner=self.user2
+            ),
             meal=test_meal,
             size=size
         )
