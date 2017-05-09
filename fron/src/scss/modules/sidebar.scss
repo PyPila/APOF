@@ -57,5 +57,10 @@
 @media(max-width:768px){
     .sidebar{
         text-align: center;
+        li{
+            a{
+                height: 20%;
+            }
+        }
     }
 }

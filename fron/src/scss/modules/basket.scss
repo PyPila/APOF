@@ -1,22 +1,11 @@
-
-    h2{
-        float:left;
-    }
-    .basket-delete{
-        width:10%;
-        float:right;
-    }
+.table-responsive{
     td{
         max-width: 200px;
         max-height:200px;
     }
-
-
+}
 @media(max-width: 600px){
     table{
-        h2{
-
-        }
         .basket-delete{
             width:30%;
         }
@@ -28,6 +17,14 @@
             display:none;
         }
         tbody{
+            select{
+                width:100%;
+                text-align: center;
+                option{
+                    font-size: 25px;
+                    height:30px;
+                }
+            }
             tr{
                 &:last-child{
                     border-bottom: 2px solid black;
@@ -40,10 +37,6 @@
                     display:block;
                     padding: .6rem;
                     min-width:320px;
-                    .form-control{
-                        width:20%;
-                        display: inline !important;
-                    }
                     &:before{
                         content: attr(data-th);
                         font-weight: bold;
@@ -56,7 +49,7 @@
                     }
 
                     .btn{
-                        width:30%;
+                        width:28%;
                         margin:1.5em 0;
                         border: 1px solid grey;
                         &.btn-info{
@@ -70,10 +63,14 @@
             }
         }
         tfoot{
-            td{
-                display:block;
-                .btn{
+            tr{
+                td{
+                    max-width: 100% !important;
+                    width:100%;
                     display:block;
+                    .btn{
+                        display:block;
+                    }
                 }
             }
         }
