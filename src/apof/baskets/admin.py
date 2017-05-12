@@ -50,7 +50,7 @@ class OrderAdmin(admin.ModelAdmin):
 
 
 class BasketAdmin(admin.ModelAdmin):
-    list_display = ('owner', 'created_at')
+    list_display = ('owner', 'created_at', 'is_confirmed')
 
 
 admin.site.register(Basket, BasketAdmin)

@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: devel.dockerfile
     volumes:
-      - "./src/:/run/service/src"
+      - "./src/apof/:/run/service/src/apof"
       - "./media:/run/service/media"
       - "./fron/dist:/run/service/statics"
     ports:
@@ -23,7 +23,7 @@ services:
   nginx:
     image: nginx
     ports:
-      - "80:80"
+      - "84:84"
     volumes:
       - "./nginx:/etc/nginx/conf.d"
       - "./media:/var/media"

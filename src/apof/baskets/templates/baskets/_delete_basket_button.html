@@ -1,0 +1,18 @@
+{% load static %}
+
+<button class="btn btn-danger btn-block basket-delete"><i class="fa fa-times"></i></button>
+<!-- Modal -->
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Cancel Basket</h5>
+            </div>
+            <div class="modal-body">Are you sure you want to cancel this basket?</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <a href="{% url 'user-basket-delete' basket.pk %}" type="button" class="btn btn-warning">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -16,8 +16,15 @@ ORDER_STATUS = (
 
 
 class Basket(models.Model):
-    owner = models.ForeignKey(User, blank=False, null=True, on_delete=models.PROTECT)
+    owner = models.ForeignKey(
+        User,
+        blank=False,
+        null=True,
+        on_delete=models.PROTECT,
+        related_name='basket'
+    )
     created_at = models.DateField(auto_now_add=True)
+    is_confirmed = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['-created_at']
@@ -36,7 +43,7 @@ class Order(models.Model):
     size = models.ForeignKey(Size, on_delete=models.PROTECT)
     toppings = models.ManyToManyField(Topping, blank=True)
     quantity = models.IntegerField(blank=True, default=1)
-    basket = models.ForeignKey(Basket, blank=False, on_delete=models.PROTECT)
+    basket = models.ForeignKey(Basket, blank=False)
     created_at = models.DateTimeField(auto_now_add=True)
     edited_at = models.DateTimeField(auto_now=True)
 
@@ -57,7 +64,7 @@ class Order(models.Model):
     def get_restaurant_name(self):
         return self.meal.menu.restaurant.name
 
-    def get_total_price(self):
+    def get_price(self):
         meal_price = self.meal.prices.values('value').get(size=self.size)
         toppings = self.toppings.filter(prices__size=self.size)
         toppings_price = toppings.aggregate(Sum('prices__value'))
@@ -65,3 +72,6 @@ class Order(models.Model):
         if toppings_price['prices__value__sum']:
             total_price += toppings_price['prices__value__sum']
         return total_price
+
+    def get_total_price(self):
+        return self.get_price() * self.quantity

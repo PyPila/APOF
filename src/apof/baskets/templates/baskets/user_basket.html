@@ -1,0 +1,61 @@
+{% extends 'portal/base_body.html' %}
+{% load static %}
+
+{% block content %}
+    <table class="table table-hover table-condensed table-responsive">
+        {% for basket in object_list %}
+                {% if basket.is_confirmed %}
+                    <h2><span class="badge badge-danger">Confirmed</span></h2>
+                {% endif %}
+                {% include "baskets/_delete_basket_button.html" %}
+            {% for order in basket.order_set.all %}
+                {% if forloop.first %}
+                    <thead>
+                        <tr>
+                            <th>Restaurant</th>
+                            <th class="hidden-sm-down"></th>
+                            <th>Meal</th>
+                            <th>Size</th>
+                            <th>Toppings</th>
+                            <th>Price</th>
+                            <th></th>
+                            <th>Total Price</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                {% endif %}
+                <!--Order-->
+                {% include "baskets/_order.html" %}
+                <!--/Order-->
+                {% if forloop.last %}
+                    </tbody>
+                    <tfoot>
+                        <tr class="hidden-md-up">
+                            <td class="text-center">
+                                <strong>{{ basket_price }}zł</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="hidden-sm-down"></td>
+                            <td colspan="2" class="hidden-sm-down"></td>
+                            <td class="hidden-sm-down"></td>
+                            <td class="hidden-sm-down"></td>
+                            <td class="hidden-sm-down"></td>
+                            <td class="hidden-sm-down"></td>
+                            <td class="text-center hidden-sm-down basket-price">
+                                <strong>{{ basket_price }}zł</strong>
+                            </td>
+                            <td>
+                                {% include "baskets/_confirm_basket_button.html" %}
+                            </td>
+                        </tr>
+                    </tfoot>
+                    {% endif %}
+            {% endfor %}
+            {% empty %}
+            <h1>You have no orders yet.</h1>
+        {% endfor %}
+    </table>
+{% endblock content %}
+

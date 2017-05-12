@@ -1,14 +1,11 @@
 .nav{
-    &.fixed-top{
+    &.navbar-light{
         @include transition(.5s)
+        background: #4C5C6A;
         width: 100%;
         padding-top: 6px;
         padding-bottom:5px;
-        opacity: .95;
-        background-color: $stx_color;
-        &.fades{
-            width: 210px;
-        }
+        background-color: #4C5C6A;
         .navbar-toggler{
             transition: box-shadow 0.3s ease-in-out;
             font-size: 26px;
@@ -46,7 +43,7 @@
                 padding: 0;
                 text-align: center;
                 text-decoration: none;
-                color: black;
+                color: white;
                 border-radius: 50%;
                 &:hover{
                     @include shadow
@@ -72,15 +69,23 @@
     }
 }
 
-
 @media(max-width:768px){
-    #top-nav.fades{
-        width: 100%;
-    }
+    .nav{
+        &.fixed-top{
+            &.fades{
+                width: 100%;
+            }
 
-    #sec-top-bar{
-        width: 20%;
-        margin-right: 10%;
-        margin-left: 80%;
+            #sec-top-bar{
+                width: 20%;
+                margin-right: 10%;
+                margin-left: 80%;
+            }
+        }
+    }
+    .nav{
+        &.navbar-light{
+            background:#4C5C6A;
+        }
     }
 }

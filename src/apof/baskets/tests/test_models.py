@@ -35,5 +35,5 @@ class OrderTestCase(OrderTestMixin, TestCase):
     def test_repr(self):
         self.assertEqual(
             repr(self.order),
-            'Order (Basket: 9, Restaurant: test restaurant2, Meal: test_meal)'
+            'Order (Basket: 17, Restaurant: test restaurant2, Meal: test_meal)'
         )
